@@ -12,18 +12,18 @@ package model.bean;
 public class UsuariosDTO {
 
     private int id_usuario;
+    private static int id;
     private String nome;
     private String senha;
     private String usuario;
     private String telefone;
     private String data_nascimento;
     private String cpf;
-    private Boolean admin;
 
     public UsuariosDTO() {
     }
 
-    public UsuariosDTO(int id_usuario, String nome, String senha, String usuario, String telefone, String data_nascimento, String cpf, Boolean admin) {
+    public UsuariosDTO(int id_usuario, String nome, String senha, String usuario, String telefone, String data_nascimento, String cpf) {
         this.id_usuario = id_usuario;
         this.nome = nome;
         this.senha = senha;
@@ -31,7 +31,6 @@ public class UsuariosDTO {
         this.telefone = telefone;
         this.data_nascimento = data_nascimento;
         this.cpf = cpf;
-        this.admin = admin;
     }
 
     public int getId_usuario() {
@@ -40,6 +39,14 @@ public class UsuariosDTO {
 
     public void setId_usuario(int id_usuario) {
         this.id_usuario = id_usuario;
+    }
+
+    public static int getId() {
+        return id;
+    }
+
+    public static void setId(int id) {
+        UsuariosDTO.id = id;
     }
 
     public String getNome() {
@@ -88,13 +95,5 @@ public class UsuariosDTO {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
-    }
-
-    public Boolean getAdmin() {
-        return admin;
-    }
-
-    public void setAdmin(Boolean admin) {
-        this.admin = admin;
-    }
+    } 
 }

@@ -1,10 +1,10 @@
 function validacao() {
-    let nome = formcadastro.Nome.value;
-    let senha = formcadastro.Senha.value;
-    let usuario = formcadastro.Usuario.value;
-    let telefone = formcadastro.Telefone.value;
-    let data = formcadastro.Data.value;
-    let cpf = formcadastro.Cpf.value;
+    let nome = formcadastro.nome.value;
+    let senha = formcadastro.senha.value;
+    let usuario = formcadastro.usuario.value;
+    let telefone = formcadastro.telefone.value;
+    let data = formcadastro.data.value;
+    let cpf = formcadastro.cpf.value;
 
     if (nome.trim() === "") {
         alert("Preencha o Campo Nome");
@@ -75,7 +75,7 @@ function validacao() {
     document.forms["formcadastro"].submit();
 }
 
-let usuarios;
+let users;
 fetch('./users')
     .then(response => {
         if (!response.ok) {
