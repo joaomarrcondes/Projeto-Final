@@ -3,7 +3,7 @@ function validacao() {
     let senha = formcadastro.senha.value;
     let usuario = formcadastro.usuario.value;
     let telefone = formcadastro.telefone.value;
-    let data = formcadastro.data.value;
+    let data_nascimento = formcadastro.data_nascimento.value;
     let cpf = formcadastro.cpf.value;
 
     if (nome.trim() === "") {
@@ -46,14 +46,14 @@ function validacao() {
         formcadastro.cpf.focus();
         return false;
     }
-    else if (data.trim() === "") {
+    else if (data_nascimento.trim() === "") {
         alert("Preencha o Campo Data de Nascimento");
-        formcadastro.data.focus();
+        formcadastro.data_nascimento.focus();
         return false;
     }
-    else if (data > dataFormatada) {
+    else if (data_nascimento > dataFormatada) {
         alert('Selecione Uma Data Válida');
-        formcadastro.data.focus();
+        formcadastro.data_nascimento.focus();
         return false;
     }
     else if (cpf.trim() === "") {
@@ -122,6 +122,6 @@ let dataFormatada = dataAtual.getFullYear() + '-' +
     ('0' + (dataAtual.getMonth() + 1)).slice(-2) + '-' +
     ('0' + dataAtual.getDate()).slice(-2);
 
-let elementoData = document.getElementById("inputDate");
+let elementoData = document.getElementById("inputData");
 elementoData.setAttribute("max", dataFormatada);
 
