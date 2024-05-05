@@ -20,7 +20,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="inputPassword" class="form-label">Senha</label>
-                    <input name="password" class="form-control" type="password" id="inputPassword">
+                    <input name="password" class="form-control" type="text" id="inputPassword">
                 </div>
                 <br>
                 <input type="button" value="Entrar" onclick="validacao()">

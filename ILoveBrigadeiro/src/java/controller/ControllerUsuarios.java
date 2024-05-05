@@ -29,20 +29,18 @@ public class ControllerUsuarios extends HttpServlet {
         if (url.equals("/tela-login")) {
             String nextPage = "/WEB-INF/jsp/login.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-            dispatcher.forward(request, response);         
-        } 
-        else if (url.equals("/tela-cadastro")) {
+            dispatcher.forward(request, response);
+        } else if (url.equals("/tela-cadastro")) {
             String nextPage = "/WEB-INF/jsp/cadastro.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
-        } 
-        else if (url.equals("/cadastro")) {
-            doPost(request, response);
-        } 
-        else if (url.equals("/logar")) {
+        } else if (url.equals("/logar")) {
             String nextPage = "/WEB-INF/jsp/index.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
+        }
+        if (url.equals("/cadastro")) {
+            doPost(request, response);
         }
     }
 
@@ -52,10 +50,10 @@ public class ControllerUsuarios extends HttpServlet {
         processRequest(request, response);
         String url = request.getServletPath();
         if (url.equals("/users")) {
-            List<UsuariosDTO> users = objUsuariosDAO.ler();
+            List<UsuariosDTO> usuarios = objUsuariosDAO.ler();
 
             Gson gson = new Gson();
-            String json = gson.toJson(users);
+            String json = gson.toJson(usuarios);
 
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");

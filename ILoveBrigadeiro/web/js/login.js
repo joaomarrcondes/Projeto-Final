@@ -2,53 +2,40 @@ function validacao() {
     let user = formlogin.user.value;
     let password = formlogin.password.value;
 
+    console.log("Usuário digitado:", user);
+    console.log("Senha digitada:", password);
+
     if (user.trim() === "") {
         alert("Preencha o Campo Usuário");
-        formlogin.user.focus();
         return false;
     } else if (password.trim() === "") {
-        alert("Preencha o Campo Senha");
-        formlogin.password.focus();
+        alert("Preencha o Campo Senha");    
         return false;
     } else {
         let matchedUser = users.find(item => item.user === user && item.password === password);
         if (!matchedUser) {
-            alert("Usuário ou Senha Incorretos!");
-            formlogin.user.focus();
-            formlogin.password.focus();
+             alert("o Campo Usuário e senha errado");         
             return false;
         } else {
-            sendUserId(matchedUser.id_usuario);
+            sendUserId(matchedUser.idUser);
             document.forms["formlogin"].submit();
+            return true;
         }
     }
-    document.forms["formlogin"].submit();
-}
-
-function sendUserId(userId) {
-    fetch(`./logar?userId=${userId}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Erro ao enviar solicitação');
-            }
-        })
-        .catch(error => {
-            console.error(error);
-        });
 }
 
 let users;
 fetch('./users')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('erro ao obter dados do usuario');
-        }
-        return response.json();
-    })
-    .then(data => {
-        users = data;
-        console.log(users);
-    })
-    .catch(error => {
-        console.error(error);
-    });
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('erro ao obter dados do usuario');
+            }
+            return response.json();
+        })
+        .then(data => {
+            users = data;
+            console.log("Usuários carregados:", users);
+        })
+        .catch(error => {
+            console.error(error);
+        });
