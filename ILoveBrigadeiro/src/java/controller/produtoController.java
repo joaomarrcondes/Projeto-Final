@@ -1,5 +1,6 @@
 package controller;
 
+import com.google.gson.Gson;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,42 +18,22 @@ import model.bean.ProdutosDTO;
 import model.dao.CategoriasDAO;
 import model.dao.ProdutosDAO;
 
-@WebServlet(name = "produtoController", urlPatterns = {"/produtoController", "/cadastro-produto", "/home", "/buscar-produtos"})
+@WebServlet(name = "produtoController", urlPatterns = {"/categoria-produto", "/produtos", "/lista-produtos", "/produtos-item", "/buscar-produtos"})
 public class produtoController extends HttpServlet {
 
-    ProdutosDAO produtosDAO = new ProdutosDAO();
-    CategoriasDAO categoriasDAO = new CategoriasDAO();
+    ProdutosDAO objProdutoDao = new ProdutosDAO();
+    ProdutosDTO objProdutoDto = new ProdutosDTO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<CategoriasDTO> categorias = categoriasDAO.listarCategorias();
-        request.setAttribute("categorias", categorias);
         String url = request.getServletPath();
-        System.out.println(url);
-
-        if (url.equals("/cadastro-produto")) {
-            String nextPage = "/WEB-INF/jsp/cadastroProduto.jsp";
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-            dispatcher.forward(request, response);
-        } else if (url.equals("/home")) {
-            List<ProdutosDTO> produtos = produtosDAO.ler();
-            request.setAttribute("produtos", produtos);
-            String nextPage = "/WEB-INF/jsp/index.jsp";
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+        if (url.equals("/categoria-produto")) {
+            String path = "/WEB-INF/jsp/categoria-produto.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(path);
             dispatcher.forward(request, response);
         } else if (url.equals("/buscar-produtos")) {
-            String busca = request.getParameter("busca") != null ? request.getParameter("busca") : "";
-            if (busca.equals("")) {
-                String categoria = request.getParameter("cat");
-                List<ProdutosDTO> produtos = produtosDAO.buscaCategoria(Integer.parseInt(categoria));
-                request.setAttribute("produtos", produtos);
-            } else {
-                busca = "%" + busca + "%";
-                List<ProdutosDTO> produtos = produtosDAO.buscaProdutos(busca);
-                request.setAttribute("produtos", produtos);
-            }
-            String nextPage = "/WEB-INF/jsp/produtos.jsp";
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            String path = "/WEB-INF/jsp/produtos.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(path);
             dispatcher.forward(request, response);
         }
     }
@@ -61,29 +42,29 @@ public class produtoController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        String url = request.getServletPath();
+
+        if (url.equals("/lista-produtos")) {
+            List<ProdutosDTO> produtos = objProdutoDao.ler();
+            Gson gson = new Gson();
+            String json = gson.toJson(produtos);
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(json);
+        } else if (url.equals("/produtos-item")) {
+            int produto = Integer.parseInt(request.getParameter("busca"));
+            List<ProdutosDTO> produtos = objProdutoDao.lerProdutos(produto);
+            Gson gson = new Gson();
+            String json = gson.toJson(produtos);
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(json);
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ProdutosDTO newProduto = new ProdutosDTO();
-        
-        newProduto.setNome(request.getParameter("nome"));
-        newProduto.setCategoria_id(Integer.parseInt(request.getParameter("categoria_id")));
-        newProduto.setDescricao(request.getParameter("descricao"));
-        newProduto.setValor(Float.parseFloat(request.getParameter("valor")));
-        Part filePart = request.getPart("imagem");
-        InputStream istream = filePart.getInputStream();
-        ByteArrayOutputStream byteA = new ByteArrayOutputStream();
-        byte[] img = new byte[4096];
-        int byteRead = -1;
-        while ((byteRead = istream.read(img)) != -1) {
-            byteA.write(img, 0, byteRead);
-        }
-        byte[] imgBytes = byteA.toByteArray();
-        newProduto.setImagem(imgBytes);
-        ProdutosDAO produtosD = new ProdutosDAO();
-        produtosD.inserir(newProduto);
-        response.sendRedirect("./home");
+
     }
 }

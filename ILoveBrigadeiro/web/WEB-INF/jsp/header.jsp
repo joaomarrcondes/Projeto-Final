@@ -34,10 +34,9 @@
         </nav>
     </header>
     <a href="./tela-login">Login</a> <br>
-    <a href="./tela-cadastro">Cadastro</a>
-    <a href="./home">home</a>
+    <a href="./tela-cadastro">Cadastro</a> <br>
+    <a href="./home">home</a> <br>
     <a href="./cadastro-produto">cadastro produto</a>
-    <a href="./buscar-produtos">buscar produto</a>
 </body>
 <script src="https://kit.fontawesome.com/ffe7fbbd06.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
