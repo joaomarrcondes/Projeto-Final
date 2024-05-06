@@ -1,15 +1,31 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-    "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
+<html lang="pt-br">
 
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Welcome to Spring Web MVC project</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
 
-    <body>
-        <a href="./tela-login">Login</a> <br>
-        <a href="./tela-cadastro">Cadastro</a>
-    </body>
+<body>
+    <jsp:include page="header.jsp"></jsp:include>
+    <div class="container">
+        <h1 class="my-4">Listagem de Produtos</h1>
+        <div class="row">
+            <c:forEach var="produto" items="${produtos}">
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">${produto.nome}</h5>
+                            <p class="card-text">Categoria: ${produto.categoria}</p>
+                            <p class="card-text">Valor: R$ ${produto.valor}</p>
+                            <p class="card-text">Descrição: ${produto.descricao}</p>
+                        </div>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
+    </div>
+</body>
+
 </html>
