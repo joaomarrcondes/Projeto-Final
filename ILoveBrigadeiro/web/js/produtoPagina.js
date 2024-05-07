@@ -45,6 +45,6 @@ function getProdutosData(produtoBusca) {
         })
         .catch(error => {
             console.error('Erro:', error);
-        });
+        });   
 }
 getProdutosData(produtoBusca);
