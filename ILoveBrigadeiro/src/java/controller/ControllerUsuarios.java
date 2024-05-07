@@ -64,12 +64,12 @@ public class ControllerUsuarios extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        objUsuariosDTO.setNome(request.getParameter("nome"));
-        objUsuariosDTO.setSenha(request.getParameter("senha"));
-        objUsuariosDTO.setUsuario(request.getParameter("usuario"));
-        objUsuariosDTO.setTelefone(request.getParameter("telefone"));
-        objUsuariosDTO.setData_nascimento(request.getParameter("data_nascimento"));
-        objUsuariosDTO.setCpf(request.getParameter("cpf"));
+        objUsuariosDTO.setNome(request.getParameter("Nome"));
+        objUsuariosDTO.setSenha(request.getParameter("Senha"));
+        objUsuariosDTO.setUsuario(request.getParameter("Usuario"));
+        objUsuariosDTO.setTelefone(request.getParameter("Telefone"));
+        objUsuariosDTO.setData_nascimento(request.getParameter("Data_nascimento"));
+        objUsuariosDTO.setCpf(request.getParameter("Cpf"));
         objUsuariosDAO.inserir(objUsuariosDTO);
         String path = "/WEB-INF/jsp/login.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(path);

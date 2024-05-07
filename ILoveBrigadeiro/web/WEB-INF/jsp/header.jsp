@@ -14,7 +14,6 @@
             <div class="container-fluid">
                 <a class="navbar-brand" href="./home"><i class="fa-solid fa-house"></i></a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
                     <form class="d-flex" action="buscar-produtos" method="get">
                         <input class="form-control me-2" name="busca" type="search" placeholder="Search"
                             aria-label="Search">
@@ -31,12 +30,14 @@
                     </div>
                 </c:forEach>
             </div>
+
         </nav>
+        <a href="./tela-login">Login</a>
+        <a href="./tela-cadastro">Cadastro</a> 
+        <a href="./home">home</a> 
+        <a href="./cadastro-produto">cadastro produto</a>
     </header>
-    <a href="./tela-login">Login</a> <br>
-    <a href="./tela-cadastro">Cadastro</a> <br>
-    <a href="./home">home</a> <br>
-    <a href="./cadastro-produto">cadastro produto</a>
+
 </body>
 <script src="https://kit.fontawesome.com/ffe7fbbd06.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
