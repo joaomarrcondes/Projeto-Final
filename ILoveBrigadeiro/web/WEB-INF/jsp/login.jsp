@@ -13,14 +13,14 @@
 <body>
     <main>
         <section class="container">
-            <form name="formlogin" action="logar" method="post">
+            <form name="formLogin" action="login" method="post">
                 <div class="mb-3">
                     <label for="inputUser" class="form-label">Usuario</label>
-                    <input name="User" class="form-control" type="text" id="inputUser">
+                    <input name="user" class="form-control" type="text">
                 </div>
                 <div class="mb-3">
                     <label for="inputPassword" class="form-label">Senha</label>
-                    <input name="Password" class="form-control" type="text" id="inputPassword">
+                    <input name="password" class="form-control" type="text">
                 </div>
                 <br>
                 <input type="button" value="Entrar" onclick="validacao()">

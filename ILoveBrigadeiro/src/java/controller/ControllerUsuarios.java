@@ -2,7 +2,6 @@ package controller;
 
 import com.google.gson.Gson;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,7 +16,7 @@ import model.dao.UsuariosDAO;
  *
  * @author Senai
  */
-@WebServlet(name = "ControllerUsuarios", urlPatterns = {"/tela-login", "/tela-cadastro", "/logar", "/cadastro", "/users"})
+@WebServlet(name = "ControllerUsuarios", urlPatterns = {"/tela-login", "/tela-cadastro", "/login", "/cadastro", "/users"})
 public class ControllerUsuarios extends HttpServlet {
 
     UsuariosDTO objUsuariosDTO = new UsuariosDTO();
@@ -34,14 +33,12 @@ public class ControllerUsuarios extends HttpServlet {
             String nextPage = "/WEB-INF/jsp/cadastro.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
-        } else if (url.equals("/logar")) {
+        } else if (url.equals("/login")) {
             String nextPage = "/WEB-INF/jsp/index.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         }
-        if (url.equals("/cadastro")) {
-            doPost(request, response);
-        }
+
     }
 
     @Override
@@ -64,15 +61,19 @@ public class ControllerUsuarios extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        objUsuariosDTO.setNome(request.getParameter("Nome"));
-        objUsuariosDTO.setSenha(request.getParameter("Senha"));
-        objUsuariosDTO.setUsuario(request.getParameter("Usuario"));
-        objUsuariosDTO.setTelefone(request.getParameter("Telefone"));
-        objUsuariosDTO.setData_nascimento(request.getParameter("Data_nascimento"));
-        objUsuariosDTO.setCpf(request.getParameter("Cpf"));
-        objUsuariosDAO.inserir(objUsuariosDTO);
-        String path = "/WEB-INF/jsp/login.jsp";
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(path);
-        dispatcher.forward(request, response);
+        processRequest(request, response);
+        String url = request.getServletPath();
+        if (url.equals("/cadastro")) {
+            objUsuariosDTO.setNome(request.getParameter("nome"));
+            objUsuariosDTO.setSenha(request.getParameter("senha"));
+            objUsuariosDTO.setUsuario(request.getParameter("usuario"));
+            objUsuariosDTO.setTelefone(request.getParameter("telefone"));
+            objUsuariosDTO.setData_nascimento(request.getParameter("data_nascimento"));
+            objUsuariosDTO.setCpf(request.getParameter("cpf"));
+            objUsuariosDAO.inserir(objUsuariosDTO);
+            String path = "/WEB-INF/jsp/login.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(path);
+            dispatcher.forward(request, response);
+        }
     }
 }

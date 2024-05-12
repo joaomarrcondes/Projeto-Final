@@ -12,7 +12,6 @@ package model.bean;
 public class UsuariosDTO {
 
     private int id_usuario;
-    private static int id;
     private String nome;
     private String senha;
     private String usuario;
@@ -39,14 +38,6 @@ public class UsuariosDTO {
 
     public void setId_usuario(int id_usuario) {
         this.id_usuario = id_usuario;
-    }
-
-    public static int getId() {
-        return id;
-    }
-
-    public static void setId(int id) {
-        UsuariosDTO.id = id;
     }
 
     public String getNome() {
@@ -95,5 +86,7 @@ public class UsuariosDTO {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
-    } 
+    }
+
+  
 }
