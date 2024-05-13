@@ -14,7 +14,7 @@
     <%@include file="header.jsp" %>
     <main>
         <div class="section-best-day">
-            <h2>promocao</h2>
+            <h2>DESTAQUES</h2>
             <div class="c-carousel c-carousel--simple">
                 <div class="c-carousel__slides js-carousel--simple d-flex">
                 </div>

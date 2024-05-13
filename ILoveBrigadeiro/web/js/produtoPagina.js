@@ -6,7 +6,7 @@ function criarProduto(produtos) {
 
     card.innerHTML = `
     <div class="imagem-container">
-    <img src="" alt="${produtos.nome}">
+    <img src="./assets/I LO E.png" alt="${produtos.nome}">
     </div>
         <aside>
     <header>
@@ -45,6 +45,6 @@ function getProdutosData(produtoBusca) {
         })
         .catch(error => {
             console.error('Erro:', error);
-        });   
+        });
 }
 getProdutosData(produtoBusca);
