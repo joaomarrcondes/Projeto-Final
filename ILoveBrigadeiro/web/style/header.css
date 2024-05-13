@@ -8,30 +8,7 @@ header {
     height: 82px;
 }
 
-.container {
-    background-color: white;
-    border-radius: 20px;
+.form-control {
     width: 472px;
-}
- 
-.input-wrapper {
-    padding: 8px 12px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background-color: #c7c4c4;
-    border-radius: 16px;
-}
-
-.input-wrapper,
-i {
-    color: #F57EB6;
-    cursor: pointer;
-}
-
-.input-wrapper,
-input {
-    background-color: transparent;
-    border: none;
-    color: black;
+    border-radius: 20px;
 }

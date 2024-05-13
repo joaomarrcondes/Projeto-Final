@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <%@include file="header.jsp" %>
+    <jsp:include page="header.jsp"></jsp:include>
     <main>
         <div class="section-best-day">
             <h2>DESTAQUES</h2>
@@ -23,13 +23,6 @@
                     <button class="js-carousel--simple-next btn btn-outline-dark m-2" aria-label="Próximo">»</button>
                 </div>
             </div>
-        </div>
-        <div class="container container-categorias">
-            <c:forEach items="${categorias}" var="categoria">
-                <div class="categoria">
-                    <a href="./buscar-produtos?cat=${categoria.idCategoria}&busca=">${categoria.nome}</a>
-                </div>
-            </c:forEach>
         </div>
     </main>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

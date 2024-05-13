@@ -18,13 +18,9 @@
                     <img class="logo" src="./assets/I LO E.png">
                     <p>I Love Brigadeiro <br> R. Belém, 844 - Centro, Londrina - PR, 86026-040</p>
                     <form class="d-flex" action="buscar-produtos" method="get">
-                        <div class="container">
-                            <div class="input-wrapper">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                                <input name="busca" type="search" placeholder="     Buscar por item da loja">
-                            </div>
-                        </div>
-
+                        <input class="form-control me-2" name="busca" type="search" placeholder="Buscar por item da loja"
+                            aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
                     <div class="user-container">
                         <button id="user-button-open"><i class="fa-solid fa-user"></i></button>
@@ -35,6 +31,13 @@
                 </div>
             </div>
         </nav>
+        <div class="container container-categorias">
+            <c:forEach items="${categorias}" var="categoria">
+                <div class="categoria">
+                    <a href="./buscar-produtos?cat=${categoria.idCategoria}&busca=">${categoria.nome}</a>
+                </div>
+            </c:forEach>
+        </div>
     </header>
     <a href="./tela-login">Login</a>
     <a href="./tela-cadastro">Cadastro</a>

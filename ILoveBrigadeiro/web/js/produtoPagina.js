@@ -6,7 +6,7 @@ function criarProduto(produtos) {
 
     card.innerHTML = `
     <div class="imagem-container">
-    <img src="./assets/I LO E.png" alt="${produtos.nome}">
+    <img src="./assets/download.png" alt="${produtos.nome}">
     </div>
         <aside>
     <header>
