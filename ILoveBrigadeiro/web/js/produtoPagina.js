@@ -5,20 +5,20 @@ function criarProduto(produtos) {
     card.classList.add('produtos');
 
     card.innerHTML = `
-    <div class="imagem-container">
-    <img src="./assets/download.png" alt="${produtos.nome}">
-    </div>
-        <aside>
-    <header>
-        <h1>${produtos.nome}</h1>
-    </header>
-    <section class="d-flex justify-content-between align-items-center">
-        <div class="valores">
-            <span>R$ ${produtos.valor}</span>
+    <div class="card border-0">
+        <div class="card-body p-4"> 
+        <a class="product-item" id="${produtos.id_produto}" href="./produtos?id=${produtos.id_produto}">
+            <img src="" alt="${produtos.nome}" class="img-fluid d-block mx-auto mb-3">
+            <h5 class="name-product">${produtos.nome}</h5>
+            <div class="price d-flex justify-content-center">
+                <span class="value">R$ ${produtos.valor}</span>
+            </div>
+        </a>
+            <div class="btn-container d-flex justify-content-center m-3">
+                <button class="btn-info" onclick="addToCart(${produtos.id_produto}, '${produtos.nome}', ${produtos.valor})">Adicionar</button>
+            </div>
         </div>
-        <a href="#" class="btn btn-success" onclick="addToCart(${produtos.id_produto}, '${produtos.nome}', ${produtos.valor},'')">Adicionar</a>
-    </section>
-        </aside>
+    </div>
     `;
     return card;
 }

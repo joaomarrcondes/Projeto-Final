@@ -12,3 +12,23 @@ header {
     width: 472px;
     border-radius: 20px;
 }
+
+.container{
+    background-color: #E9E7E7;
+}
+
+.categoria{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.categoria, a{
+    justify-content: space-around;
+}
+
+.box li{
+    list-style: none;
+}
+

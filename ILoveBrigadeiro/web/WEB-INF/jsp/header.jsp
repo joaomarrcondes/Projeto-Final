@@ -15,18 +15,27 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <img class="logo" src="./assets/I LO E.png">
+                    <a href="./home">
+                        <img class="logo" src="./assets/I LO E.png">
+                    </a>
                     <p>I Love Brigadeiro <br> R. Belém, 844 - Centro, Londrina - PR, 86026-040</p>
                     <form class="d-flex" action="buscar-produtos" method="get">
-                        <input class="form-control me-2" name="busca" type="search" placeholder="Buscar por item da loja"
-                            aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <input class="form-control me-2" name="busca" type="search"
+                            placeholder="Buscar por item da loja" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit"><i
+                                class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
-                    <div class="user-container">
-                        <button id="user-button-open"><i class="fa-solid fa-user"></i></button>
-                    </div>
                     <div class="basket-container">
-                        <button id="basket"><i class="fa-solid fa-basket-shopping"></i></button>
+                        <i class="fa-solid fa-basket-shopping"></i>
+                    </div>
+                    <div class="user-container">
+                        <i class="fa-solid fa-user"></i>
+                        <div class="box">
+                            <ul>
+                                <li><a href="./tela-login">Login</a></li>
+                                <li> <a href="./tela-cadastro">Cadastro</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -39,10 +48,6 @@
             </c:forEach>
         </div>
     </header>
-    <a href="./tela-login">Login</a>
-    <a href="./tela-cadastro">Cadastro</a>
-    <a href="./home">home</a>
-    <a href="./cadastro-produto">cadastro produto</a>
 </body>
 <script src="https://kit.fontawesome.com/ffe7fbbd06.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

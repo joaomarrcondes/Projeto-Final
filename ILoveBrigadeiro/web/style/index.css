@@ -1,0 +1,20 @@
+
+#linha1 {
+    background-color: #e74591;
+    border: #e74591 solid 2px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 63px;
+}
+
+.title-carousel{
+    color: #F57EB6;
+    font-weight: bold;
+    margin-left: 100px;
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+
+.c-carousel--simple{
+    margin-left: 90px;
+}
