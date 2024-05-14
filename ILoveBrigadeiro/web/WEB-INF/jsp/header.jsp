@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
     <link rel="stylesheet" href="./style/header.css">
+    <link rel="stylesheet" href="./style/carrinho.css">
 </head>
 
 <body>
@@ -18,16 +19,13 @@
                     <a href="./home">
                         <img class="logo" src="./assets/I LO E.png">
                     </a>
-                    <p>I Love Brigadeiro <br> R. Belém, 844 - Centro, Londrina - PR, 86026-040</p>
+                    <p id="nome-endereco">I Love Brigadeiro <br> R. Belem, 844 - Centro, Londrina - PR, 86026-040</p>
                     <form class="d-flex" action="buscar-produtos" method="get">
                         <input class="form-control me-2" name="busca" type="search"
                             placeholder="Buscar por item da loja" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit"><i
                                 class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
-                    <div class="basket-container">
-                        <i class="fa-solid fa-basket-shopping"></i>
-                    </div>
                     <div class="user-container">
                         <i class="fa-solid fa-user"></i>
                         <div class="box">
@@ -37,16 +35,28 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="carrinho-container">
+                        <button id="btn-abrir-carrinho"><i class="fa-solid fa-basket-shopping"></i></button>
+                    </div>
                 </div>
             </div>
         </nav>
-        <div class="container container-categorias">
+        <div class="container-categorias">
             <c:forEach items="${categorias}" var="categoria">
                 <div class="categoria">
                     <a href="./buscar-produtos?cat=${categoria.idCategoria}&busca=">${categoria.nome}</a>
                 </div>
             </c:forEach>
         </div>
+        <div class="container-carrinho-compra">
+            <div id="carrinho-compras">
+                <div class="header">
+                    <h4>Meu Carrinho</h4>
+                    <button id="btn-fechar-carrinho"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="background"></div>
     </header>
 </body>
 <script src="https://kit.fontawesome.com/ffe7fbbd06.js" crossorigin="anonymous"></script>
@@ -55,5 +65,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
 <script src="./js/header.js"></script>
+<script src="./js/carrinho.js"></script>
 
 </html>

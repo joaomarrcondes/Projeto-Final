@@ -1,0 +1,40 @@
+@media (min-width: 991px) {
+    .container-carrinho-compra {
+        display: flex;
+        width: 100vw;
+        justify-content: end;
+    }
+
+    #carrinho-compras {
+        display: flex;
+        height: 100vh;
+        width: 0;
+        background-color: white;
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        visibility: hidden;
+        transition: .3s ease-in-out;
+    }
+
+    #carrinho-compras.open {
+        visibility: visible;
+        width: 30%;
+    }
+
+    #background {
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        visibility: hidden;
+        transition: .3s ease-in-out;
+    }
+
+    #background.open {
+        visibility: visible;
+        background-color: rgba(0, 0, 0, 0.459);
+    }
+}

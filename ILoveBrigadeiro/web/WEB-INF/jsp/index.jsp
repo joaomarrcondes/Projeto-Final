@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <jsp:include page="header.jsp"></jsp:include>
+    <%@include file="header.jsp"%>
     <main>
         <div id="carouselExample" class="carousel slide">
             <div class="carousel-inner">
@@ -38,7 +38,7 @@
         <hr id="linha1">
         <br>
         <h2 class="title-carousel">DESTAQUES</h2>
-        <div class="c-carousel c-carousel--simple">
+        <div class="c-carousel c-carousel--produtos">
             <div class="c-carousel__slides js-carousel--products d-flex">
             </div>
             <div class="carousel-buttons d-flex justify-content-center">

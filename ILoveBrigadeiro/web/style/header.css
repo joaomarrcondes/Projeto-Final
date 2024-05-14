@@ -1,3 +1,4 @@
+
 header {
     background-color: #F57EB6;
 }
@@ -13,22 +14,34 @@ header {
     border-radius: 20px;
 }
 
-.container{
+.container {
     background-color: #E9E7E7;
 }
 
-.categoria{
+.categoria {
     list-style: none;
     display: flex;
     justify-content: center;
     align-content: center;
 }
 
-.categoria, a{
+.categoria a {
     justify-content: space-around;
 }
 
-.box li{
+.box li {
     list-style: none;
 }
 
+#nome-endereco {
+    font-weight: bold;
+    color: white;
+}
+
+.user-container i {
+    color: white;
+}
+
+.basket-container {
+    color: white;
+}
