@@ -17,7 +17,7 @@
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <a href="./home">
-                        <img class="logo" src="./assets/I LO E.png">
+                        <img class="logo" src="./assets/ILoveBrigadeiro.png">
                     </a>
                     <p id="nome-endereco">I Love Brigadeiro <br> R. Belem, 844 - Centro, Londrina - PR, 86026-040</p>
                     <form class="d-flex" action="buscar-produtos" method="get">
