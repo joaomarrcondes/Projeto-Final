@@ -8,24 +8,43 @@
     <title>Tela de Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style/login.css">
 </head>
 
 <body>
     <main>
-        <section class="container">
-            <form name="formLogin" action="login" method="post">
-                <div class="mb-3">
-                    <label for="inputUser" class="form-label">Usuario</label>
-                    <input name="user" class="form-control" type="text">
+        <div class="container">
+            <div class="content first-content">
+                <div class="first-column">
+                    <img src="./assets/ILoveBrigadeiro.png" alt="logo">
+                    <h2 id="titulo2">Bem-Vindo de Volta!</h2>
+                    <span>Para se conectar conosco</span> <br>
+                    <hr>
+                    <span>crie uma conta com suas informações pessoais</span> <br>
+                    <button id="btn-criar"><a href="">Criar uma Conta</a></button>
                 </div>
-                <div class="mb-3">
-                    <label for="inputPassword" class="form-label">Senha</label>
-                    <input name="password" class="form-control" type="text">
+                <div clas="second-column">
+                    <h2>Login de Cliente</h2>
+                    <h5>Clientes Registrados</h5>
+                    <hr>
+                    <span>Se você tiver uma conta, acesse com seu nome de usuário e senha.</span>
+                    <form name="formLogin" action="login" method="post">
+                        <div class="mb-3">
+                            <i class="fa-solid fa-circle-user"></i>
+                            <label for="inputUser" class="form-label">Usuário</label placeholder="Username">
+                            <input name="user" class="form-control" type="text">
+                        </div>
+                        <div class="mb-3">
+                            <i class="fa-solid fa-lock"></i>
+                            <label for="inputPassword" class="form-label">Senha</label placeholder="Password">
+                            <input name="password" class="form-control" type="text">
+                        </div>
+                        <br>
+                        <input type="button" value="Fazer Login" onclick="validacao()">
+                    </form>
                 </div>
-                <br>
-                <input type="button" value="Entrar" onclick="validacao()">
-            </form>
-        </section>
+            </div>
+        </div>
     </main>
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
