@@ -12,21 +12,25 @@
 
 .first-column {
     background-color: #F57EB6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.first-column h2{
+.first-column h2 {
     color: white;
     font-weight: bold;
     font-size: 40px;
 }
 
-.first-column span{
+.first-column span {
     color: white;
     font-weight: lighter;
     font-size: 20px;
 }
 
-.first-column button{
+.first-column button {
     background-color: #F57EB6;
     color: white;
     border: white solid 1px;
@@ -36,32 +40,39 @@
     font-weight: bold;
 }
 
-#titulo1{
+.second-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#titulo1 {
     font-size: 40px;
     font-weight: lighter;
 }
 
-#subtitulo{
+#subtitulo {
     font-size: 18px;
     font-weight: lighter;
 }
 
-#linha{
+#linha {
     border: #ff0077 solid 1px;
     width: 506px;
 }
 
-#texto-span{
+#texto-span {
     font-size: 15px;
     font-weight: lighter;
 }
 
-.form-label{
+.form-label {
     font-weight: bold;
     font-size: 15px;
 }
 
-#btn-fazer-login{
+#btn-fazer-login {
     background-color: #F57EB6;
     color: white;
     font-weight: bold;
@@ -69,14 +80,15 @@
     height: 41px;
     border: white solid 1px;
     border-radius: 20px;
+    margin-left: 90px;
 }
 
-.form-control{
+.form-control {
     width: 379px;
     height: 40px;
 }
 
-.form-check-label{
+.form-check-label {
     font-size: 11px;
     font-weight: bold;
 }

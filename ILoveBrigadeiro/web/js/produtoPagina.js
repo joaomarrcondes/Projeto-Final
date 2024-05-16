@@ -1,5 +1,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 const produtoBusca = urlParams.get('busca');
+const produtoCategoria = urlParams.get('categoria');
+
 function criarProduto(produtos) {
     const card = document.createElement('div');
     card.classList.add('produtos');
@@ -47,4 +49,25 @@ function getProdutosData(produtoBusca) {
             console.error('Erro:', error);
         });
 }
-getProdutosData(produtoBusca);
+
+function getCategoriaData(produtoCategoria) {
+    fetch('./busca?categoria=' + produtoCategoria)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao obter os dados do produto');
+            }
+            return response.json();
+        })
+        .then(data => {
+            carregarProdutos(data);
+            console.log(data)
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        });
+}
+if (produtoBusca !== "") {
+    getProdutosData(produtoBusca);
+} else {
+    getCategoriaData(produtoCategoria);
+}

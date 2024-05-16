@@ -23,7 +23,7 @@
                     <button id="btn-criar">Criar uma Conta</button>
                 </a>
             </div>
-            <div clas="second-column">
+            <div class="second-column">
                 <h2 id="titulo1">Login de Cliente</h2>
                 <h5 id="subtitulo">Clientes Registrados</h5>
                 <hr id="linha">

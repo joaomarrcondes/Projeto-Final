@@ -14,13 +14,13 @@ img {
 
 .container-direita {
     background-color: #F57EB6;
-    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
-.container-esquerda{
+.container-esquerda {
     padding-left: 80px;
 }
 
@@ -97,6 +97,7 @@ img {
     width: 218px;
     height: 41px;
     font-weight: bold;
+    margin-left: 150px;
 }
 
 .form-control:focus {

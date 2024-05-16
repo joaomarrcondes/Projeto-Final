@@ -47,6 +47,7 @@
                         <input name="senha" class="form-control" type="password" id="inputSenha"
                             placeholder="Mínimo de 8 caracteres">
                     </div>
+                    <br>
                     <input id="btn-criar" type="button" value="Criar uma Conta" onclick="validacao()">
                 </form>
             </div>

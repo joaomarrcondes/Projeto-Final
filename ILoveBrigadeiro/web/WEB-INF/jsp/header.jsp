@@ -15,32 +15,43 @@
     <header>
         <div class="container-header">
             <div class="logo-container">
-                <a href="./home">
-                    <img class="logo" src="./assets/ILoveBrigadeiro.png">
-                </a>
+                <img class="logo" src="./assets/ILoveBrigadeiro.png">
                 <p id="nome-endereco">I Love Brigadeiro <br> R. Belem, 844 - Centro, Londrina - PR, 86026-040</p>
-                <form class="d-flex" action="buscar-produtos" method="get">
-                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    <input class="form-control me-2" name="busca" type="search" placeholder="Buscar por item da loja"
-                        aria-label="Search">
-                </form>
-            </div>
-            <nav>
-                <ul>
-                    <li class="dropdown">
-                        <a href="">
-                            <i class="fa-solid fa-user">perfil</i>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a href="">login</a>
-                            <a href="">cadastro</a>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-
-            <div class="carrinho-container">
-                <button id="btn-abrir-carrinho"><i class="fa-solid fa-basket-shopping"></i></button>
+                <div class="input-pesquisa">
+                    <form class="d-flex" action="buscar-produtos" method="get">
+                        <button id="btn-pesquisa" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <input class="form-control me-2" name="busca" type="search"
+                            placeholder="Buscar por item da loja" aria-label="Search">
+                    </form>
+                </div>
+                <nav>
+                    <ul>
+                        <li class="dropdown">
+                            <a href="#"><i class="fa-solid fa-user"></i>
+                                <br>
+                                Perfil
+                            </a>
+                            <div class="dropdown-menu">
+                                <a id="btn-login" href="./tela-login">Login</a>
+                                <a id="btn-cadastro" href="./tela-cadastro">Cadastro</a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="carrinho-container">
+                    <button id="btn-abrir-carrinho">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                        <br>
+                        Carrinho
+                    </button>
+                </div>
+                <div class="pedidos-container">
+                    <button id="btn-pedidos">
+                        <i class="fa-solid fa-receipt"></i>
+                        <br>
+                        Pedidos
+                    </button>
+                </div>
             </div>
             <div class="container-categorias">
                 <c:forEach items="${categorias}" var="categoria">
