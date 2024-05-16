@@ -22,7 +22,7 @@ function validacao() {
         return false;
     }
     else if (usuario.trim() === "") {
-        alert("Preencha o Campo Usuário");
+        alert("Preencha o Campo Usuario");
         formcadastro.usuario.focus();
         return false;
     }

@@ -17,8 +17,8 @@ import model.bean.ProdutosDTO;
 import model.dao.CategoriasDAO;
 import model.dao.ProdutosDAO;
 
-@WebServlet(name = "produtoController", urlPatterns = {"/categoria-produto", "/lista-produtos", "/produtos-item", "/buscar-produtos", "/lista-categorias", "/inserir-produto"})
-public class produtoController extends HttpServlet {
+@WebServlet(name = "produtoController", urlPatterns = {"/categoria-produto", "/lista-produtos", "/produtos-item", "/buscar-produtos", "/lista-categorias", "/inserir-produtos"})
+public class ProdutoController extends HttpServlet {
 
     ProdutosDAO objProdutoDao = new ProdutosDAO();
     ProdutosDTO objProdutoDto = new ProdutosDTO();
@@ -71,18 +71,18 @@ public class produtoController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         processRequest(request, response);
+        processRequest(request, response);
         String url = request.getServletPath();
-        if (url.equals("/inserir-produto")) {
+        if (url.equals("/inserir-produtos")) {
             Part filePart = request.getPart("imagem");
             InputStream inputStream = filePart.getInputStream();
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             byte[] buffer = new byte[4096];
-            int bytesRead = -1;
-            while ((bytesRead = inputStream.read(buffer)) != -1) {
-                outputStream.write(buffer, 0, bytesRead);
+            int bytesLer = -1;
+            while ((bytesLer = inputStream.read(buffer)) != -1) {
+                outputStream.write(buffer, 0, bytesLer);
             }
-            byte[] imageBytes = outputStream.toByteArray();
+            byte[] imagemBytes = outputStream.toByteArray();
 
             String nome = request.getParameter("nome");
             String descricao = request.getParameter("descricao");
@@ -92,7 +92,8 @@ public class produtoController extends HttpServlet {
             objProdutoDto.setDescricao(descricao);
             objProdutoDto.setValor(Integer.parseInt(request.getParameter("valor")));
             objProdutoDto.setCategoria_id(Integer.parseInt(request.getParameter("categoria_id")));
-            objProdutoDto.setImagem(imageBytes);
+            objProdutoDto.setImagem(imagemBytes);
+            objProdutoDto.setQuantidade(Integer.parseInt(request.getParameter("quantidade")));
             objProdutoDao.inserirProdutos(objProdutoDto);
 
             String path = "/WEB-INF/jsp/cadastro-produto.jsp";

@@ -15,10 +15,12 @@
     <main>
         <div class="container-login">
             <div class="first-column">
-                <img src="./assets/ILoveBrigadeiro.png" alt="logo">
+                <a href="./home">
+                    <img src="./assets/ILoveBrigadeiro.png" alt="logo">
+                </a>
                 <h2 id="titulo2">Bem-Vindo de Volta!</h2>
                 <span>Para se conectar conosco</span> <br>
-                <span>crie uma conta com suas informações pessoais</span> <br>
+                <span>crie uma conta com suas informacoes pessoais</span> <br>
                 <a href="./tela-cadastro">
                     <button id="btn-criar">Criar uma Conta</button>
                 </a>
@@ -27,11 +29,11 @@
                 <h2 id="titulo1">Login de Cliente</h2>
                 <h5 id="subtitulo">Clientes Registrados</h5>
                 <hr id="linha">
-                <span id="texto-span">Se você tiver uma conta, acesse com seu nome de usuário e senha.</span>
+                <span id="texto-span">Se voce tiver uma conta, acesse com seu nome de usuario e senha.</span>
                 <form name="formLogin" action="login" method="post">
                     <div class="mb-3">
                         <i class="fa-solid fa-circle-user"></i>
-                        <label for="inputUser" class="form-label">Usuário</label>
+                        <label for="inputUser" class="form-label">Usuario</label>
                         <input name="user" class="form-control" type="text" placeholder="Username">
                     </div>
                     <div class="mb-3">

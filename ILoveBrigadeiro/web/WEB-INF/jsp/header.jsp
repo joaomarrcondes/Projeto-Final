@@ -52,6 +52,15 @@
                         Pedidos
                     </button>
                 </div>
+                <div class="adm-container">
+                    <button id="btn-adm">
+                        <a href="./tela-adm">
+                            <i class="fa-solid fa-user-tie"></i>
+                            <br>
+                            Adm
+                        </a>
+                    </button>
+                </div>
             </div>
             <div class="container-categorias">
                 <c:forEach items="${categorias}" var="categoria">

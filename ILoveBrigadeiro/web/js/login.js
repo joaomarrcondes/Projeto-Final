@@ -3,7 +3,7 @@ function validacao() {
     let password = formLogin.password.value;
 
     if (user.trim() === "") {
-        alert("Preencha o Campo Usuário");
+        alert("Preencha o Campo Usuario");
         return false;
     } else if (password.trim() === "") {
         alert("Preencha o Campo Senha");

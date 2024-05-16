@@ -15,7 +15,7 @@
         <section class="containerr">
             <div class="container-esquerda">
                 <h2 id="titulo">Criar Nova Conta de Cliente</h2>
-                <h3 id="subtitulo1">Informações Pessoais</h3>
+                <h3 id="subtitulo1">Informacoes Pessoais</h3>
                 <hr id="linha1">
                 <form name="formcadastro" action="cadastro" method="post">
                     <div class="mb-3">
@@ -36,7 +36,7 @@
                         <label for="inputData" class="form-label">Data Nascimento</label>
                         <input name="data_nascimento" class="form-control" id="inputData" type="date">
                     </div>
-                    <h3 id="subtitulo2">Informações de Acesso</h3>
+                    <h3 id="subtitulo2">Informacoes de Acesso</h3>
                     <hr id="linha2">
                     <div class="mb-3">
                         <label for="inputUsuario" class="form-label">Usuario</label>
@@ -52,10 +52,12 @@
                 </form>
             </div>
             <div class="container-direita">
-                <img src="./assets/ILoveBrigadeiro.png" alt="logo">
+                <a href="./home">
+                    <img src="./assets/ILoveBrigadeiro.png" alt="logo">
+                </a>
                 <h2 id="titulo2">Seja Bem-Vindo!</h2>
                 <span>Para se conectar conosco</span> <br>
-                <span>faça login com seu Usuário e Senha</span> <br>
+                <span>faça login com seu Usuario e Senha</span> <br>
                 <a href="./tela-login">
                     <button id="btn-entrar">Entrar</button>
                 </a>

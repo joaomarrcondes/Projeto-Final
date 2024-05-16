@@ -16,7 +16,7 @@ import model.dao.UsuariosDAO;
  *
  * @author Senai
  */
-@WebServlet(name = "ControllerUsuarios", urlPatterns = {"/tela-login", "/tela-cadastro", "/login", "/cadastro", "/users"})
+@WebServlet(name = "ControllerUsuarios", urlPatterns = {"/tela-login", "/tela-cadastro", "/login", "/cadastro", "/users", "/home"})
 public class ControllerUsuarios extends HttpServlet {
 
     UsuariosDTO objUsuariosDTO = new UsuariosDTO();
@@ -34,6 +34,10 @@ public class ControllerUsuarios extends HttpServlet {
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         } else if (url.equals("/login")) {
+            String nextPage = "/WEB-INF/jsp/index.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        } else if (url.equals("/home")) {
             String nextPage = "/WEB-INF/jsp/index.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
@@ -64,9 +68,16 @@ public class ControllerUsuarios extends HttpServlet {
         processRequest(request, response);
         String url = request.getServletPath();
         if (url.equals("/cadastro")) {
-            objUsuariosDTO.setNome(request.getParameter("nome"));
-            objUsuariosDTO.setSenha(request.getParameter("senha"));
-            objUsuariosDTO.setUsuario(request.getParameter("usuario"));
+
+            String nome = request.getParameter("nome");
+            String senha = request.getParameter("senha");
+            String usuario = request.getParameter("usuario");
+            nome = new String(nome.getBytes("ISO-8859-1"), "UTF-8");
+            senha = new String(senha.getBytes("ISO-8859-1"), "UTF-8");
+            usuario = new String(senha.getBytes("ISO-8859-1"), "UTF-8");
+            objUsuariosDTO.setNome("nome");
+            objUsuariosDTO.setSenha("senha");
+            objUsuariosDTO.setUsuario("usuario");
             objUsuariosDTO.setTelefone(request.getParameter("telefone"));
             objUsuariosDTO.setData_nascimento(request.getParameter("data_nascimento"));
             objUsuariosDTO.setCpf(request.getParameter("cpf"));

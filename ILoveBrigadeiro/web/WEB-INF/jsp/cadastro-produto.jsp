@@ -15,23 +15,26 @@
 <body>
     <main>
         <div class="container">
-            <h1>PRODUTO</h1>
-            <form action="inserir-produto" enctype="multipart/form-data" method="post">
-                IMAGEM
-                <input type="file" name="imagem" class="form-control" placeholder="Carregue a imgaem"
+            <h1>Cadastro de Produtos</h1>
+            <form action="inserir-produtos" enctype="multipart/form-data" method="post">
+                Imagem
+                <input type="file" name="imagem" class="form-control" placeholder="Carregar imagem"
                     aria-label="Username" aria-describedby="basic-addon1">
                 Nome
                 <input type="text" name="nome" class="form-control" placeholder="Nome do produto" aria-label="Username"
                     aria-describedby="basic-addon1">
-                VALOR
-                <input type="text" name="valor" class="form-control" placeholder="Valor do produtos"
+                Valor
+                <input type="text" name="valor" class="form-control" placeholder="Valor do produto"
                     aria-label="Username" aria-describedby="basic-addon1">
-                CATEGORIA
-                <input type="text" name="categoria" class="form-control" placeholder="categoria" aria-label="Username"
-                    aria-describedby="basic-addon1">            
+                Categoria
+                <input type="text" name="categoria" class="form-control" placeholder="Categoria do produto" aria-label="Username"
+                    aria-describedby="basic-addon1">
+                Quantidade em Estoque
+                <input type="text" name="quantidade" class="form-control" placeholder="Quantidade do produto" aria-label="Username"
+                    aria-describedby="basic-addon1">
                 <div class="input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text">Descrição</span>
+                        <span class="input-group-text">Descricao</span>
                     </div>
                     <textarea class="form-control" name="descricao" aria-label="With textarea"></textarea>
                 </div>
@@ -49,5 +52,5 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
-<script src="./js/cadastro-produto"></script>
+
 </html>

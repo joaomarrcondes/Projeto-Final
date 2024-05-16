@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.dao;
 
 import conexao.Conexao;
@@ -10,15 +5,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import model.bean.EstoqueDTO;
 import model.bean.ProdutosDTO;
 
-/**
- *
- * @author carlo
- */
 public class ProdutosDAO {
+
+    EstoqueDTO objEstoque = new EstoqueDTO();
 
     public List<ProdutosDTO> ler() {
         List<ProdutosDTO> produtos = new ArrayList<>();
@@ -82,20 +77,47 @@ public class ProdutosDAO {
     }
 
     public void inserirProdutos(ProdutosDTO objProdutos) {
+        String sql = "INSERT INTO produtos (categoria_id, nome, descricao, imagem, valor) VALUES (?, ?, ?, ?, ?)";
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
-            stmt = conexao.prepareStatement("INSERT INTO produtos (categoria_id,nome,descricao,imagem,valor) VALUES (?, ?, ?, ?, ?)");
+            stmt = conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             stmt.setInt(1, objProdutos.getCategoria_id());
             stmt.setString(2, objProdutos.getNome());
             stmt.setString(3, objProdutos.getDescricao());
             stmt.setBytes(4, objProdutos.getImagem());
-            stmt.setFloat(5, objProdutos.getValor());         
+            stmt.setFloat(5, objProdutos.getValor());
             stmt.executeUpdate();
+            ResultSet generatedKeys = stmt.getGeneratedKeys();
+            int id_produto = -1;
+            if (generatedKeys.next()) {
+                id_produto = generatedKeys.getInt(1);
+            } else {
+                throw new SQLException("Falha ao recuperar o ID do produto gerado automaticamente.");
+            }
+            objEstoque.setQuantidade(objProdutos.getQuantidade());
+            objEstoque.setProduto_id2(id_produto);
+            inserirEstoqueProduto(objEstoque);
             stmt.close();
             conexao.close();
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+     
+      public void inserirEstoqueProduto(EstoqueDTO objEstoque) {
+        try {
+            Connection connection = Conexao.conectar();
+            PreparedStatement stmt = null;
+            stmt = connection.prepareStatement("INSERT INTO estoque (quantidade ,produto_id2) VALUES (?, ?)");
+            stmt.setInt(1, objEstoque.getQuantidade());
+            stmt.setInt(2, objEstoque.getProduto_id2());
+            
+            stmt.executeUpdate();
+            stmt.close();
+            connection.close();
+        } catch (SQLException e) {
+            System.out.println("Erro no insert de estoque de produto: " + e);
         }
     }
 }
