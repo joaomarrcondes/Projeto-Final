@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-login {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+}
+
+.first-column {
+    background-color: #F57EB6;
+}
+
+.first-column h2{
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.first-column span{
+    color: white;
+    font-weight: lighter;
+    font-size: 20px;
+}
+
+.first-column button{
+    background-color: #F57EB6;
+    color: white;
+    border: white solid 1px;
+    border-radius: 20px;
+    width: 218px;
+    height: 41px;
+    font-weight: bold;
+}
+
+#titulo1{
+    font-size: 40px;
+    font-weight: lighter;
+}
+
+#subtitulo{
+    font-size: 18px;
+    font-weight: lighter;
+}
+
+#linha{
+    border: #ff0077 solid 1px;
+    width: 506px;
+}
+
+#texto-span{
+    font-size: 15px;
+    font-weight: lighter;
+}
+
+.form-label{
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#btn-fazer-login{
+    background-color: #F57EB6;
+    color: white;
+    font-weight: bold;
+    width: 218px;
+    height: 41px;
+    border: white solid 1px;
+    border-radius: 20px;
+}
+
+.form-control{
+    width: 379px;
+    height: 40px;
+}
+
+.form-check-label{
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #F57EB6;
+}

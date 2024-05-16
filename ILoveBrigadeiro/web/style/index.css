@@ -1,3 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 #linha1 {
     background-color: #e74591;
     border: #e74591 solid 2px;

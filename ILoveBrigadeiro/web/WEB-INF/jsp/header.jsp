@@ -13,49 +13,52 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <a href="./home">
-                        <img class="logo" src="./assets/ILoveBrigadeiro.png">
-                    </a>
-                    <p id="nome-endereco">I Love Brigadeiro <br> R. Belem, 844 - Centro, Londrina - PR, 86026-040</p>
-                    <form class="d-flex" action="buscar-produtos" method="get">
-                        <input class="form-control me-2" name="busca" type="search"
-                            placeholder="Buscar por item da loja" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit"><i
-                                class="fa-solid fa-magnifying-glass"></i></button>
-                    </form>
-                    <div class="user-container">
-                        <i class="fa-solid fa-user"></i>
-                        <div class="box">
-                            <ul>
-                                <li><a href="./tela-login">Login</a></li>
-                                <li> <a href="./tela-cadastro">Cadastro</a></li>
-                            </ul>
+        <div class="container-header">
+            <div class="logo-container">
+                <a href="./home">
+                    <img class="logo" src="./assets/ILoveBrigadeiro.png">
+                </a>
+                <p id="nome-endereco">I Love Brigadeiro <br> R. Belem, 844 - Centro, Londrina - PR, 86026-040</p>
+                <form class="d-flex" action="buscar-produtos" method="get">
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <input class="form-control me-2" name="busca" type="search" placeholder="Buscar por item da loja"
+                        aria-label="Search">
+                </form>
+            </div>
+            <nav>
+                <ul>
+                    <li class="dropdown">
+                        <a href="">
+                            <i class="fa-solid fa-user">perfil</i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="">login</a>
+                            <a href="">cadastro</a>
                         </div>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="carrinho-container">
+                <button id="btn-abrir-carrinho"><i class="fa-solid fa-basket-shopping"></i></button>
+            </div>
+            <div class="container-categorias">
+                <c:forEach items="${categorias}" var="categoria">
+                    <div class="categoria">
+                        <a href="./buscar-produtos?cat=${categoria.idCategoria}&busca=">${categoria.nome}</a>
                     </div>
-                    <div class="carrinho-container">
-                        <button id="btn-abrir-carrinho"><i class="fa-solid fa-basket-shopping"></i></button>
+                </c:forEach>
+            </div>
+            <div class="container-carrinho-compra">
+                <div id="carrinho-compras">
+                    <div class="header">
+                        <h4>Meu Carrinho</h4>
+                        <button id="btn-fechar-carrinho"><i class="fa-solid fa-xmark"></i></button>
                     </div>
                 </div>
             </div>
-        </nav>
-        <div class="container-categorias">
-            <c:forEach items="${categorias}" var="categoria">
-                <div class="categoria">
-                    <a href="./buscar-produtos?cat=${categoria.idCategoria}&busca=">${categoria.nome}</a>
-                </div>
-            </c:forEach>
         </div>
-        <div class="container-carrinho-compra">
-            <div id="carrinho-compras">
-                <div class="header">
-                    <h4>Meu Carrinho</h4>
-                    <button id="btn-fechar-carrinho"><i class="fa-solid fa-xmark"></i></button>
-                </div>
-            </div>
-        </div>
+
         <div id="background"></div>
     </header>
 </body>
@@ -66,5 +69,6 @@
 <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
 <script src="./js/header.js"></script>
 <script src="./js/carrinho.js"></script>
+<script src="./js/menu-user.js"></script>
 
 </html>

@@ -13,36 +13,36 @@
 
 <body>
     <main>
-        <div class="container">
-            <div class="content first-content">
-                <div class="first-column">
-                    <img src="./assets/ILoveBrigadeiro.png" alt="logo">
-                    <h2 id="titulo2">Bem-Vindo de Volta!</h2>
-                    <span>Para se conectar conosco</span> <br>
-                    <hr>
-                    <span>crie uma conta com suas informações pessoais</span> <br>
-                    <button id="btn-criar"><a href="">Criar uma Conta</a></button>
-                </div>
-                <div clas="second-column">
-                    <h2>Login de Cliente</h2>
-                    <h5>Clientes Registrados</h5>
-                    <hr>
-                    <span>Se você tiver uma conta, acesse com seu nome de usuário e senha.</span>
-                    <form name="formLogin" action="login" method="post">
-                        <div class="mb-3">
-                            <i class="fa-solid fa-circle-user"></i>
-                            <label for="inputUser" class="form-label">Usuário</label placeholder="Username">
-                            <input name="user" class="form-control" type="text">
-                        </div>
-                        <div class="mb-3">
-                            <i class="fa-solid fa-lock"></i>
-                            <label for="inputPassword" class="form-label">Senha</label placeholder="Password">
-                            <input name="password" class="form-control" type="text">
-                        </div>
-                        <br>
-                        <input type="button" value="Fazer Login" onclick="validacao()">
-                    </form>
-                </div>
+        <div class="container-login">
+            <div class="first-column">
+                <img src="./assets/ILoveBrigadeiro.png" alt="logo">
+                <h2 id="titulo2">Bem-Vindo de Volta!</h2>
+                <span>Para se conectar conosco</span> <br>
+                <span>crie uma conta com suas informações pessoais</span> <br>
+                <a href="./tela-cadastro">
+                    <button id="btn-criar">Criar uma Conta</button>
+                </a>
+            </div>
+            <div clas="second-column">
+                <h2 id="titulo1">Login de Cliente</h2>
+                <h5 id="subtitulo">Clientes Registrados</h5>
+                <hr id="linha">
+                <span id="texto-span">Se você tiver uma conta, acesse com seu nome de usuário e senha.</span>
+                <form name="formLogin" action="login" method="post">
+                    <div class="mb-3">
+                        <i class="fa-solid fa-circle-user"></i>
+                        <label for="inputUser" class="form-label">Usuário</label>
+                        <input name="user" class="form-control" type="text" placeholder="Username">
+                    </div>
+                    <div class="mb-3">
+                        <i class="fa-solid fa-lock"></i>
+                        <label for="inputPassword" class="form-label">Senha</label>
+                        <input name="password" class="form-control" type="text" placeholder="Password">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckChecked">Lembre-me</label>
+                    </div>
+                    <input id="btn-fazer-login" type="button" value="Fazer Login" onclick="validacao()">
+                </form>
             </div>
         </div>
     </main>

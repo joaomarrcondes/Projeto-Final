@@ -1,10 +1,10 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-img{
+img {
     border-radius: 100%;
     width: 183px;
     height: 179px;
@@ -12,8 +12,22 @@ img{
     filter: contrast(100%);
 }
 
-.container-direita{
-  background-color: #F57EB6;
+.container-direita {
+    background-color: #F57EB6;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container-esquerda{
+    padding-left: 80px;
+}
+
+.containerr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
 }
 
 #titulo {
@@ -21,9 +35,14 @@ img{
     font-size: 35px;
 }
 
-#titulo2{
+#titulo2 {
     font-weight: bold;
     font-size: 40px;
+    color: white;
+}
+
+.container-direita span {
+    color: white;
 }
 
 #btn-entrar {
@@ -35,7 +54,7 @@ img{
     height: 41px;
 }
 
-#btn-entrar a{
+#btn-entrar {
     color: white;
     text-decoration: none;
     font-weight: bold;
@@ -59,15 +78,15 @@ img{
     width: 550px;
 }
 
-.container label {
+.containerr label {
     font-size: 15px;
     font-weight: bold;
 }
 
-.container input {
-    width: 550px;
-    border: black solid 1px;
-    border-radius: 0px;
+.containerr input {
+    width: 537px;
+    border: rgb(119, 119, 119) solid 1px;
+    border-radius: 15px;
 }
 
 #btn-criar {
@@ -78,4 +97,9 @@ img{
     width: 218px;
     height: 41px;
     font-weight: bold;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #F57EB6;
 }
