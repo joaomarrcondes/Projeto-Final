@@ -38,7 +38,7 @@
                     </div>
                     <textarea class="form-control" name="descricao" aria-label="With textarea"></textarea>
                 </div>
-                <input type="submit" value="ENVIAR">
+                <input type="submit" value="Enviar">
             </form>
         </div>
     </main>

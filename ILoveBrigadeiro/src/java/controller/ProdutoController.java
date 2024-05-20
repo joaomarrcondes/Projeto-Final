@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +18,7 @@ import model.bean.ProdutosDTO;
 import model.dao.CategoriasDAO;
 import model.dao.ProdutosDAO;
 
+@MultipartConfig
 @WebServlet(name = "produtoController", urlPatterns = {"/categoria-produto", "/lista-produtos", "/produtos-item", "/buscar-produtos", "/lista-categorias", "/inserir-produtos"})
 public class ProdutoController extends HttpServlet {
 
@@ -78,9 +80,9 @@ public class ProdutoController extends HttpServlet {
             InputStream inputStream = filePart.getInputStream();
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             byte[] buffer = new byte[4096];
-            int bytesLer = -1;
-            while ((bytesLer = inputStream.read(buffer)) != -1) {
-                outputStream.write(buffer, 0, bytesLer);
+            int bytesRead = -1;
+            while ((bytesRead = inputStream.read(buffer)) != -1) {
+                outputStream.write(buffer, 0, bytesRead);
             }
             byte[] imagemBytes = outputStream.toByteArray();
 
@@ -90,8 +92,8 @@ public class ProdutoController extends HttpServlet {
             descricao = new String(descricao.getBytes("ISO-8859-1"), "UTF-8");
             objProdutoDto.setNome(nome);
             objProdutoDto.setDescricao(descricao);
-            objProdutoDto.setValor(Integer.parseInt(request.getParameter("valor")));
-            objProdutoDto.setCategoria_id(Integer.parseInt(request.getParameter("categoria_id")));
+            objProdutoDto.setValor(Float.parseFloat(request.getParameter("valor")));
+            objProdutoDto.setCategoria_id(Integer.parseInt(request.getParameter("categoria")));
             objProdutoDto.setImagem(imagemBytes);
             objProdutoDto.setQuantidade(Integer.parseInt(request.getParameter("quantidade")));
             objProdutoDao.inserirProdutos(objProdutoDto);

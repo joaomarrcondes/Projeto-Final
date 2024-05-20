@@ -5,15 +5,15 @@ package model.bean;
 public class EstoqueDTO {
     private int id_estoque;
     private int quantidade;
-    private int produto_id2;
+    private int produto_id;
 
     public EstoqueDTO() {
     }
 
-    public EstoqueDTO(int id_estoque, int quantidade, int produto_id2) {
+    public EstoqueDTO(int id_estoque, int quantidade, int produto_id) {
         this.id_estoque = id_estoque;
         this.quantidade = quantidade;
-        this.produto_id2 = produto_id2;
+        this.produto_id = produto_id;
     }
 
     public int getId_estoque() {
@@ -32,11 +32,11 @@ public class EstoqueDTO {
         this.quantidade = quantidade;
     }
 
-    public int getProduto_id2() {
-        return produto_id2;
+    public int getProduto_id() {
+        return produto_id;
     }
 
-    public void setProduto_id2(int produto_id2) {
-        this.produto_id2 = produto_id2;
+    public void setProduto_id(int produto_id) {
+        this.produto_id = produto_id;
     }
 }

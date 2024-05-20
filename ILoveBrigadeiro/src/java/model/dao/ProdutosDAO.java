@@ -96,7 +96,7 @@ public class ProdutosDAO {
                 throw new SQLException("Falha ao recuperar o ID do produto gerado automaticamente.");
             }
             objEstoque.setQuantidade(objProdutos.getQuantidade());
-            objEstoque.setProduto_id2(id_produto);
+            objEstoque.setProduto_id(id_produto);
             inserirEstoqueProduto(objEstoque);
             stmt.close();
             conexao.close();
@@ -109,9 +109,9 @@ public class ProdutosDAO {
         try {
             Connection connection = Conexao.conectar();
             PreparedStatement stmt = null;
-            stmt = connection.prepareStatement("INSERT INTO estoque (quantidade ,produto_id2) VALUES (?, ?)");
+            stmt = connection.prepareStatement("INSERT INTO estoque (quantidade ,produto_id) VALUES (?, ?)");
             stmt.setInt(1, objEstoque.getQuantidade());
-            stmt.setInt(2, objEstoque.getProduto_id2());
+            stmt.setInt(2, objEstoque.getProduto_id());
             
             stmt.executeUpdate();
             stmt.close();
