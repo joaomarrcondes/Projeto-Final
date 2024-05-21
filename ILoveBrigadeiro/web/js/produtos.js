@@ -47,7 +47,7 @@ function adicionaCarrinho(idProduto, nome, valor, imagem) {
             return response.json();
         })
         .then(data => {
-            return fetch('./cart-itens');
+            return fetch('./carrinho-produtos');
         })
         .then(response => {
             if (!response.ok) {

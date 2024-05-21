@@ -23,11 +23,11 @@ public class CarrinhoFuncao {
         return carrinhoProdutos;
     }
 
-    public void addItem(CarrinhoDTO item) {
+    public void adicionaItem(CarrinhoDTO item) {
         carrinhoProdutos.add(item);
     }
 
-    public void clear() {
+    public void esvaziar() {
         carrinhoProdutos.clear();
     }
 

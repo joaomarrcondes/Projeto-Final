@@ -1,5 +1,6 @@
 package controller;
 
+import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
@@ -11,8 +12,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.bean.CarrinhoDTO;
+import model.bean.CarrinhoFuncao;
 
-@WebServlet(name = "CarrinhoController", urlPatterns = {"/adiciona-produto"})
+@WebServlet(name = "CarrinhoController", urlPatterns = {"/adiciona-produto", "/carrinho-produtos"})
 public class CarrinhoController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -25,6 +28,15 @@ public class CarrinhoController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        String path = request.getServletPath();
+        if (path.equals("/carrinho-produtos")) {
+            List<CarrinhoDTO> carrinhoProdutos = CarrinhoFuncao.getInstance().getCarrinhoItens();
+            Gson gson = new Gson();
+            String json = gson.toJson(carrinhoProdutos);
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(json);
+        }
     }
 
     @Override
@@ -43,31 +55,35 @@ public class CarrinhoController extends HttpServlet {
                 String json = sb.toString();
 
                 javax.json.JsonObject jsonObject = Json.createReader(new StringReader(json)).readObject();
-                int productId = jsonObject.getInt("productId");
-                String productName = jsonObject.getString("productName");
-                productName = new String(productName.getBytes("ISO-8859-1"), "UTF-8");
-                double productPrice = jsonObject.getJsonNumber("productPrice").doubleValue();
-                int productQtd = jsonObject.getInt("productQtd");
-                JsonString productImage = jsonObject.getJsonString("productImage");
-                CartDTO objCart = new CartDTO();
-                List<CartDTO> cartItens = ShoppingCart.getInstance().getCarrinhoItens();
+                int produtoId = jsonObject.getInt("produtoId");
+                String nomeProduto = jsonObject.getString("nomeProduto");
+                String descricaoProduto = jsonObject.getString("descricaoProduto");
+                
+                nomeProduto = new String(nomeProduto.getBytes("ISO-8859-1"), "UTF-8");
+                descricaoProduto = new String(descricaoProduto.getBytes("ISO-8859-1"), "UTF-8");
+                
+                int valorProduto = jsonObject.getJsonNumber("valorProduto").intValue();
+                int quantidadeProduto = jsonObject.getInt("quantidadeProduto");
+                JsonString imagemProduto = jsonObject.getJsonString("imagemProduto");
+                CarrinhoDTO objCarrinho = new CarrinhoDTO();
+                List<CarrinhoDTO> carrinhoProdutos = CarrinhoFuncao.getInstance().getCarrinhoItens();
 
                 boolean found = false;
-                for (CartDTO item : cartItens) {
-                    if (item.getIdProduct() == productId) {
-                        item.setQuantity(item.getQuantity() + productQtd);
+                for (CarrinhoDTO item : carrinhoProdutos) {
+                    if (item.getId_carrinho() == produtoId) {
+                        item.setQuantidade(item.getQuantidade() + quantidadeProduto);
                         found = true;
                         break;
                     }
                 }
 
                 if (!found) {
-                    objCart.setIdProduct(productId);
-                    objCart.setName(productName);
-                    objCart.setPriceUnitary(productPrice);
-                    objCart.setQuantity(productQtd);
-                    objCart.setImage(productImage);
-                    ShoppingCart.getInstance().addItem(objCart);
+                    objCarrinho.setId_carrinho(produtoId);
+                    objCarrinho.setNome(nomeProduto);
+                    objCarrinho.setValor(valorProduto);
+                    objCarrinho.setQuantidade(quantidadeProduto);
+                    objCarrinho.setImagem(imagemProduto);
+                    CarrinhoFuncao.getInstance().adicionaItem(objCarrinho);
                 }
 
                 javax.json.JsonObject responseJson = Json.createObjectBuilder()

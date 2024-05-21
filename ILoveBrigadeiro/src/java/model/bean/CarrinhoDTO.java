@@ -1,7 +1,7 @@
 
 package model.bean;
 
-import com.mysql.cj.xdevapi.JsonString;
+import javax.json.JsonString;
 
 
 public class CarrinhoDTO {

@@ -75,6 +75,10 @@
                         <h4>Meu Carrinho</h4>
                         <button id="btn-fechar-carrinho"><i class="fa-solid fa-xmark"></i></button>
                     </div>
+                    <div class="itens-cart-ul">
+                        <ul class="list-group-item">
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
