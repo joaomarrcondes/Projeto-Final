@@ -5,6 +5,7 @@ const produtoCategoria = urlParams.get('categoria');
 function criarProduto(produtos) {
     const card = document.createElement('div');
     card.classList.add('produtos');
+    const base64Imagem = arrayBufferToBase64(produtos.imagem);
 
     card.innerHTML = `
     <div class="card border-0">
@@ -17,12 +18,63 @@ function criarProduto(produtos) {
             </div>
         </a>
             <div class="btn-container d-flex justify-content-center m-3">
-                <button class="btn-info" onclick="addToCart(${produtos.id_produto}, '${produtos.nome}', ${produtos.valor})">Adicionar</button>
+                <button class="btn-card" onclick="adicionaCarrinho(${produtos.id_produto}, '${produtos.nome}', ${produtos.valor}, '${base64Imagem}')">Adicionar</button>
             </div>
         </div>
     </div>
     `;
     return card;
+}
+
+function arrayBufferToBase64(buffer) {
+    let binary = '';
+    const bytes = new Uint8Array(buffer);
+    const len = bytes.byteLength;
+    for (let i = 0; i < len; i++) {
+        binary += String.fromCharCode(bytes[i]);
+    }
+    return window.btoa(binary);
+}
+
+
+function adicionaCarrinho(idProduto, nome, valor, imagem) {
+    const data = {
+        idProduto: idProduto,
+        nome: nome,
+        valor: valor,
+        imagem: imagem,
+        quantidade: 1
+    }
+
+    fetch('./adiciona-produto', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro na solicitação: ' + response.status);
+            }
+            carregaCarinho();
+            return response.json();
+        })
+        .then(data => {
+            return fetch('./carrinho-produtos');
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao obter dados dos produtos');
+            }
+            return response.json();
+        })
+        .then(data => {
+            carregaCarrinhoProdutos(data);
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        });
 }
 
 function carregarProdutos(produtos) {

@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function criaCardCarrinho(carrinhoProdutos) {
-    const carrinhoProdutos = document.createElement('li');
-    //const totalPrice = carrinhoProdutos.valor * carrinhoProdutos.quantidade;
+ 
+    const totalPrice = carrinhoProdutos.valor * carrinhoProdutos.quantidade;
     carrinhoProdutos.innerHTML = `
         <section class="item-cart" id="${carrinhoProdutos.id_carrinho}">
             <div class="image-cart">

@@ -15,7 +15,7 @@ function criarProdutoCard(produtos) {
             </div>
         </a>
             <div class="btn-container d-flex justify-content-center m-3">
-                <button class="btn-info" onclick="adicionaCarrinho(${produtos.id_produto}, '${produtos.nome}', ${produtos.valor}, ${imagem})">Adicionar</button>
+                <button class="btn-card" onclick="adicionaCarrinho(${produtos.id_produto}, '${produtos.nome}', ${produtos.valor}, ${imagem})">Adicionar</button>
             </div>
         </div>
     </div>
@@ -43,7 +43,7 @@ function adicionaCarrinho(idProduto, nome, valor, imagem) {
             if (!response.ok) {
                 throw new Error('Erro na solicitação: ' + response.status);
             }
-          //   loadCart();
+            carregaCarinho();
             return response.json();
         })
         .then(data => {
@@ -56,7 +56,7 @@ function adicionaCarrinho(idProduto, nome, valor, imagem) {
             return response.json();
         })
         .then(data => {
-           // loadCartProduct(data);
+            carregaCarrinhoProdutos(data);
         })
         .catch(error => {
             console.error('Erro:', error);
