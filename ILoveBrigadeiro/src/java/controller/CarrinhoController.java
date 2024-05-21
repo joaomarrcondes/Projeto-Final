@@ -55,16 +55,12 @@ public class CarrinhoController extends HttpServlet {
                 String json = sb.toString();
 
                 javax.json.JsonObject jsonObject = Json.createReader(new StringReader(json)).readObject();
-                int produtoId = jsonObject.getInt("produtoId");
-                String nomeProduto = jsonObject.getString("nomeProduto");
-                String descricaoProduto = jsonObject.getString("descricaoProduto");
-                
-                nomeProduto = new String(nomeProduto.getBytes("ISO-8859-1"), "UTF-8");
-                descricaoProduto = new String(descricaoProduto.getBytes("ISO-8859-1"), "UTF-8");
-                
-                int valorProduto = jsonObject.getJsonNumber("valorProduto").intValue();
-                int quantidadeProduto = jsonObject.getInt("quantidadeProduto");
-                JsonString imagemProduto = jsonObject.getJsonString("imagemProduto");
+                int produtoId = jsonObject.getInt("idProduto");
+                String nomeProduto = jsonObject.getString("nome");        
+                nomeProduto = new String(nomeProduto.getBytes("ISO-8859-1"), "UTF-8"); 
+                int valorProduto = jsonObject.getJsonNumber("valor").intValue();
+                int quantidadeProduto = jsonObject.getInt("quantidade");
+                JsonString imagemProduto = jsonObject.getJsonString("imagem");
                 CarrinhoDTO objCarrinho = new CarrinhoDTO();
                 List<CarrinhoDTO> carrinhoProdutos = CarrinhoFuncao.getInstance().getCarrinhoItens();
 

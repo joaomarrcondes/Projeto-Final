@@ -15,21 +15,21 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function criaCardCarrinho(carrinhoProdutos) {
- 
+
     const totalPrice = carrinhoProdutos.valor * carrinhoProdutos.quantidade;
     carrinhoProdutos.innerHTML = `
-        <section class="item-cart" id="${carrinhoProdutos.id_carrinho}">
-            <div class="image-cart">
+        <section class="produto-carrinho" id="${carrinhoProdutos.id_carrinho}">
+            <div class="imagem-carrinho">
                 <img src="data:image/png;base64,${carrinhoProdutos.imagem.value}"
                     alt="${carrinhoProdutos.nome}">
             </div>
-            <div class="container-name-cart-item">
+            <div class="nome-produto">
                 <span>${carrinhoProdutos.nome}</span>
             </div>
-            <div class="container-cart-trash">
+            <div class="btn-deleta-produto">
                 <i class="fa-solid fa-trash-can fa-xs btn btn-outline-danger" onclick="deleteItem(${carrinhoProdutos.id_carrinho})"></i>
             </div>
-            <div class="container-value-cart">
+            <div class="valor-carrinho">
                 <span>R$${carrinhoProdutos.valor.toFixed(2)}</span>
                 <span>R$ ${totalPrice.toFixed(2)}</span>
             </div>
@@ -59,8 +59,8 @@ function carregaCarinho() {
             return response.json();
         })
         .then(data => {
-            //updateCartTotal(data);
-            carregaCarrinhoProdutos(data);
+            //carregaCarrinhoProdutos(data);
+            console.log(data)
         })
         .catch(error => {
             console.error(error);
