@@ -16,11 +16,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function criaCardCarrinho(carrinhoProdutos) {
 
-    const totalPrice = carrinhoProdutos.valor * carrinhoProdutos.quantidade;
     carrinhoProdutos.innerHTML = `
         <section class="produto-carrinho" id="${carrinhoProdutos.id_carrinho}">
             <div class="imagem-carrinho">
-                <img src="data:image/png;base64,${carrinhoProdutos.imagem.value}"
+                <img src="data:imagem/png;base64,${carrinhoProdutos.imagem.value}"
                     alt="${carrinhoProdutos.nome}">
             </div>
             <div class="nome-produto">
@@ -31,7 +30,6 @@ function criaCardCarrinho(carrinhoProdutos) {
             </div>
             <div class="valor-carrinho">
                 <span>R$${carrinhoProdutos.valor.toFixed(2)}</span>
-                <span>R$ ${totalPrice.toFixed(2)}</span>
             </div>
         </section>
     `;

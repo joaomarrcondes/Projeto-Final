@@ -8,10 +8,10 @@ function criarProduto(produtos) {
     const base64Imagem = arrayBufferToBase64(produtos.imagem);
 
     card.innerHTML = `
-    <div class="card border-0">
+    <div class="card border-0"> 
         <div class="card-body p-4"> 
         <a class="product-item" id="${produtos.id_produto}" href="./produtos?id=${produtos.id_produto}">
-            <img src="data:image/png;base64,${base64Imagem}" alt="${produtos.nome}" class="img-fluid d-block mx-auto mb-3">
+            <img src="data:imagem/png;base64,${base64Imagem}" alt="${produtos.nome}" class="img-fluid d-block mx-auto mb-3">
             <h5 class="name-product">${produtos.nome}</h5>
             <div class="price d-flex justify-content-center">
                 <span class="value">R$ ${produtos.valor}</span>

@@ -1,4 +1,3 @@
-let produtos;
 let cardProdutos;
 function criarProdutoCard(produtos) {
     const card = document.createElement('div');
@@ -8,7 +7,7 @@ function criarProdutoCard(produtos) {
     <div class="card border-0">
         <div class="card-body p-4"> 
         <a class="product-item" id="${produtos.id_produto}" href="./produtos?id=${produtos.id_produto}">
-            <img src="data:image/png;base64,${imagem}" alt="${produtos.nome}" class="img-fluid d-block mx-auto mb-3">
+            <img src="data:imagem/png;base64,${imagem}" alt="${produtos.nome}" class="img-fluid d-block mx-auto mb-3">
             <h5 class="name-product">${produtos.nome}</h5>
             <div class="price d-flex justify-content-center">
                 <span class="value">R$ ${produtos.valor}</span>
@@ -71,7 +70,7 @@ function carregarProdutosCarousel(produtos) {
     });
 }
 
-fetch('lista-produtos')
+fetch('./lista-produtos')
     .then(response => {
         if (!response.ok) {
             throw new Error('Erro ao obter os dados do produto');
@@ -79,8 +78,7 @@ fetch('lista-produtos')
         return response.json();
     })
     .then(data => {
-        produtos = data;
-        carregarProdutosCarousel(produtos)
+        carregarProdutosCarousel(data)
     })
     .catch(error => {
         console.error(error);

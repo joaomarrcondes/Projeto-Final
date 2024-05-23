@@ -43,6 +43,7 @@
                 <h2 class="title-carousel">DESTAQUES</h2>
                 <div class="c-carousel c-carousel--produtos">
                     <div class="c-carousel__slides js-carousel--products d-flex">
+                      
                     </div>
                     <div class="carousel-buttons d-flex justify-content-center">
                         <button class="js-carousel--simple-prev btn-slide m-2" aria-label="Anterior"><i
