@@ -14,7 +14,7 @@ function criarProdutoCard(produtos) {
             </div>
         </a>
             <div class="btn-container d-flex justify-content-center m-3">
-                <button class="btn-adicionar" onclick="adicionaCarrinho(${produtos.id_produto}, '${produtos.nome}', ${produtos.valor}, ${imagem})">Adicionar</button>
+                <button class="btn-adicionar" onclick="adicionaCarrinho(${produtos.id_produto}, '${produtos.nome}', ${produtos.valor}, '${imagem}')">Adicionar</button>
             </div>
         </div>
     </div>
@@ -30,7 +30,6 @@ function adicionaCarrinho(idProduto, nome, valor, imagem) {
         imagem: imagem,
         quantidade: 1
     }
-
     fetch('./adiciona-produto', {
         method: 'POST',
         headers: {
@@ -54,7 +53,7 @@ function adicionaCarrinho(idProduto, nome, valor, imagem) {
             return response.json();
         })
         .then(data => {
-            //carregaCarrinhoProdutos(data);
+            carregaCarrinhoProdutos(data);
         })
         .catch(error => {
             console.error('Erro:', error);

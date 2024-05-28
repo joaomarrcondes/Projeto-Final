@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const btnFechar = document.getElementById("btn-fechar-carrinho");
     const background = document.getElementById("background");
     const carrinho = document.getElementById("carrinho-compras");
+    const body = document.body;
 
     btnAbrir.addEventListener('click', toggleCarrinho);
     btnFechar.addEventListener('click', toggleCarrinho);
@@ -11,12 +12,13 @@ document.addEventListener("DOMContentLoaded", function () {
     function toggleCarrinho(event) {
         carrinho.classList.toggle('open');
         background.classList.toggle('open');
+        body.classList.toggle('no-scroll');
     }
 });
 
 function criaCardCarrinho(carrinhoProdutos) {
-
-    carrinhoProdutos.innerHTML = `
+    const cardProduto = document.createElement('li');
+    cardProduto.innerHTML = `
         <section class="produto-carrinho" id="${carrinhoProdutos.id_carrinho}">
             <div class="imagem-carrinho">
                 <img src="data:imagem/png;base64,${carrinhoProdutos.imagem.value}"
@@ -26,14 +28,14 @@ function criaCardCarrinho(carrinhoProdutos) {
                 <span>${carrinhoProdutos.nome}</span>
             </div>
             <div class="btn-deleta-produto">
-                <i class="fa-solid fa-trash-can fa-xs btn btn-outline-danger" onclick="deleteItem(${carrinhoProdutos.id_carrinho})"></i>
+                <i class="fa-regular fa-trash-can" onclick="deleteItem(${carrinhoProdutos.id_carrinho})"></i>
             </div>
             <div class="valor-carrinho">
-                <span>R$${carrinhoProdutos.valor.toFixed(2)}</span>
+                <span>R$${carrinhoProdutos.valor}</span>
             </div>
         </section>
     `;
-    return carrinhoProdutos;
+    return cardProduto;
 }
 
 
@@ -57,8 +59,8 @@ function carregaCarinho() {
             return response.json();
         })
         .then(data => {
-            //carregaCarrinhoProdutos(data);
             console.log(data)
+            carregaCarrinhoProdutos(data);
         })
         .catch(error => {
             console.error(error);
