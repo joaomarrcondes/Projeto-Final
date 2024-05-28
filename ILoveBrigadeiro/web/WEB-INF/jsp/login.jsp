@@ -1,9 +1,10 @@
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <script src="https://kit.fontawesome.com/2283da70d2.js" crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
+    <meta charset=ISO-8859-1>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela de Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -20,7 +21,7 @@
                 </a>
                 <h2 id="titulo2">Bem-Vindo de Volta!</h2>
                 <span>Para se conectar conosco</span> <br>
-                <span>crie uma conta com suas informacoes pessoais</span> <br>
+                <span>crie uma conta com suas informações pessoais</span> <br>
                 <a href="./tela-cadastro">
                     <button id="btn-criar">Criar uma Conta</button>
                 </a>
@@ -29,11 +30,11 @@
                 <h2 id="titulo1">Login de Cliente</h2>
                 <h5 id="subtitulo">Clientes Registrados</h5>
                 <hr id="linha">
-                <span id="texto-span">Se voce tiver uma conta, acesse com seu nome de usuario e senha.</span>
+                <span id="texto-span">Se você tiver uma conta, acesse com seu nome de usuário e senha.</span>
                 <form name="formLogin" action="login" method="post">
                     <div class="mb-3">
                         <i class="fa-solid fa-circle-user"></i>
-                        <label for="inputUser" class="form-label">Usuario</label>
+                        <label for="inputUser" class="form-label">Usuário</label>
                         <input name="user" class="form-control" type="text" placeholder="Username">
                     </div>
                     <div class="mb-3">

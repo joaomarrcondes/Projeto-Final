@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -16,7 +17,7 @@
         <div class="container-header">
             <div class="logo-container">
                 <img class="logo" src="./assets/ILoveBrigadeiro.png">
-                <p id="nome-endereco">I Love Brigadeiro <br> R. Belem, 844 - Centro, Londrina - PR, 86026-040</p>
+                <p id="nome-endereco">I Love Brigadeiro <br> R. Belém, 844 - Centro, Londrina - PR, 86026-040</p>
                 <div class="input-pesquisa">
                     <form class="d-flex" action="buscar-produtos" method="get">
                         <button id="btn-pesquisa" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -65,7 +66,7 @@
             <div class="container-categorias">
                 <c:forEach items="${categorias}" var="categoria">
                     <div class="categoria">
-                        <a href="./buscar-produtos?cat=${categoria.idCategoria}&busca=">${categoria.nome}</a>
+                        <a class="categoria-link"href="./buscar-produtos?cat=${categoria.idCategoria}&busca=">${categoria.nome}</a>
                     </div>
                 </c:forEach>
             </div>

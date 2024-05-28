@@ -1,9 +1,3 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 #linha1 {
     border: #ff0077 solid 1px;
     margin-left: 100px;
@@ -13,7 +7,7 @@
 
 .title-carousel {
     color: #F57EB6;
-    font-weight: bold;
+    font-weight: 800;
     margin-left: 100px;
     margin-bottom: 50px;
     margin-top: 20px;
@@ -22,4 +16,12 @@
     margin: 0 90px 0 90px;
 }
 
-
+.btn-slide {
+    width: 55px;
+    height: 55px;
+    background-color: #F57EB6;
+    color: white;
+    border: none;
+    border-radius: 100%;
+    font-size: 20px;
+}

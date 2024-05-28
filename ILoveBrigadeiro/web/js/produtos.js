@@ -6,15 +6,15 @@ function criarProdutoCard(produtos) {
     card.innerHTML = `
     <div class="card border-0">
         <div class="card-body p-4"> 
-        <a class="product-item" id="${produtos.id_produto}" href="./produtos?id=${produtos.id_produto}">
+        <a class="produto-item" id="${produtos.id_produto}" href="./produtos?id=${produtos.id_produto}">
             <img src="data:imagem/png;base64,${imagem}" alt="${produtos.nome}" class="img-fluid d-block mx-auto mb-3">
-            <h5 class="name-product">${produtos.nome}</h5>
-            <div class="price d-flex justify-content-center">
-                <span class="value">R$ ${produtos.valor}</span>
+            <h5 class="nome-produto">${produtos.nome}</h5>
+            <div class="valor d-flex justify-content-center">
+                <span class="valor">R$ ${produtos.valor}</span>
             </div>
         </a>
             <div class="btn-container d-flex justify-content-center m-3">
-                <button class="btn-card" onclick="adicionaCarrinho(${produtos.id_produto}, '${produtos.nome}', ${produtos.valor}, ${imagem})">Adicionar</button>
+                <button class="btn-adicionar" onclick="adicionaCarrinho(${produtos.id_produto}, '${produtos.nome}', ${produtos.valor}, ${imagem})">Adicionar</button>
             </div>
         </div>
     </div>

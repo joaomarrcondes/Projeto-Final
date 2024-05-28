@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -34,7 +35,7 @@
                     aria-describedby="basic-addon1">
                 <div class="input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text">Descricao</span>
+                        <span class="input-group-text">Descrição</span>
                     </div>
                     <textarea class="form-control" name="descricao" aria-label="With textarea"></textarea>
                 </div>
