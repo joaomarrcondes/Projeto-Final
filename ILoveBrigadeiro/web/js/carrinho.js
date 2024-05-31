@@ -28,7 +28,7 @@ function criaCardCarrinho(carrinhoProdutos) {
                 <span>${carrinhoProdutos.nome}</span>
             </div>
             <div class="btn-deleta-produto">
-                <i class="fa-regular fa-trash-can" onclick="deleteItem(${carrinhoProdutos.id_carrinho})"></i>
+                <i class="fa-regular fa-trash-can" onclick="deletaProduto(${carrinhoProdutos.id_carrinho})"></i>
             </div>
             <div class="valor-carrinho">
                 <span>R$${carrinhoProdutos.valor}</span>
@@ -54,7 +54,7 @@ function carregaCarinho() {
     fetch('./carrinho-produtos')
         .then(response => {
             if (!response.ok) {
-                throw new Error('Erro ao obter dados dos produtos');
+                throw new Error('Erro ao conseguir informações do produto');
             }
             return response.json();
         })

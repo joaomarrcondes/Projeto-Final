@@ -48,7 +48,7 @@ function adicionaCarrinho(idProduto, nome, valor, imagem) {
         })
         .then(response => {
             if (!response.ok) {
-                throw new Error('Erro ao obter dados dos produtos');
+                throw new Error('Erro ao conseguir informações do produto');
             }
             return response.json();
         })
@@ -72,7 +72,7 @@ function carregarProdutosCarousel(produtos) {
 fetch('./lista-produtos')
     .then(response => {
         if (!response.ok) {
-            throw new Error('Erro ao obter os dados do produto');
+            throw new Error('Erro ao conseguir informações do produto');
         }
         return response.json();
     })

@@ -63,7 +63,6 @@ public class CarrinhoController extends HttpServlet {
                 JsonString imagemProduto = jsonObject.getJsonString("imagem");
                 CarrinhoDTO objCarrinho = new CarrinhoDTO();
                 List<CarrinhoDTO> carrinhoProdutos = CarrinhoFuncao.getInstance().getCarrinhoItens();
-
                 boolean found = false;
                 for (CarrinhoDTO item : carrinhoProdutos) {
                     if (item.getId_carrinho() == produtoId) {
@@ -72,7 +71,6 @@ public class CarrinhoController extends HttpServlet {
                         break;
                     }
                 }
-
                 if (!found) {
                     objCarrinho.setId_carrinho(produtoId);
                     objCarrinho.setNome(nomeProduto);
@@ -81,17 +79,14 @@ public class CarrinhoController extends HttpServlet {
                     objCarrinho.setImagem(imagemProduto);
                     CarrinhoFuncao.getInstance().adicionaItem(objCarrinho);
                 }
-
                 javax.json.JsonObject responseJson = Json.createObjectBuilder()
-                        .add("message", "Produto adicionado ao carrinho com sucesso!")
+                        .add("message", "Produto adicionado")
                         .build();
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
                 response.getWriter().write(responseJson.toString());
             } catch (Exception e) {
                 e.printStackTrace();
-                response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-                response.getWriter().write("Erro interno ao processar a solicitação.");
             }
         }
     }

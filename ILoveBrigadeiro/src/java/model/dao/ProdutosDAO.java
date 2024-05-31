@@ -93,7 +93,7 @@ public class ProdutosDAO {
             if (generatedKeys.next()) {
                 id_produto = generatedKeys.getInt(1);
             } else {
-                throw new SQLException("Falha ao recuperar o ID do produto gerado automaticamente.");
+                throw new SQLException("Erro no id do produto");
             }
             objEstoque.setQuantidade(objProdutos.getQuantidade());
             objEstoque.setProduto_id(id_produto);
@@ -104,20 +104,20 @@ public class ProdutosDAO {
             e.printStackTrace();
         }
     }
-     
-      public void inserirEstoqueProduto(EstoqueDTO objEstoque) {
+
+    public void inserirEstoqueProduto(EstoqueDTO objEstoque) {
         try {
             Connection connection = Conexao.conectar();
             PreparedStatement stmt = null;
             stmt = connection.prepareStatement("INSERT INTO estoque (quantidade ,produto_id) VALUES (?, ?)");
             stmt.setInt(1, objEstoque.getQuantidade());
             stmt.setInt(2, objEstoque.getProduto_id());
-            
+
             stmt.executeUpdate();
             stmt.close();
             connection.close();
         } catch (SQLException e) {
-            System.out.println("Erro no insert de estoque de produto: " + e);
+            e.printStackTrace();
         }
     }
 }

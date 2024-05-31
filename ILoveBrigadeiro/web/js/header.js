@@ -1,4 +1,3 @@
-//função que cria as li de cada categoria
 function criarCategoria(categorias) {
     const li = document.createElement('li');
     li.innerHTML = `
@@ -7,7 +6,6 @@ function criarCategoria(categorias) {
     return li;
 }
 
-//função que carregar as categorias na ul
 function carregarCategoria(categorias) {
     const ul = document.querySelector('.categoria');
 
@@ -17,11 +15,10 @@ function carregarCategoria(categorias) {
     });
 }
 
-//Acesso aos dados da lista de categorias
 fetch('./lista-categorias')
     .then(response => {
         if (!response.ok) {
-            throw new Error('Erro ao obter dados dos produtos');
+            throw new Error('Erro ao conseguir informações do produto');
         }
         return response.json();
     })

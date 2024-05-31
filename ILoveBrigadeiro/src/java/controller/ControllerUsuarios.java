@@ -68,19 +68,18 @@ public class ControllerUsuarios extends HttpServlet {
         processRequest(request, response);
         String url = request.getServletPath();
         if (url.equals("/cadastro")) {
-
             String nome = request.getParameter("nome");
             String senha = request.getParameter("senha");
             String usuario = request.getParameter("usuario");
-            nome = new String(nome.getBytes("ISO-8859-1"), "UTF-8");
-            senha = new String(senha.getBytes("ISO-8859-1"), "UTF-8");
-            usuario = new String(senha.getBytes("ISO-8859-1"), "UTF-8");
-            objUsuariosDTO.setNome("nome");
-            objUsuariosDTO.setSenha("senha");
-            objUsuariosDTO.setUsuario("usuario");
-            objUsuariosDTO.setTelefone(request.getParameter("telefone"));
-            objUsuariosDTO.setData_nascimento(request.getParameter("data_nascimento"));
-            objUsuariosDTO.setCpf(request.getParameter("cpf"));
+            String telefone = request.getParameter("telefone");
+            String dataNascimento = request.getParameter("data_nascimento");
+            String cpf = request.getParameter("cpf");
+            objUsuariosDTO.setNome(nome);
+            objUsuariosDTO.setSenha(senha);
+            objUsuariosDTO.setUsuario(usuario);
+            objUsuariosDTO.setTelefone(telefone);
+            objUsuariosDTO.setData_nascimento(dataNascimento);
+            objUsuariosDTO.setCpf(cpf);
             objUsuariosDAO.inserir(objUsuariosDTO);
             String path = "/WEB-INF/jsp/login.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(path);
