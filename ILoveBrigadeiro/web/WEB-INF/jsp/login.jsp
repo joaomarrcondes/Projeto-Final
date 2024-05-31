@@ -19,30 +19,38 @@
                     <a href="./home">
                         <img src="./assets/ILoveBrigadeiro.png" alt="logo">
                     </a>
-                    <h2 id="titulo2">Bem-Vindo de Volta!</h2>
+                    <h2>Bem-Vindo de Volta!</h2>
                     <span>Para se conectar conosco</span> <br>
-                    <span>crie uma conta com suas informações pessoais</span> <br>
+                    <span id="span2">crie uma conta com suas informações pessoais</span> <br>
                     <a href="./tela-cadastro">
                         <button id="btn-criar">Criar uma Conta</button>
                     </a>
                 </div>
                 <div class="second-column">
                     <h2 id="titulo1">Login de Cliente</h2>
-                    <h5 id="subtitulo">Clientes Registrados</h5>
-                    <hr id="linha">
-                    <span id="texto-span">Se você tiver uma conta, acesse com seu nome de usuário e senha.</span>
+                    <div class="subtitulo">
+                        <h5>Clientes Registrados</h5>
+                        <hr id="linha">
+                        <span>Se você tiver uma conta, acesse com seu nome de usuário e senha.</span>
+                    </div>
                     <form name="formLogin" action="login" method="post">
                         <div class="mb-3">
-                            <i class="fa-solid fa-circle-user"></i>
                             <h6>Usuário</h6>
-                            <input name="user" class="form-control" type="text" placeholder="Username">
+                            <div class="icon-user">
+                                <i class="fa-solid fa-circle-user"></i>
+                                <input name="user" class="form-control" type="text" placeholder="Username">
+                            </div>
                         </div>
                         <div class="mb-3">
-                            <i class="fa-solid fa-lock"></i>
                             <h6>Senha</h6>
-                            <input name="password" class="form-control" type="text" placeholder="Password">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckChecked">Lembre-me</label>
+                            <div class="icon-password">
+                                <i class="fa-solid fa-lock"></i>
+                                <input name="password" class="form-control" type="text" placeholder="Password">
+                            </div>
+                            <div class="checkbox">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckChecked">Lembre-me</label>
+                            </div>
                         </div>
                         <input id="btn-fazer-login" type="button" value="Fazer Login" onclick="validacao()">
                     </form>

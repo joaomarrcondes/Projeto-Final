@@ -4,9 +4,11 @@ function validacao() {
 
     if (user.trim() === "") {
         alert("Insira seu Nome de Usuário");
+        formLogin.user.focus();
         return false;
     } else if (password.trim() === "") {
         alert("Insira sua Senha");
+        formLogin.password.focus();
         return false;
     } else {
         let matchedUser = users.find(item => item.usuario === user && item.senha === password);
