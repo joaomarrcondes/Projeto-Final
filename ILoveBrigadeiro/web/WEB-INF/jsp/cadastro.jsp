@@ -59,7 +59,7 @@
                         <img src="./assets/ILoveBrigadeiro.png" alt="logo">
                     </a>
                     <h2 id="titulo2">Seja Bem-Vindo!</h2>
-                    <span>Para se conectar conosco</span> <br>
+                    <span id="span1">Para se conectar conosco</span> <br>
                     <span>faça login com seu Usuário e Senha</span> <br>
                     <a href="./tela-login">
                         <button id="btn-entrar">Entrar</button>
