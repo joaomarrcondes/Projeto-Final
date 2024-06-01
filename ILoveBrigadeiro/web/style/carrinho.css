@@ -72,5 +72,30 @@
     .header-carrinho {
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        background-color: #f57eb6;
+        height: 87px;
+    }
+
+    .header-carrinho h4{
+        color: white;
+        font-weight: 700;
+        margin-left: 20px;
+    }
+
+    #btn-fechar-carrinho{
+      border: none;
+      background-color: #f57eb6;
+    }
+
+    .fa-circle-xmark{
+        color: white;
+        font-size: 25px;
+        margin-right: 20px;
+    }
+
+    .produto-carrinho{
+        display: flex;
+        justify-content: space-around;
     }
 }

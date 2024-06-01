@@ -76,7 +76,7 @@
                     <div id="carrinho-compras">
                         <div class="header-carrinho">
                             <h4>Meu Carrinho</h4>
-                            <button id="btn-fechar-carrinho"><i class="fa-solid fa-xmark"></i></button>
+                            <button id="btn-fechar-carrinho"><i class="fa-regular fa-circle-xmark"></i></button>
                         </div>
                         <div class="itens-cart-ul">
                             <ul class="list-group-item">
