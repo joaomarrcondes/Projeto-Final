@@ -28,10 +28,13 @@ function criaCardCarrinho(carrinhoProdutos) {
                 <span>${carrinhoProdutos.nome}</span>
             </div>
             <div class="btn-deleta-produto">
-                <i class="fa-regular fa-trash-can" onclick="deletaProduto(${carrinhoProdutos.id_carrinho})"></i>
+                <i class="fa-regular fa-trash-can" onclick="excluirProduto(${carrinhoProdutos.id_carrinho})"></i>
             </div>
             <div class="valor-carrinho">
                 <span>R$${carrinhoProdutos.valor}</span>
+            </div>
+            <div class="input-quantidade">
+            <input onclick="sendQtd(${carrinhoProdutos.id_carrinho}, this.value)" type="number" value="${carrinhoProdutos.quantidade}" min="0" max="10" step="1" />
             </div>
         </section>
     `;
@@ -48,6 +51,29 @@ function carregaCarrinhoProdutos(carrinhoProdutos) {
         const card = criaCardCarrinho(carrinhoProdutos);
         element.appendChild(card);
     });
+}
+
+function excluirProduto(produtoId) {
+    fetch('./deleta-produto?produtoId=' + produtoId, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro');
+            }
+            const contentType = response.headers.get('content-type');
+            if (!contentType || !contentType.includes('application/json')) {
+                return null;
+            }
+            return response.json();
+        })
+        .catch(error => {
+            console.error('Erro', error);
+        })
+    carregaCarinho();
 }
 
 function carregaCarinho() {

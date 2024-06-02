@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.bean.CarrinhoDTO;
 import model.bean.CarrinhoFuncao;
 
-@WebServlet(name = "CarrinhoController", urlPatterns = {"/adiciona-produto", "/carrinho-produtos"})
+@WebServlet(name = "CarrinhoController", urlPatterns = {"/adiciona-produto", "/carrinho-produtos", "/deleta-produto"})
 public class CarrinhoController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -56,8 +56,8 @@ public class CarrinhoController extends HttpServlet {
 
                 javax.json.JsonObject jsonObject = Json.createReader(new StringReader(json)).readObject();
                 int produtoId = jsonObject.getInt("idProduto");
-                String nomeProduto = jsonObject.getString("nome");        
-                nomeProduto = new String(nomeProduto.getBytes("ISO-8859-1"), "UTF-8"); 
+                String nomeProduto = jsonObject.getString("nome");
+                nomeProduto = new String(nomeProduto.getBytes("ISO-8859-1"), "UTF-8");
                 int valorProduto = jsonObject.getJsonNumber("valor").intValue();
                 int quantidadeProduto = jsonObject.getInt("quantidade");
                 JsonString imagemProduto = jsonObject.getJsonString("imagem");
@@ -91,9 +91,28 @@ public class CarrinhoController extends HttpServlet {
         }
     }
 
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String path = request.getServletPath();
+        if (path.equals("/deleta-produto")) {
+            String produtoId = request.getParameter("produtoId");
+            List<CarrinhoDTO> carrinhoProdutos = CarrinhoFuncao.getInstance().getCarrinhoItens();
+            CarrinhoDTO excluirProduto = null;
+            for (CarrinhoDTO item : carrinhoProdutos) {
+                if (item.getId_carrinho() == Integer.parseInt(produtoId)) {
+                    excluirProduto = item;
+                    break;
+                }
+            }
+            if (excluirProduto != null) {
+                carrinhoProdutos.remove(excluirProduto);
+            }
+            response.setStatus(HttpServletResponse.SC_OK);
+        }
+    }
+
     @Override
     public String getServletInfo() {
         return "Short description";
     }
-
 }
