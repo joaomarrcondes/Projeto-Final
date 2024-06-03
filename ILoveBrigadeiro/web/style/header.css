@@ -137,3 +137,14 @@ nav li a {
 #btn-adm a {
     color: white;
 }
+
+.finalizar-compra button {
+    background-color: #F57EB6;
+    border: none;
+    border-radius: 10px;
+    width: 430px;
+    height: 57px;
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+}

@@ -7,6 +7,7 @@ import java.io.StringReader;
 import java.util.List;
 import javax.json.Json;
 import javax.json.JsonString;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,12 +16,17 @@ import javax.servlet.http.HttpServletResponse;
 import model.bean.CarrinhoDTO;
 import model.bean.CarrinhoFuncao;
 
-@WebServlet(name = "CarrinhoController", urlPatterns = {"/adiciona-produto", "/carrinho-produtos", "/deleta-produto"})
+@WebServlet(name = "CarrinhoController", urlPatterns = {"/adiciona-produto", "/carrinho-produtos", "/deleta-produto", "/finalizar-compra", "/esvaziar-carrinho"})
 public class CarrinhoController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        String url = request.getServletPath();
+        if (url.equals("/finalizar-compra")) {
+            String path = "/WEB-INF/jsp/checkout.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(path);
+            dispatcher.forward(request, response);
+        }
 
     }
 
@@ -111,8 +117,17 @@ public class CarrinhoController extends HttpServlet {
         }
     }
 
-    @Override
-    public String getServletInfo() {
-        return "Short description";
+    protected void doEsvaziarDelete(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String path = request.getServletPath();
+        if (path.equals("/esvaziar-carrinho")) {
+            List<CarrinhoDTO> carrinhoProdutos = CarrinhoFuncao.getInstance().getCarrinhoItens();
+            if (!carrinhoProdutos.isEmpty()) {
+                carrinhoProdutos.clear();
+            }
+            response.setStatus(HttpServletResponse.SC_OK);
+        } else {
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+        }
     }
 }

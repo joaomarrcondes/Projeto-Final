@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const background = document.getElementById("background");
     const carrinho = document.getElementById("carrinho-compras");
     const body = document.body;
+    const btnFinalizar = document.getElementById("btn-finalizar");
 
     btnAbrir.addEventListener('click', toggleCarrinho);
     btnFechar.addEventListener('click', toggleCarrinho);
@@ -34,9 +35,12 @@ function criaCardCarrinho(carrinhoProdutos) {
                 <span>R$${carrinhoProdutos.valor}</span>
             </div>
             <div class="input-quantidade">
-            <input onclick="sendQtd(${carrinhoProdutos.id_carrinho}, this.value)" type="number" value="${carrinhoProdutos.quantidade}" min="0" max="10" step="1" />
+            <input onclick="(${carrinhoProdutos.id_carrinho}, this.value)" type="number" value="${carrinhoProdutos.quantidade}" min="0" max="10" step="1" />
             </div>
         </section>
+        <br>
+        <hr>
+    <br>
     `;
     return cardProduto;
 }
@@ -76,6 +80,32 @@ function excluirProduto(produtoId) {
     carregaCarinho();
 }
 
+function esvaziarCarrinho() {
+    fetch('./esvaziar-carrinho', {
+        method: 'DELETE',
+        headers: {
+            'contentType': 'application/json',
+        },
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro');
+            }
+            const contentType = response.headers.get('content-type');
+            if (!contentType || !contentType.includes('application/json')) {
+                return null;
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('tudo removido', data);
+            carregaCarinho();
+        })
+        .catch(error => {
+            console.error('Erro', error);
+        });
+}
+
 function carregaCarinho() {
     fetch('./carrinho-produtos')
         .then(response => {
@@ -85,6 +115,9 @@ function carregaCarinho() {
             return response.json();
         })
         .then(data => {
+            if (data === "") {
+                btnFinalizar.disabled = true;
+            }
             console.log(data)
             carregaCarrinhoProdutos(data);
         })

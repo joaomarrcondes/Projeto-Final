@@ -98,4 +98,8 @@
         display: flex;
         justify-content: space-around;
     }
+
+    hr{
+        background-color: #ff0077;
+    }
 }

@@ -80,7 +80,23 @@
                         </div>
                         <div class="itens-cart-ul">
                             <ul class="list-group-item">
+
                             </ul>
+                        </div>
+                        <div class="carrinho-footer">
+                            <div class="btn-esvaziar">
+                                <input type="button" value="Esvaziar Carrinho" onclick="esvaziarCarrinho()">
+                            </div>
+                            <hr>
+                            <div class="subtotal">
+                                <h6>SUBTOTAL</h6>
+                                <span></span>
+                            </div>
+                            <div class="finalizar-compra">
+                                <a href="./finalizar-compra" id="btn-finalizar">
+                                    <button>Finalizar Compra</button>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
