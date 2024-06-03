@@ -97,6 +97,7 @@ public class CarrinhoController extends HttpServlet {
         }
     }
 
+    @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String path = request.getServletPath();
@@ -115,19 +116,12 @@ public class CarrinhoController extends HttpServlet {
             }
             response.setStatus(HttpServletResponse.SC_OK);
         }
-    }
-
-    protected void doEsvaziarDelete(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String path = request.getServletPath();
         if (path.equals("/esvaziar-carrinho")) {
             List<CarrinhoDTO> carrinhoProdutos = CarrinhoFuncao.getInstance().getCarrinhoItens();
             if (!carrinhoProdutos.isEmpty()) {
                 carrinhoProdutos.clear();
             }
             response.setStatus(HttpServletResponse.SC_OK);
-        } else {
-            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
         }
     }
 }

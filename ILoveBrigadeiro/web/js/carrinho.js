@@ -84,7 +84,7 @@ function esvaziarCarrinho() {
     fetch('./esvaziar-carrinho', {
         method: 'DELETE',
         headers: {
-            'contentType': 'application/json',
+            'Content-Type': 'application/json',
         },
     })
         .then(response => {
