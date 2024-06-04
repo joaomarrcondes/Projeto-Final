@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.bean.UsuariosDTO;
 import model.dao.UsuariosDAO;
 
@@ -16,7 +17,7 @@ import model.dao.UsuariosDAO;
  *
  * @author Senai
  */
-@WebServlet(name = "ControllerUsuarios", urlPatterns = {"/tela-login", "/tela-cadastro", "/login", "/cadastro", "/users", "/home"})
+@WebServlet(name = "ControllerUsuarios", urlPatterns = {"/tela-login", "/tela-cadastro", "/login", "/cadastro", "/users", "/home", "/sair", "/pedidos"})
 public class ControllerUsuarios extends HttpServlet {
 
     UsuariosDTO objUsuariosDTO = new UsuariosDTO();
@@ -34,11 +35,26 @@ public class ControllerUsuarios extends HttpServlet {
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         } else if (url.equals("/login")) {
+            String usuario = request.getParameter("user");
+            HttpSession secao = request.getSession();
+            secao.setAttribute("user", usuario);
             String nextPage = "/WEB-INF/jsp/index.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         } else if (url.equals("/home")) {
             String nextPage = "/WEB-INF/jsp/index.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        } else if (url.equals("/sair")) {
+            HttpSession secao = request.getSession();
+            secao.invalidate();
+            String nextPage = "/WEB-INF/jsp/index.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        } else if (url.equals("/pedidos")) {
+            HttpSession secao = request.getSession();
+            secao.invalidate();
+            String nextPage = "/WEB-INF/jsp/pedidos.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         }

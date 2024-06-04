@@ -21,6 +21,10 @@ img {
 }
 
 .container-esquerda {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding-left: 80px;
 }
 
@@ -112,11 +116,11 @@ img {
     border-color: #F57EB6;
 }
 
-.mb-3 h6{
+.mb-3 h6 {
     font-weight: bold;
     font-size: 15px;
 }
 
-#span1{
+#span1 {
     margin-top: 20px;
 }

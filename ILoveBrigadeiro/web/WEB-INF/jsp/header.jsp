@@ -1,6 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-    <!DOCTYPE html>
-    <html lang="pt-br">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page session="true"%>
+<!DOCTYPE html>
+<html lang="pt-br">
 
     <head>
         <meta charset="UTF-8">
@@ -23,7 +25,7 @@
                             <button id="btn-pesquisa" type="submit"><i
                                     class="fa-solid fa-magnifying-glass"></i></button>
                             <input class="form-control me-2" name="busca" type="search"
-                                placeholder="Buscar por item da loja" aria-label="Search">
+                                   placeholder="Buscar por item da loja" aria-label="Search">
                         </form>
                     </div>
                     <nav>
@@ -32,10 +34,18 @@
                                 <a href="#"><i class="fa-solid fa-user"></i>
                                     <br>
                                     Perfil
-                                </a>
+                                </a>                              
                                 <div class="dropdown-menu">
-                                    <a id="btn-login" href="./tela-login">Login</a>
-                                    <a id="btn-cadastro" href="./tela-cadastro">Cadastro</a>
+                                    <c:choose>
+                                        <c:when test="${empty sessionScope.user}">
+                                            <a id="btn-login" href="./tela-login">Login</a>
+                                            <a id="btn-cadastro" href="./tela-cadastro">Cadastro</a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a href="./pedidos">Meus Pedidos</a>
+                                            <a href="./sair">Sair da Conta</a>
+                                        </c:otherwise>
+                                    </c:choose>                                  
                                 </div>
                             </li>
                         </ul>
@@ -45,13 +55,6 @@
                             <i class="fa-solid fa-basket-shopping"></i>
                             <br>
                             Carrinho
-                        </button>
-                    </div>
-                    <div class="pedidos-container">
-                        <button id="btn-pedidos">
-                            <i class="fa-solid fa-receipt"></i>
-                            <br>
-                            Pedidos
                         </button>
                     </div>
                     <div class="adm-container">
@@ -68,7 +71,7 @@
                     <c:forEach items="${categorias}" var="categoria">
                         <div class="categoria">
                             <a class="categoria-link"
-                                href="./buscar-produtos?cat=${categoria.idCategoria}&busca=">${categoria.nome}</a>
+                               href="./buscar-produtos?cat=${categoria.idCategoria}&busca=">${categoria.nome}</a>
                         </div>
                     </c:forEach>
                 </div>
@@ -80,14 +83,12 @@
                         </div>
                         <div class="itens-cart-ul">
                             <ul class="list-group-item">
-
                             </ul>
                         </div>
                         <div class="carrinho-footer">
                             <div class="btn-esvaziar">
                                 <input type="button" value="Esvaziar Carrinho" onclick="esvaziarCarrinho()">
                             </div>
-                            <hr>
                             <div class="subtotal">
                                 <h6>SUBTOTAL</h6>
                                 <span></span>
@@ -113,4 +114,4 @@
     <script src="./js/carrinho.js"></script>
     <script src="./js/menu-user.js"></script>
 
-    </html>
+</html>

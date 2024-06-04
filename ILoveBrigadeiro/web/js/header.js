@@ -1,7 +1,7 @@
 function criarCategoria(categorias) {
     const li = document.createElement('li');
     li.innerHTML = `
-        <a href="./search-product?category=${categorias.id_categoria}&search=">${categorias.nome}</a>
+        <a href="./buscar-produtos?categoria=${categorias.id_categoria}&buscar=">${categorias.nome}</a>
     `;
     return li;
 }
