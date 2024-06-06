@@ -1,3 +1,7 @@
+const urlParams = new URLSearchParams(window.location.search);
+const buscarProdutos = urlParams.get('busca');
+const buscarCategorias = urlParams.get('categorias');
+
 let cardProdutos;
 function criarProdutoCard(produtos) {
     const card = document.createElement('div');
@@ -91,4 +95,42 @@ function arrayBufferToBase64(buffer) {
         binary += String.fromCharCode(bytes[i]);
     }
     return window.btoa(binary);
+}
+
+function nomeProduto (buscarProdutos){
+    fetch('./busca?busca=' + buscarProdutos)
+    .then(response => {
+        if(response.ok){
+            throw new Error('erro na busca do produto')
+        }
+        return response.json();
+    })
+    .then(data => {
+        carregarProdutosCarousel(data);
+    })
+    .catch(error => {
+        console.error(error);
+    })
+}
+
+
+function categoriaProduto (buscarCategorias){
+    fetch('./busca?categorias=' + buscarCategorias)
+    .then(response => {
+        if(response.ok){
+            throw new Error('erro na busca do produto')
+        }
+        return response.json();
+    })
+    .then(data => {
+        carregarProdutosCarousel(data);
+    })
+    .catch(error => {
+        console.error(error);
+    })
+}
+if (buscarProdutos !== "") {
+    nomeProduto(buscarProdutos);
+} else {
+    categoriaProduto(buscarCategorias);
 }

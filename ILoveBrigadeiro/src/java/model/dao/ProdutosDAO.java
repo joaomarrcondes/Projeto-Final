@@ -120,4 +120,62 @@ public class ProdutosDAO {
             e.printStackTrace();
         }
     }
+
+    public List<ProdutosDTO> buscarProdutos(String busca) {
+        List<ProdutosDTO> produtos = new ArrayList<>();
+        try {
+            Connection connection = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+            stmt = connection.prepareStatement("SELECT * FROM produtos WHERE nome LIKE ? OR descricao LIKE ?");
+            stmt.setString(1, busca);
+            stmt.setString(2, busca);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                ProdutosDTO objProdutos = new ProdutosDTO();
+                objProdutos.setId_produto(rs.getInt("id_produto"));
+                objProdutos.setCategoria_id(rs.getInt("categoria_id"));
+                objProdutos.setNome(rs.getString("nome"));
+                objProdutos.setDescricao(rs.getString("descricao"));
+                objProdutos.setValor(rs.getFloat("valor"));
+                objProdutos.setImagem(rs.getBytes("imagem"));
+                produtos.add(objProdutos);
+            }
+            rs.close();
+            stmt.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return produtos;
+    }
+    
+    
+    public List<ProdutosDTO> buscarCategorias(int categoria) {
+        List<ProdutosDTO> produtos = new ArrayList<>();
+        try {
+            Connection connection = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+            stmt = connection.prepareStatement("SELECT * FROM produtos WHERE categoria_id = ?");
+            stmt.setInt(1, categoria);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                ProdutosDTO objProdutos = new ProdutosDTO();
+                objProdutos.setId_produto(rs.getInt("id_produto"));
+                objProdutos.setCategoria_id(rs.getInt("categoria_id"));
+                objProdutos.setNome(rs.getString("nome"));
+                objProdutos.setDescricao(rs.getString("descricao"));
+                objProdutos.setValor(rs.getFloat("valor"));
+                objProdutos.setImagem(rs.getBytes("imagem"));
+                produtos.add(objProdutos);
+            }
+            rs.close();
+            stmt.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return produtos;
+    }
 }

@@ -24,7 +24,7 @@
                         <form class="d-flex" action="buscar-produtos" method="get">
                             <button id="btn-pesquisa" type="submit"><i
                                     class="fa-solid fa-magnifying-glass"></i></button>
-                            <input class="form-control me-2" name="busca" type="search"
+                            <input class="form-control me-2" name="busca" type="text"
                                    placeholder="Buscar por item da loja" aria-label="Search">
                         </form>
                     </div>

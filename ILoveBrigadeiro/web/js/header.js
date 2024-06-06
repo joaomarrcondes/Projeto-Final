@@ -1,7 +1,7 @@
-function criarCategoria(categorias) {
+function criarCategoria(categoria) {
     const li = document.createElement('li');
     li.innerHTML = `
-        <a href="./buscar-produtos?categoria=${categorias.id_categoria}&buscar=">${categorias.nome}</a>
+        <a href="./buscar-produtos?categoria=${categoria.idCategoria}&busca=">${categoria.nome}</a>
     `;
     return li;
 }
@@ -9,8 +9,8 @@ function criarCategoria(categorias) {
 function carregarCategoria(categorias) {
     const ul = document.querySelector('.categoria');
 
-    categorias.forEach(categorias => {
-        const item = criarCategoria(categorias);
+    categorias.forEach(categoria => {
+        const item = criarCategoria(categoria);
         ul.appendChild(item);
     });
 }

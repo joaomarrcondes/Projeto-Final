@@ -14,6 +14,7 @@
         <jsp:include page="header.jsp"></jsp:include>
     </header>
     <main>
+        <h1>RESULTADOS</h1>
         <section class="container">
 
         </section>

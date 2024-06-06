@@ -19,7 +19,7 @@ import model.dao.CategoriasDAO;
 import model.dao.ProdutosDAO;
 
 @MultipartConfig
-@WebServlet(name = "produtoController", urlPatterns = {"/categoria-produto", "/lista-produtos", "/produtos-item", "/buscar-produtos", "/lista-categorias", "/inserir-produtos"})
+@WebServlet(name = "produtoController", urlPatterns = {"/lista-produtos", "/buscar-produtos", "/lista-categorias", "/inserir-produtos", "/busca"})
 public class ProdutoController extends HttpServlet {
 
     ProdutosDAO objProdutoDao = new ProdutosDAO();
@@ -29,11 +29,7 @@ public class ProdutoController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String url = request.getServletPath();
-        if (url.equals("/categoria-produto")) {
-            String path = "/WEB-INF/jsp/categoria-produto.jsp";
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(path);
-            dispatcher.forward(request, response);
-        } else if (url.equals("/buscar-produtos")) {
+        if (url.equals("/buscar-produtos")) {
             String path = "/WEB-INF/jsp/produtos.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(path);
             dispatcher.forward(request, response);
@@ -45,16 +41,28 @@ public class ProdutoController extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         String url = request.getServletPath();
-
+        if (url.equals("/busca")) {
+            String busca = request.getParameter("busca") != null ? request.getParameter("busca") : "";
+            busca = new String(busca.getBytes("ISO-8859-1"), "UTF-8");
+            if (busca.equals("")) {
+                List<ProdutosDTO> produtos = objProdutoDao.buscarCategorias(Integer.parseInt(request.getParameter("categoria")));
+                Gson gson = new Gson();
+                String json = gson.toJson(produtos);
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write(json);
+            } else {
+                busca = "%" + busca + "%";
+                List<ProdutosDTO> produtos = objProdutoDao.buscarProdutos(busca);
+                Gson gson = new Gson();
+                String json = gson.toJson(produtos);
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write(json);
+            }
+        }
         if (url.equals("/lista-produtos")) {
             List<ProdutosDTO> produtos = objProdutoDao.ler();
-            Gson gson = new Gson();
-            String json = gson.toJson(produtos);
-            response.setContentType("application/json");
-            response.setCharacterEncoding("UTF-8");
-            response.getWriter().write(json);
-        } else if (url.equals("/produtos-item")) {
-            List<ProdutosDTO> produtos = objProdutoDao.lerProdutos("%" + request.getParameter("busca") + "%");
             Gson gson = new Gson();
             String json = gson.toJson(produtos);
             response.setContentType("application/json");
