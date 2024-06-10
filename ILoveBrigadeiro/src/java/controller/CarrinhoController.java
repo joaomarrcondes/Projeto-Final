@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.bean.CarrinhoDTO;
 import model.bean.CarrinhoFuncao;
 
-@WebServlet(name = "CarrinhoController", urlPatterns = {"/adiciona-produto", "/carrinho-produtos", "/deleta-produto", "/finalizar-compra", "/esvaziar-carrinho"})
+@WebServlet(name = "CarrinhoController", urlPatterns = {"/adiciona-produto", "/carrinho-produtos", "/deleta-produto", "/finalizar-compra", "/esvaziar-carrinho", "/quantidade-produto"})
 public class CarrinhoController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -122,6 +122,41 @@ public class CarrinhoController extends HttpServlet {
                 carrinhoProdutos.clear();
             }
             response.setStatus(HttpServletResponse.SC_OK);
+        }
+    }
+
+    protected void doPut(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String path = request.getServletPath();
+        if (path.equals("/quantidade-produto")) {
+            try {
+                BufferedReader reader = request.getReader();
+                StringBuilder sbuilder = new StringBuilder();
+                String linha;
+                while ((linha = reader.readLine()) != null) {
+                    sbuilder.append(linha);
+                }
+                String json = sbuilder.toString();              
+                javax.json.JsonObject jsonObject = Json.createReader(new StringReader(json)).readObject();
+                int produtoId = jsonObject.getInt("produtoId");
+                int quantidadeProduto = Integer.parseInt(jsonObject.getString("quantidadeProduto"));
+                CarrinhoDTO objCarrinho = new CarrinhoDTO();
+                List<CarrinhoDTO> carrinhoProdutos = CarrinhoFuncao.getInstance().getCarrinhoItens();
+                for (CarrinhoDTO item : carrinhoProdutos) {
+                    if (item.getId_carrinho() == produtoId) {
+                        item.setQuantidade(quantidadeProduto);
+                        break;
+                    }
+                }
+                javax.json.JsonObject responseJson = Json.createObjectBuilder()
+                        .add("message", "Quantidade do produto alterada")
+                        .build();
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write(responseJson.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-const urlParams = new URLSearchParams(window.location.search);
+const urlParams = new URLSearchParams(window.location.busca);
 const buscarProdutos = urlParams.get('busca');
 const buscarCategorias = urlParams.get('categorias');
 
@@ -14,11 +14,11 @@ function criarProdutoCard(produtos) {
             <img src="data:imagem/png;base64,${imagem}" alt="${produtos.nome}" class="img-fluid d-block mx-auto mb-3">
             <h5 class="nome-produto">${produtos.nome}</h5>
             <div class="valor d-flex justify-content-center">
-                <span class="valor">R$ ${produtos.valor}</span>
+                <span class="valor">R$ ${produtos.valor.toFixed(2)}</span>
             </div>
         </a>
             <div class="btn-container d-flex justify-content-center m-3">
-                <button class="btn-adicionar" onclick="adicionaCarrinho(${produtos.id_produto}, '${produtos.nome}', ${produtos.valor}, '${imagem}')">Adicionar</button>
+                <button class="btn-adicionar" onclick="adicionaCarrinho(${produtos.id_produto}, '${produtos.nome}', ${produtos.valor.toFixed(2)}, '${imagem}')">Adicionar</button>
             </div>
         </div>
     </div>

@@ -1,30 +1,31 @@
-function criarCategoria(categoria) {
-    const li = document.createElement('li');
-    li.innerHTML = `
-        <a href="./buscar-produtos?categoria=${categoria.idCategoria}&busca=">${categoria.nome}</a>
-    `;
-    return li;
-}
+document.addEventListener('DOMContentLoaded', function () {
+    function criarCategoria(categoria) {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <a href="./buscar-produtos?categoria=${categoria.idCategoria}&busca=">${categoria.nome}</a>
+        `;
+        return li;
+    }
 
-function carregarCategoria(categorias) {
-    const ul = document.querySelector('.categoria');
+    function carregarCategoria(categorias) {
+        const ul = document.querySelector('.categoria');
+        categorias.forEach(categoria => {
+            const item = criarCategoria(categoria);
+            ul.appendChild(item);
+        });
+    }
 
-    categorias.forEach(categoria => {
-        const item = criarCategoria(categoria);
-        ul.appendChild(item);
-    });
-}
-
-fetch('./lista-categorias')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Erro ao conseguir informações do produto');
-        }
-        return response.json();
-    })
-    .then(data => {
-        carregarCategoria(data);
-    })
-    .catch(error => {
-        console.error(error);
-    });
+    fetch('./lista-categorias')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao conseguir informações do produto');
+            }
+            return response.json();
+        })
+        .then(data => {
+            carregarCategoria(data);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+});

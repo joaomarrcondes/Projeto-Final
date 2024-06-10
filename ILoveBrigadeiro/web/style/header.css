@@ -107,7 +107,6 @@ nav li a {
 
 .container-categorias {
     background-color: #E9E7E7;
-    list-style: none;
     padding: 10px;
 }
 
@@ -116,10 +115,14 @@ nav li a {
     justify-content: space-evenly;
     align-items: center;
     text-align: center;
-    margin-right: 150px;
+    margin: 0;
 }
 
-.container-categorias a {
+.categoria li {
+    list-style-type: none;
+}
+
+.categoria a{
     color: #CA89A7;
     font-weight: bold;
 }
@@ -137,4 +140,3 @@ nav li a {
 #btn-adm a {
     color: white;
 }
-
