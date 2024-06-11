@@ -1,4 +1,4 @@
-const urlParams = new URLSearchParams(window.location.busca);
+const urlParams = new URLSearchParams(window.location.search);
 const buscarProdutos = urlParams.get('busca');
 const buscarCategorias = urlParams.get('categorias');
 
@@ -81,6 +81,7 @@ fetch('./lista-produtos')
         return response.json();
     })
     .then(data => {
+        console.log("Produtos carregados da lista:", data);
         carregarProdutosCarousel(data)
     })
     .catch(error => {
@@ -100,12 +101,13 @@ function arrayBufferToBase64(buffer) {
 function nomeProduto (buscarProdutos){
     fetch('./busca?busca=' + buscarProdutos)
     .then(response => {
-        if(response.ok){
+        if(!response.ok){
             throw new Error('erro na busca do produto')
         }
         return response.json();
     })
     .then(data => {
+        console.log("Produtos encontrados na busca:", data);
         carregarProdutosCarousel(data);
     })
     .catch(error => {
@@ -117,12 +119,13 @@ function nomeProduto (buscarProdutos){
 function categoriaProduto (buscarCategorias){
     fetch('./busca?categorias=' + buscarCategorias)
     .then(response => {
-        if(response.ok){
+        if(!response.ok){
             throw new Error('erro na busca do produto')
         }
         return response.json();
     })
     .then(data => {
+        console.log("Produtos encontrados na busca de categoria:", data);
         carregarProdutosCarousel(data);
     })
     .catch(error => {
