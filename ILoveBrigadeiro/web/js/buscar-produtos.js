@@ -1,3 +1,8 @@
+const urlParams = new URLSearchParams(window.location.search);
+const textoBusca = document.querySelector('.nome-busca');
+const buscarProdutos = urlParams.get('busca');
+const buscarCategorias = urlParams.get('categorias');
+
 let cardProdutos;
 function criarProdutoCard(produtos) {
     const card = document.createElement('div');
@@ -6,7 +11,7 @@ function criarProdutoCard(produtos) {
     card.innerHTML = `
     <div class="card border-0">
         <div class="card-body p-4"> 
-        <a class="produto-item" id="${produtos.id_produto}" href="./info-produtos?id=${produtos.id_produto}">
+        <a class="produto-item" id="${produtos.id_produto}" href="./produtos?id=${produtos.id_produto}">
             <img src="data:imagem/png;base64,${imagem}" alt="${produtos.nome}" class="img-fluid d-block mx-auto mb-3">
             <h5 class="nome-produto">${produtos.nome}</h5>
             <div class="valor d-flex justify-content-center">
@@ -41,7 +46,6 @@ function adicionaCarrinho(idProduto, nome, valor, imagem) {
             if (!response.ok) {
                 throw new Error('Erro na solicitação: ' + response.status);
             }
-            carregaCarinho();
             return response.json();
         })
         .then(data => {
@@ -61,29 +65,14 @@ function adicionaCarrinho(idProduto, nome, valor, imagem) {
         });
 }
 
-function carregarProdutosCarousel(produtos) {
-    const carousel = document.querySelector('.js-carousel--products');
-    carousel.innerHTML = '';
+function carregarProdutos(produtos) {
+    const div = document.querySelector('.js-carousel--products');
+    div.innerHTML = '';
     produtos.forEach(produtos => {
         const card = criarProdutoCard(produtos);
-        carousel.appendChild(card);
+        div.appendChild(card);
     });
 }
-
-fetch('./lista-produtos')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Erro ao conseguir informações do produto');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log("Produtos carregados da lista:", data);
-        carregarProdutosCarousel(data)
-    })
-    .catch(error => {
-        console.error(error);
-    });
 
 function arrayBufferToBase64(buffer) {
     let binary = '';
@@ -93,4 +82,44 @@ function arrayBufferToBase64(buffer) {
         binary += String.fromCharCode(bytes[i]);
     }
     return window.btoa(binary);
+}
+
+function nomeProduto (buscarProdutos){
+    fetch('./busca?busca=' + buscarProdutos)
+    .then(response => {
+        if(!response.ok){
+            throw new Error('erro na busca do produto')
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log("Produtos encontrados na busca:", data);
+        carregarProdutos(data);
+    })
+    .catch(error => {
+        console.error(error);
+    })
+}
+
+function categoriaProduto (buscarCategorias){
+    fetch('./busca?categorias=' + buscarCategorias)
+    .then(response => {
+        if(!response.ok){
+            throw new Error('erro na busca do produto')
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log("Produtos encontrados na busca de categoria:", data);
+        carregarProdutos(data);
+    })
+    .catch(error => {
+        console.error(error);
+    })
+}
+if (buscarProdutos !== "") {
+    nomeProduto(buscarProdutos);
+    textoBusca.textContent = buscarProdutos;
+} else {
+    categoriaProduto(buscarCategorias);
 }

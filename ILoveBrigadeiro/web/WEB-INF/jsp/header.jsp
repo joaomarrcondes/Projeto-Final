@@ -19,7 +19,9 @@
                 <header>
                     <div class="container-header">
                         <div class="logo-container">
-                            <img class="logo" src="./assets/ILoveBrigadeiro.png">
+                            <a href="./home">
+                                <img class="logo" src="./assets/ILoveBrigadeiro.png">
+                            </a>
                             <p id="nome-endereco">I Love Brigadeiro <br> R. Belém, 844 - Centro, Londrina - PR,
                                 86026-040</p>
                             <div class="input-pesquisa">

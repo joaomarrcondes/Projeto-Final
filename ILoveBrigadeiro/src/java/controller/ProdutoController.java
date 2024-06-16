@@ -19,7 +19,7 @@ import model.dao.CategoriasDAO;
 import model.dao.ProdutosDAO;
 
 @MultipartConfig
-@WebServlet(name = "produtoController", urlPatterns = {"/lista-produtos", "/buscar-produtos", "/lista-categorias", "/inserir-produtos", "/busca"})
+@WebServlet(name = "produtoController", urlPatterns = {"/lista-produtos", "/buscar-produtos", "/lista-categorias", "/inserir-produtos", "/busca", "/produto", "/info-produtos"})
 public class ProdutoController extends HttpServlet {
 
     ProdutosDAO objProdutoDao = new ProdutosDAO();
@@ -31,6 +31,11 @@ public class ProdutoController extends HttpServlet {
         String url = request.getServletPath();
         if (url.equals("/buscar-produtos")) {
             String path = "/WEB-INF/jsp/produtos.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(path);
+            dispatcher.forward(request, response);
+        }
+        else if (url.equals("/info-produtos")) {
+            String path = "/WEB-INF/jsp/detalhe-produto.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(path);
             dispatcher.forward(request, response);
         }
@@ -72,6 +77,14 @@ public class ProdutoController extends HttpServlet {
             List<CategoriasDTO> categorias = objCategoriaDao.listarCategorias();
             Gson gson = new Gson();
             String json = gson.toJson(categorias);
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(json);
+        } else if (url.equals("/produto")) {
+            int Id_produto = Integer.parseInt(request.getParameter("id"));
+            List<ProdutosDTO> produto = objProdutoDao.lerProdutos(Id_produto);
+            Gson gson = new Gson();
+            String json = gson.toJson(produto);
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
             response.getWriter().write(json);

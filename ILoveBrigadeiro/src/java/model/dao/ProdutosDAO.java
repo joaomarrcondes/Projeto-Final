@@ -45,15 +45,15 @@ public class ProdutosDAO {
         return produtos;
     }
 
-    public List<ProdutosDTO> lerProdutos(String busca) {
+    public List<ProdutosDTO> lerProdutos(int id) {
         List<ProdutosDTO> produtos = new ArrayList<>();
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
             ResultSet rs = null;
 
-            stmt = conexao.prepareStatement("SELECT * FROM produtos WHERE nome LIKE ?");
-            stmt.setString(1, busca);
+            stmt = conexao.prepareStatement("SELECT * FROM produtos WHERE id_produto = ?");
+            stmt.setInt(1, id);
             rs = stmt.executeQuery();
 
             while (rs.next()) {
