@@ -63,14 +63,14 @@
     }
 
     .list-group-item {
+        margin-top: 23%;
         list-style: none;
         border: none;
-        margin-bottom: 185px;
+        margin-bottom: 35%;
     }
 
     .header-carrinho {
         position: fixed;
-        z-index: 10;
         width: 30%;
         display: flex;
         justify-content: space-between;

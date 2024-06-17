@@ -1,0 +1,17 @@
+.container-imagem img {
+    width: 500px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.container-produto {
+    display: flex;
+}
+
+.container-direita {
+    margin-left: 10%;
+}
+
+.nome-produto{
+    margin-bottom: 10%;
+}

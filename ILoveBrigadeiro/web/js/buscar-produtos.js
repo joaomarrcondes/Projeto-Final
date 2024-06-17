@@ -1,7 +1,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 const textoBusca = document.querySelector('.nome-busca');
 const buscarProdutos = urlParams.get('busca');
-const buscarCategorias = urlParams.get('categorias');
+const buscarCategorias = urlParams.get('categoria');
 
 let cardProdutos;
 function criarProdutoCard(produtos) {
@@ -102,10 +102,10 @@ function nomeProduto (buscarProdutos){
 }
 
 function categoriaProduto (buscarCategorias){
-    fetch('./busca?categorias=' + buscarCategorias)
+    fetch('./busca?categoria=' + buscarCategorias)
     .then(response => {
         if(!response.ok){
-            throw new Error('erro na busca do produto')
+            throw new Error('erro na busca do produto por categoria')
         }
         return response.json();
     })
@@ -117,9 +117,11 @@ function categoriaProduto (buscarCategorias){
         console.error(error);
     })
 }
+
 if (buscarProdutos !== "") {
     nomeProduto(buscarProdutos);
     textoBusca.textContent = buscarProdutos;
 } else {
     categoriaProduto(buscarCategorias);
+    textoBusca.textContent = buscarCategorias;
 }

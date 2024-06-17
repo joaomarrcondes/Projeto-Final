@@ -22,9 +22,9 @@ function criarProdutoCard(produtos) {
                     <span class="valor"> R$ ${produtos.valor.toFixed(2)}</span>
                  </div>
                  <div class="quantidade-input">
-                    <input id="quantidade-btn" type="number" value="${produtos.quantidade}" min="1" max="10" step="1" />
+                    <input id="btn-quantidade" onclick="quantidadeProduto(${produtos.id_produto}, this.value)" type="number" value="${produtos.quantidade}" min="1" max="10" step="1" />
                  </div>
-                <div class="btn-container d-flex justify-content-center m-3">
+                <div class="adicionar">
                     <button class="btn-adicionar" onclick="adicionaCarrinho(${produtos.id_produto}, '${produtos.nome}', ${produtos.valor.toFixed(2)}, '${imagem}')">Adicionar</button>
                 </div>
             </div>
