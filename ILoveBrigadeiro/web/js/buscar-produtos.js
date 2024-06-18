@@ -11,7 +11,7 @@ function criarProdutoCard(produtos) {
     card.innerHTML = `
     <div class="card border-0">
         <div class="card-body p-4"> 
-        <a class="produto-item" id="${produtos.id_produto}" href="./produtos?id=${produtos.id_produto}">
+        <a class="produto-item" id="${produtos.id_produto}" href="./info-produtos?id=${produtos.id_produto}">
             <img src="data:imagem/png;base64,${imagem}" alt="${produtos.nome}" class="img-fluid d-block mx-auto mb-3">
             <h5 class="nome-produto">${produtos.nome}</h5>
             <div class="valor d-flex justify-content-center">
@@ -123,5 +123,4 @@ if (buscarProdutos !== "") {
     textoBusca.textContent = buscarProdutos;
 } else {
     categoriaProduto(buscarCategorias);
-    textoBusca.textContent = buscarCategorias;
 }

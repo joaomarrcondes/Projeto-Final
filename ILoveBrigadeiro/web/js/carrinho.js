@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const background = document.getElementById("background");
     const carrinho = document.getElementById("carrinho-compras");
     const body = document.body;
-    const btnFinalizar = document.getElementById("btn-finalizar");
     
 
     btnAbrir.addEventListener('click', toggleCarrinho);
@@ -51,7 +50,7 @@ function criaCardCarrinho(carrinhoProdutos) {
 
 
 function carregaCarrinhoProdutos(carrinhoProdutos) {
-    const element = document.querySelector('.list-group-item');
+    const element = document.querySelector('.produtos');
 
     element.innerHTML = '';
 
@@ -119,9 +118,6 @@ function carregaCarinho() {
             return response.json();
         })
         .then(data => {
-            if (data === "") {
-                btnFinalizar.disabled = true;
-            }
             atualizaValor(data);
             carregaCarrinhoProdutos(data);
         })

@@ -73,7 +73,7 @@
                         </div>
                         <div class="container-categorias">
                             <ul class="categoria">
-
+                               
                             </ul>
                         </div>
                         <div class="container-carrinho-compra">
@@ -82,8 +82,8 @@
                                     <h4>Meu Carrinho</h4>
                                     <button id="btn-fechar-carrinho"><i class="fa-regular fa-circle-xmark"></i></button>
                                 </div>
-                                <div class="itens-cart-ul">
-                                    <ul class="list-group-item">
+                                <div class="produtos-carrinho">
+                                    <ul class="produtos">
                                     </ul>
                                 </div>
                                 <div class="carrinho-footer">
