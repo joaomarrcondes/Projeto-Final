@@ -21,7 +21,7 @@ function criaCardCarrinho(carrinhoProduto) {
                 </div>
             </div>
         </section>
-        <hr>
+        <hr id="linha-revisao">
     `;
     return cardProduto;
 }

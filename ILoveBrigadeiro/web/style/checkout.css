@@ -22,6 +22,19 @@
 .imagem img {
     border-radius: 20px;
     object-fit: cover;
-    width: 159x;
+    width: 159px;
     height: 138px;
+}
+
+#linha-revisao{
+    margin-right: 25%;
+}
+
+.nome-produto-revisao span{
+    margin-left: 50%;
+}
+
+.endereco-total{
+    display: flex;
+    justify-content: space-around;
 }
