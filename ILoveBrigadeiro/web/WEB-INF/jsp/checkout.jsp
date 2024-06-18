@@ -15,6 +15,7 @@
             <div class="container-checkout">
                 <div class="produtos-revisao">
                     <div class="produtos-carrinho">
+                         <h2 id="h2-revisao">Meu Carrinho</h2>
                         <ul class="produtos-lista">
                         </ul>
                     </div>

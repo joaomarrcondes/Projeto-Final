@@ -2,22 +2,22 @@ function criaCardCarrinho(carrinhoProduto) {
     const novoValor = carrinhoProduto.valor * carrinhoProduto.quantidade;
     const cardProduto = document.createElement('li');
     cardProduto.innerHTML = `
-        <section class="produto-carrinho" id="produto-${carrinhoProduto.id_carrinho}">
-            <div class="imagem-carrinho">
+        <section class="produto-revisao" id="produto-${carrinhoProduto.id_carrinho}">
+            <div class="imagem">
                 <img src="data:imagem/png;base64,${carrinhoProduto.imagem.value}" alt="${carrinhoProduto.nome}">
             </div>
-            <div class="conteudo-imagem">
-                <div class="nome-produto">
+            <div class="info-revisao">
+                <div class="nome-produto-revisao">
                     <span>${carrinhoProduto.nome}</span>
-                </div>
-                <div class="btn-deleta-produto">
-                    <i class="fa-regular fa-trash-can" onclick="excluirProduto(${carrinhoProduto.id_carrinho})"></i>
-                </div>
-                <div class="valor-total-produto">
+                </div>  
+                <div class="quantidade-revisao">
+                    <input id="btn-quantidade" onclick="quantidadeProduto(${carrinhoProduto.id_carrinho}, this.value)" type="number" value="${carrinhoProduto.quantidade}" min="1" max="10" step="1" />
+                </div> 
+                 <div class="valor-total-revisao">
                     <span>${novoValor.toFixed(2)}</span>
                 </div>
-                <div class="input-quantidade">
-                    <input id="btn-quantidade" onclick="quantidadeProduto(${carrinhoProduto.id_carrinho}, this.value)" type="number" value="${carrinhoProduto.quantidade}" min="1" max="10" step="1" />
+                <div class="deleta-produto-revisao">
+                    <i class="fa-regular fa-trash-can" onclick="excluirProduto(${carrinhoProduto.id_carrinho})"></i>
                 </div>
             </div>
         </section>

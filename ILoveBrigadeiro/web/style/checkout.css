@@ -1,4 +1,27 @@
-.produtos-lista{
+.produtos-lista {
     list-style: none;
-    margin-top: 5%;
+    margin-top: 2%;
+    margin-left: 7%;
+}
+
+#h2-revisao {
+    margin-top: 4%;
+    margin-left: 10%;
+}
+
+.produto-revisao {
+    display: flex;
+}
+
+.info-revisao {
+    display: flex; 
+    align-items: center;
+    gap: 300px;
+}
+
+.imagem img {
+    border-radius: 20px;
+    object-fit: cover;
+    width: 159x;
+    height: 138px;
 }
