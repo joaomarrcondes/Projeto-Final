@@ -6,8 +6,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function criarProdutoCard(produtos) {
     const card = document.createElement('div');
-    card.classList.add('container');
+    card.classList.add('container-produto');
     const imagem = arrayBufferToBase64(produtos.imagem);
+    const novoValor = produtos.valor * produtos.quantidade;
     card.innerHTML = `
         <div class="container-produto">
             <div class="container-imagem">
@@ -19,7 +20,7 @@ function criarProdutoCard(produtos) {
                       <h2>${produtos.nome}</h2>  
                  </div>   
                  <div class="valor-produto">
-                    <span class="valor"> R$ ${produtos.valor.toFixed(2)}</span>
+                    <span>${novoValor.toFixed(2)}</span>
                  </div>
                  <div class="quantidade-input">
                     <input id="btn-quantidade" onclick="quantidadeProduto(${produtos.id_produto}, this.value)" type="number" value="${produtos.quantidade}" min="1" max="10" step="1" />
@@ -107,4 +108,63 @@ function produtoId(idProduto) {
         .catch(error => {
             console.error(error);
         })
+}
+
+function carregaCarinho() {
+    fetch('./carrinho-produtos')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao carregar informações do carrinho');
+            }
+            return response.json();
+        })
+        .then(data => {
+            atualizaValor(data);
+            carregarProdutos(data);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+}
+carregaCarinho();
+
+function quantidadeProduto(produtoId, quantidade) {
+    const data = {
+        produtoId: produtoId,
+        quantidadeProduto: quantidade
+    };
+
+    fetch('./quantidade-produto', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao atualizar a quantidade do produto');
+            }
+            return response.json();
+        })
+        .then(() => {
+            carregaCarinho();
+        })
+        .catch(error => {
+            console.error(error);
+        });
+}
+
+function calculaValor(produtos) {
+    let valor = 0;
+    produtos.forEach(produtos => {
+        valor += produtos.valor * produtos.quantidade;
+    });
+    return valor;
+}
+
+function atualizaValor(produtos) {
+    const valorTotalCarrinho = document.getElementById("valor-produto");
+    const novoValor = calculaValor(produtos);
+    valorTotalCarrinho.textContent = novoValor.toFixed(2);
 }
