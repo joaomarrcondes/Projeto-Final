@@ -8,7 +8,7 @@ function criarProdutoCard(produtos) {
     const card = document.createElement('div');
     card.classList.add('container-produto');
     const imagem = arrayBufferToBase64(produtos.imagem);
-    const novoValor = produtos.valor * produtos.quantidade;
+    const valorP = produtos.valor * produtos.quantidade;
     card.innerHTML = `
         <div class="container-produto">
             <div class="container-imagem">
@@ -20,7 +20,7 @@ function criarProdutoCard(produtos) {
                       <h2>${produtos.nome}</h2>  
                  </div>   
                  <div class="valor-produto">
-                    <span>${novoValor.toFixed(2)}</span>
+                    <span>${produtos.valor.toFixed(2)}</span>
                  </div>
                  <div class="quantidade-input">
                     <input id="btn-quantidade" onclick="quantidadeProduto(${produtos.id_produto}, this.value)" type="number" value="${produtos.quantidade}" min="1" max="10" step="1" />
@@ -56,7 +56,7 @@ function adicionaCarrinho(idProduto, nome, valor, imagem) {
             if (!response.ok) {
                 throw new Error('Erro na solicitação: ' + response.status);
             }
-            carregaCarinho()
+            carregaCarinho();
             return response.json();
         })
         .then(data => {
@@ -120,7 +120,7 @@ function carregaCarinho() {
         })
         .then(data => {
             atualizaValor(data);
-            carregarProdutos(data);
+            carregaCarrinhoProdutos(data);
         })
         .catch(error => {
             console.error(error);
@@ -147,12 +147,10 @@ function quantidadeProduto(produtoId, quantidade) {
             }
             return response.json();
         })
-        .then(() => {
-            carregaCarinho();
-        })
         .catch(error => {
             console.error(error);
         });
+        carregaCarinho();
 }
 
 function calculaValor(produtos) {
@@ -164,7 +162,8 @@ function calculaValor(produtos) {
 }
 
 function atualizaValor(produtos) {
-    const valorTotalCarrinho = document.getElementById("valor-produto");
+    const valorTotalCarrinho = document.getElementById("valor-total");
     const novoValor = calculaValor(produtos);
     valorTotalCarrinho.textContent = novoValor.toFixed(2);
 }
+

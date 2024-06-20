@@ -1,3 +1,4 @@
+
 .container-imagem img {
     width: 500px;
     object-fit: cover;
@@ -14,4 +15,10 @@
 
 .nome-produto{
     margin-bottom: 10%;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }

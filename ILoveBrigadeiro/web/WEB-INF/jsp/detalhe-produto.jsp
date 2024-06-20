@@ -16,7 +16,7 @@
             <jsp:include page="header.jsp"></jsp:include>
         </header>
         <main>
-           
+            
         </main>
         <footer class="text-center text-lg-start text-white" style="background-color: #F57EB6">
             <div class="container p-4 pb-0">

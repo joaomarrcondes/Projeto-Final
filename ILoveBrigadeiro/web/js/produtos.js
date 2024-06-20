@@ -78,7 +78,6 @@ fetch('./lista-produtos')
         return response.json();
     })
     .then(data => {
-        console.log("Produtos carregados da lista:", data);
         carregarProdutosCarousel(data)
     })
     .catch(error => {

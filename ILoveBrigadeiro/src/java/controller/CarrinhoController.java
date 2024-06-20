@@ -23,7 +23,7 @@ public class CarrinhoController extends HttpServlet {
             throws ServletException, IOException {
         String url = request.getServletPath();
         if (url.equals("/finalizar-compra")) {
-            String path = "/WEB-INF/jsp/checkout.jsp";
+            String path = "/WEB-INF/jsp/checkout-entrega.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(path);
             dispatcher.forward(request, response);
         }
