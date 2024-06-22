@@ -13,6 +13,11 @@
         height: 122px;
     }
 
+    #linha-revisao {
+        background-color: #fc97c6;
+        margin-right: 10%;
+    }
+
     #nome-endereco {
         color: white;
         font-weight: bolder;
@@ -29,6 +34,8 @@
     #h2-revisao {
         margin-top: 4%;
         margin-left: 10%;
+        font-weight: bold;
+        color: #F57EB6;
     }
 
     .produto-revisao {
@@ -48,10 +55,6 @@
         height: 138px;
     }
 
-    #linha-revisao {
-        margin-right: 5%;
-    }
-
     .nome-produto-revisao span {
         margin-left: 50%;
     }
@@ -59,7 +62,6 @@
     .endereco-total {
         display: flex;
         justify-content: space-around;
-        margin-right: 14%;
     }
 
     .sub-total {
@@ -86,8 +88,9 @@
     }
 
     .container-agendar {
-        margin-left: 10%;
-        margin-top: 8%;
+        text-align: center;
+        border: 1px solid #F57EB6;
+        padding: 5%;
     }
 
     .container-endereco h3 {
@@ -127,16 +130,21 @@
     .resumo-valor h3 {
         font-size: 20px;
         font-weight: bold;
+        color: #F57EB6;
+        text-align: center;
     }
 
     .resumo-valor {
+        border: 1px solid #F57EB6;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: flex-start;
+        padding: 5% 9% 5% 9%;
+        gap: 30px;
     }
 
     .btn-continua-compras {
-        border-radius: 10px;
+        border-radius: 20px;
         width: 385px;
         height: 40px;
         background-color: #F57EB6;
@@ -146,14 +154,23 @@
         font-weight: bold;
     }
 
+    .btn-continua-compras:focus {
+        box-shadow: 0 0 0 0;
+        border: 0 none;
+        outline: 0;
+    }
+
     .container-agendar h3 {
         font-size: 20px;
         font-weight: bold;
+        margin-bottom: 5%;
+        color: #F57EB6;
     }
 
     .container-agendar h5 {
         font-size: 15px;
         font-weight: bold;
+        display: flex;
     }
 
     .container-agendar input {
@@ -163,20 +180,29 @@
         border: 1px solid #A3A3A3;
     }
 
+    .container-agendar span{
+        font-weight: 500;
+        color: black;
+    }
+
     .data-hora {
         display: flex;
         gap: 30px;
+        margin-top: 10%;
     }
 
     .form-select {
-        width: 179px;
+        width: 177px;
         height: 40px;
         border-radius: 10px;
         padding-left: 10px;
+        box-shadow: 0 0 0 0;
+        outline: 0;
+        border-color: gray;
     }
 
     .btn-agendar {
-        border-radius: 10px;
+        border-radius: 20px;
         width: 385px;
         height: 40px;
         background-color: #F57EB6;
@@ -184,5 +210,161 @@
         border: none;
         font-size: 15px;
         font-weight: bold;
+        margin-top: 20%;
     }
+
+    .btn-agendar:focus {
+        box-shadow: 0 0 0 0;
+        border: 0 none;
+        outline: 0;
+    }
+
+    .container-endereco {
+        border: 1px solid #F57EB6;
+        padding: 2%;
+    }
+
+    .container-endereco input{
+        box-shadow: 0 0 0 0;
+        outline: 0;
+        border-color: gray;
+    }
+
+    .texto-endereco-entrega {
+        text-align: center;
+    }
+
+    #input-cep {
+        border: 1px solid #A3A3A3;
+        border-radius: 15px;
+        width: 205px;
+        height: 40px;
+        padding-left: 3%;
+    }
+
+    .div-cep {
+        margin-top: 5%;
+    }
+
+    #input-numero {
+        border: 1px solid #A3A3A3;
+        border-radius: 15px;
+        width: 182px;
+        height: 40px;
+        padding-left: 6%;
+    }
+
+    #input-rua {
+        border: 1px solid #A3A3A3;
+        border-radius: 15px;
+        width: 416px;
+        height: 40px;
+        padding-left: 3%;
+    }
+
+    #input-bairro {
+        border: 1px solid #A3A3A3;
+        border-radius: 15px;
+        width: 416px;
+        height: 40px;
+        padding-left: 3%;
+    }
+
+    #input-cidade {
+        border: 1px solid #A3A3A3;
+        border-radius: 15px;
+        width: 416px;
+        height: 40px;
+        padding-left: 3%;
+    }
+
+    #input-estado {
+        border-color: #A3A3A3;
+        border-radius: 15px;
+        width: 416px;
+        height: 40px;
+        padding-left: 3%;
+        outline: 0;
+    }
+
+    #input-complemento {
+        border: 1px solid #A3A3A3;
+        border-radius: 15px;
+        width: 182px;
+        height: 40px;
+        padding-left: 6%;
+    }
+
+    .flex-numero-complemento {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .btn-salvar {
+        border-radius: 20px;
+        width: 415px;
+        height: 40px;
+        background-color: #F57EB6;
+        color: white;
+        border: none;
+        font-size: 15px;
+        font-weight: bold;
+        margin-top: 7%;
+    }
+
+    .btn-salvar:focus {
+        box-shadow: 0 0 0 0;
+        border: 0 none;
+        outline: 0;
+    }
+
+    .texto-endereco-entrega h3 {
+        color: #F57EB6;
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 5%;
+    }
+
+    .texto-endereco-entrega span {
+        font-weight: 500;
+        color: black;
+    }
+
+    #form-endereco h5 {
+        justify-content: start;
+    }
+
+    #form-endereco input {
+        margin-bottom: 5%;
+    }
+
+    .flex-cep-link a {
+        text-decoration: none;
+        color: black;
+        font-weight: 500;
+    }
+
+    .resumo-agendar {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .icon-relogio {
+        display: flex;
+        align-items: center;
+    }
+
+    .fa-solid{
+        padding-right: 2%;
+        font-size: 20px;
+        opacity: 90%;
+    }
+
+    .icon-data{
+        display: flex;
+        align-items: center;
+    }
+
 }

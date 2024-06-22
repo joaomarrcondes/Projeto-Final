@@ -27,9 +27,9 @@
                                 I Love Brigadeiro
                             </h6>
                             <p>
-                                Here you can use rows and columns to organize your footer
-                                content. Lorem ipsum dolor sit amet, consectetur adipisicing
-                                elit.
+                                I Love Brigadeiro Descubra o melhor da confeitaria artesanal com nossos
+                                brigadeiros, tortas, bolos decorados e muito mais. Delícias irresistíveis para todos os momentos
+                                especiais!
                             </p>
                         </div>
                         <hr class="w-100 clearfix d-md-none" />

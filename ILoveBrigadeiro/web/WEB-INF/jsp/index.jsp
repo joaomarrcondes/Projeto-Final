@@ -21,7 +21,7 @@
                     <div id="carouselExample" class="carousel slide">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="./assets/banner1.png" class="d-block w-100" alt="...">
+                                <img src="./assets/festival-morango.png" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
                                 <img src="" class="d-block w-100" alt="...">
@@ -65,9 +65,10 @@
                                     I Love Brigadeiro
                                 </h6>
                                 <p>
-                                    Here you can use rows and columns to organize your footer
-                                    content. Lorem ipsum dolor sit amet, consectetur adipisicing
-                                    elit.
+
+                                    I Love Brigadeiro Descubra o melhor da confeitaria artesanal com nossos
+                                    brigadeiros, tortas, bolos decorados e muito mais. Delícias irresistíveis para todos os momentos
+                                    especiais!
                                 </p>
                             </div>
                             <hr class="w-100 clearfix d-md-none" />

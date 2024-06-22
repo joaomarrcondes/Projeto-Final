@@ -8,7 +8,6 @@ function criarProdutoCard(produtos) {
     const card = document.createElement('div');
     card.classList.add('container-produto');
     const imagem = arrayBufferToBase64(produtos.imagem);
-    const valorP = produtos.valor * produtos.quantidade;
     card.innerHTML = `
         <div class="container-produto">
             <div class="container-imagem">
@@ -127,43 +126,4 @@ function carregaCarinho() {
         });
 }
 carregaCarinho();
-
-function quantidadeProduto(produtoId, quantidade) {
-    const data = {
-        produtoId: produtoId,
-        quantidadeProduto: quantidade
-    };
-
-    fetch('./quantidade-produto', {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Erro ao atualizar a quantidade do produto');
-            }
-            return response.json();
-        })
-        .catch(error => {
-            console.error(error);
-        });
-        carregaCarinho();
-}
-
-function calculaValor(produtos) {
-    let valor = 0;
-    produtos.forEach(produtos => {
-        valor += produtos.valor * produtos.quantidade;
-    });
-    return valor;
-}
-
-function atualizaValor(produtos) {
-    const valorTotalCarrinho = document.getElementById("valor-total");
-    const novoValor = calculaValor(produtos);
-    valorTotalCarrinho.textContent = novoValor.toFixed(2);
-}
 
