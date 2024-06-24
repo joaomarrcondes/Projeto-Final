@@ -1,5 +1,4 @@
 const urlParams = new URLSearchParams(window.location.search);
-const textoBusca = document.querySelector('.nome-busca');
 const buscarProdutos = urlParams.get('busca');
 const buscarCategorias = urlParams.get('categoria');
 
@@ -120,7 +119,6 @@ function categoriaProduto (buscarCategorias){
 
 if (buscarProdutos !== "") {
     nomeProduto(buscarProdutos);
-    textoBusca.textContent = buscarProdutos;
 } else {
     categoriaProduto(buscarCategorias);
 }

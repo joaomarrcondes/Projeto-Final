@@ -19,7 +19,7 @@ import model.bean.UsuariosDTO;
  * @author Senai
  */
 public class UsuariosDAO {
-    
+
     public List<UsuariosDTO> ler() {
         List<UsuariosDTO> usuarios = new ArrayList<>();
         try {

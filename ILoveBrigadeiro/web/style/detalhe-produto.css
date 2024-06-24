@@ -1,31 +1,46 @@
-
 .container-imagem img {
     width: 500px;
+    height: 400px;
     object-fit: cover;
     border-radius: 20px;
 }
 
 .container-produto {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .container-direita {
-    margin-left: 10%;
-    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 70px;
 }
 
-.nome-produto{
-    margin-bottom: 10%;
+.nome-produto h2 {
+    margin: 0%;
+    font-size: 30px;
+    font-weight: 700;
 }
 
-footer{
+footer {
     bottom: 0;
     width: 100%;
 }
 
-.descricao-produto{
-    display: block;
+.valor-produto {
+    font-size: 25px;
+    font-weight: bold;
 }
+
+.btn-adicionar {
+    border: #ffffff solid 1px;
+    background-color: #F57EB6;
+    border-radius: 20px;
+    width: 218px;
+    height: 41px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.descricao-produto {}

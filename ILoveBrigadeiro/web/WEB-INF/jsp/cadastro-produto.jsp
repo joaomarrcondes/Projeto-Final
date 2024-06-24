@@ -10,10 +10,19 @@
         <script src="https://kit.fontawesome.com/52a6b206fa.js" crossorigin="anonymous"></script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Cadastro Produto</title>
+        <link rel="stylesheet" href="./style/checkout.css">
     </head>
 
     <body>
+        <header>
+            <div class="header-checkout">
+                <a href="./home">
+                    <img class="logo" src="./assets/ILoveBrigadeiro.png">
+                </a>
+                <p id="nome-endereco">I Love Brigadeiro <br> R. Belém, 844 - Centro, Londrina - PR,
+                    86026-040</p>
+            </div>
+        </header>
         <main>
             <div class="container">
                 <h1>Cadastro de Produtos</h1>

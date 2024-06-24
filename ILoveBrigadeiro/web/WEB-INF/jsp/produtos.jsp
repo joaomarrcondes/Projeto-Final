@@ -17,7 +17,6 @@
             <jsp:include page="header.jsp"></jsp:include>
         </header>
         <main>
-            <h3>Resultados para a busca <span class="nome-busca"></span></h3>
             <div class="c-carousel c-carousel--produtos">
                 <div class="c-carousel__slides js-carousel--products d-flex">
 

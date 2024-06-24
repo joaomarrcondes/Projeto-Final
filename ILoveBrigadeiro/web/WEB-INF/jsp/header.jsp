@@ -73,7 +73,7 @@
                         </div>
                         <div class="container-categorias">
                             <ul class="categoria">
-                               
+
                             </ul>
                         </div>
                         <div class="container-carrinho-compra">
@@ -95,9 +95,18 @@
                                         <div id="valor-total"></div>
                                     </div>
                                     <div class="finalizar-compra">
-                                        <a href="./finalizar-compra" id="btn-finalizar">
-                                            <button>Finalizar Compra</button>
-                                        </a>
+                                        <c:choose>
+                                            <c:when test="${not empty sessionScope.user}">
+                                                <a href="./finalizar-compra" id="btn-finalizar">
+                                                    <button>Finalizar Compra</button>
+                                                </a>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <a href="#" id="btn-finalizar">
+                                                    <button>Finalizar Compra</button>
+                                                </a>
+                                            </c:otherwise>
+                                        </c:choose>
                                     </div>
                                 </div>
                             </div>

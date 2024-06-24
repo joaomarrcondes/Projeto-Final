@@ -65,6 +65,7 @@ public class CarrinhoController extends HttpServlet {
                 String nomeProduto = jsonObject.getString("nome");
                 nomeProduto = new String(nomeProduto.getBytes("ISO-8859-1"), "UTF-8");
                 int valorProduto = jsonObject.getJsonNumber("valor").intValue();
+                
                 int quantidadeProduto = jsonObject.getInt("quantidade");
                 JsonString imagemProduto = jsonObject.getJsonString("imagem");
                 CarrinhoDTO objCarrinho = new CarrinhoDTO();
@@ -81,6 +82,7 @@ public class CarrinhoController extends HttpServlet {
                     objCarrinho.setId_carrinho(produtoId);
                     objCarrinho.setNome(nomeProduto);
                     objCarrinho.setValor(valorProduto);
+                    
                     objCarrinho.setQuantidade(quantidadeProduto);
                     objCarrinho.setImagem(imagemProduto);
                     CarrinhoFuncao.getInstance().adicionaItem(objCarrinho);

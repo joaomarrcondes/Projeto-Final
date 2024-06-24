@@ -17,7 +17,7 @@ import model.dao.UsuariosDAO;
  *
  * @author Senai
  */
-@WebServlet(name = "ControllerUsuarios", urlPatterns = {"/tela-login", "/tela-cadastro", "/login", "/cadastro", "/users", "/home", "/sair", "/pedidos"})
+@WebServlet(name = "ControllerUsuarios", urlPatterns = {"/tela-login", "/tela-cadastro", "/login", "/cadastro", "/users", "/home", "/sair", "/pedidos", "/pagamento", "/voltar-pagamento"})
 public class ControllerUsuarios extends HttpServlet {
 
     UsuariosDTO objUsuariosDTO = new UsuariosDTO();
@@ -45,6 +45,10 @@ public class ControllerUsuarios extends HttpServlet {
             String nextPage = "/WEB-INF/jsp/index.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
+        } else if (url.equals("/pagamento")) {
+            String nextPage = "/WEB-INF/jsp/checkout-pagamento.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
         } else if (url.equals("/sair")) {
             HttpSession secao = request.getSession();
             secao.invalidate();
@@ -55,6 +59,10 @@ public class ControllerUsuarios extends HttpServlet {
             HttpSession secao = request.getSession();
             secao.invalidate();
             String nextPage = "/WEB-INF/jsp/pedidos.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        } else if (url.equals("/voltar-pagamento")) {
+            String nextPage = "/WEB-INF/jsp/checkout-entrega.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         }

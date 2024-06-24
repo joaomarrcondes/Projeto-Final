@@ -9,16 +9,18 @@ public class CarrinhoDTO {
     private String nome;
     private int quantidade;
     private int valor;
+    private int estoque;
     private JsonString imagem;
 
     public CarrinhoDTO() {
     }
 
-    public CarrinhoDTO(int id_carrinho, String nome, int quantidade, int valor, JsonString imagem) {
+    public CarrinhoDTO(int id_carrinho, String nome, int quantidade, int valor, int estoque, JsonString imagem) {
         this.id_carrinho = id_carrinho;
         this.nome = nome;
         this.quantidade = quantidade;
         this.valor = valor;
+        this.estoque = estoque;
         this.imagem = imagem;
     }
 
@@ -54,6 +56,14 @@ public class CarrinhoDTO {
         this.valor = valor;
     }
 
+    public int getEstoque() {
+        return estoque;
+    }
+
+    public void setEstoque(int estoque) {
+        this.estoque = estoque;
+    }
+
     public JsonString getImagem() {
         return imagem;
     }
@@ -61,4 +71,6 @@ public class CarrinhoDTO {
     public void setImagem(JsonString imagem) {
         this.imagem = imagem;
     }
+    
+    
 }

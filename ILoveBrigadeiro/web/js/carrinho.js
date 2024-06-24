@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const background = document.getElementById("background");
     const carrinho = document.getElementById("carrinho-compras");
     const body = document.body;
-    
 
     btnAbrir.addEventListener('click', toggleCarrinho);
     btnFechar.addEventListener('click', toggleCarrinho);
@@ -16,6 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
         body.classList.toggle('no-scroll');
     }
 });
+
+const finalizarCompra = document.getElementById("btn-finalizar");
 
 function criaCardCarrinho(carrinhoProdutos) {
     const novoValor = carrinhoProdutos.valor * carrinhoProdutos.quantidade;
@@ -37,7 +38,7 @@ function criaCardCarrinho(carrinhoProdutos) {
               <span>${novoValor.toFixed(2)}</span>
               </div>
               <div class="input-quantidade">
-              <input id="btn-quantidade" onclick="quantidadeProduto(${carrinhoProdutos.id_carrinho}, this.value)" type="number" value="${carrinhoProdutos.quantidade}" min="1" max="10" step="1" />
+              <input id="btn-quantidade-${carrinhoProdutos.id_carrinho}" onclick="quantidadeProduto(${carrinhoProdutos.id_carrinho}, this.value)" type="number" value="${carrinhoProdutos.quantidade}" min="1" max="10" step="1" />
               </div>
             </div>
         </section>
@@ -101,7 +102,6 @@ function esvaziarCarrinho() {
             return response.json();
         })
         .then(data => {
-            console.log('tudo removido', data);
             carregaCarinho();
         })
         .catch(error => {
@@ -120,6 +120,7 @@ function carregaCarinho() {
         .then(data => {
             atualizaValor(data);
             carregaCarrinhoProdutos(data);
+            itensCarrinho()
         })
         .catch(error => {
             console.error(error);
@@ -127,7 +128,7 @@ function carregaCarinho() {
 }
 carregaCarinho();
 
-function quantidadeProduto(produtoId, quantidade){
+function quantidadeProduto(produtoId, quantidade) {
     const data = {
         produtoId: produtoId,
         quantidadeProduto: quantidade
@@ -139,19 +140,29 @@ function quantidadeProduto(produtoId, quantidade){
         },
         body: JSON.stringify(data)
     })
-    .then(response => {
-        if(!response.ok){
-            throw new Error('Erro quantidade produto');
-        }
-        return response.json();
-    })
-    .catch(error => {
-        console.error(error);
-    });
-    carregaCarinho();
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro quantidade produto');
+            }
+            return response.json();
+        })
+        .then(data => {
+            carregaCarinho();
+        })
+        .catch(error => {
+            console.error(error);
+        });
 }
 
-function calculaValor(carrinhoProdutos){
+function alterarQuantidade(produtoId, quantidade) {
+    const inputElement = document.getElementById(`btn-quantidade-${produtoId}`);
+    clearTimeout(inputElement.dataset.timeout);
+    inputElement.dataset.timeout = setTimeout(function () {
+        quantidadeProduto(produtoId, quantidade);
+    }, 100);
+}
+
+function calculaValor(carrinhoProdutos) {
     let valor = 0;
     carrinhoProdutos.forEach(carrinhoProdutos => {
         valor += carrinhoProdutos.valor * carrinhoProdutos.quantidade;
@@ -159,10 +170,20 @@ function calculaValor(carrinhoProdutos){
     return valor;
 }
 
-function atualizaValor(carrinhoProdutos){
+function atualizaValor(carrinhoProdutos) {
     let valorTotalCarrinho = document.getElementById("valor-total");
     const valor = calculaValor(carrinhoProdutos);
     valorTotalCarrinho.textContent = valor.toFixed(2);
 }
+
+function itensCarrinho() {
+    const ul = document.querySelector(".produtos");
+    if (!ul.hasChildNodes()) {
+        finalizarCompra.style.pointerEvents = "none";
+    } else {
+        finalizarCompra.style.pointerEvents = "auto";
+    }
+}
+
 
 

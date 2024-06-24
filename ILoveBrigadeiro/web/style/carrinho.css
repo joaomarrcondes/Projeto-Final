@@ -54,12 +54,34 @@
     }
 
     .nome-produto {
+        width: 200px;
         font-weight: 600;
         color: black;
     }
 
+    .valor-total-produto {
+        display: flex;
+        align-items: center;
+    }
+
+    .input-quantidade {
+        display: flex;
+        align-items: center;
+    }
+
     .btn-deleta-produto i {
         color: red;
+        font-size: 20px;
+        margin-top: 10px;
+    }
+
+    .btn-deleta-produto:hover{
+        cursor: pointer;
+    }
+
+    .btn-deleta-produto {
+        display: flex;
+        justify-content: center;
     }
 
     .produtos {
@@ -102,8 +124,9 @@
         grid-template-columns: 1fr 1fr;
     }
 
-    .produto-carrinho{
+    .produto-carrinho {
         display: flex;
+        gap: 20px;
     }
 
     hr {
@@ -131,6 +154,10 @@
         font-size: 17px;
         font-weight: bold;
         color: white;
+    }
+
+    .finalizar-compra:hover {
+        cursor: pointer;
     }
 
     .carrinho-footer hr {

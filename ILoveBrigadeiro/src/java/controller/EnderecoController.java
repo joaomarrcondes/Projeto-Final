@@ -12,7 +12,6 @@ import model.dao.EnderecoDAO;
 
 @WebServlet(name = "EnderecoController", urlPatterns = {"/cadastro-endereco"})
 public class EnderecoController extends HttpServlet {
-
     EnderecoDTO objEnderecoDto = new EnderecoDTO();
     EnderecoDAO objEnderecoDao = new EnderecoDAO();
 
@@ -25,6 +24,7 @@ public class EnderecoController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+
     }
 
     @Override
@@ -37,14 +37,14 @@ public class EnderecoController extends HttpServlet {
             String rua = request.getParameter("enderecoRua");
             rua = new String(rua.getBytes("ISO-8859-1"), "UTF-8");
             objEnderecoDto.setRua(rua);
-            objEnderecoDto.setNumero(request.getParameter("enderecoNumero"));           
+            objEnderecoDto.setNumero(request.getParameter("enderecoNumero"));
             String complemento = request.getParameter("enderecoComplemento");
             complemento = new String(rua.getBytes("ISO-8859-1"), "UTF-8");
             objEnderecoDto.setComplemento(complemento);
-            objEnderecoDto.setBairro(request.getParameter("enderecoBairro"));           
+            objEnderecoDto.setBairro(request.getParameter("enderecoBairro"));
             String cidade = request.getParameter("enderecoCidade");
             cidade = new String(cidade.getBytes("ISO-8859-1"), "UTF-8");
-            objEnderecoDto.setCidade(cidade);          
+            objEnderecoDto.setCidade(cidade);
             objEnderecoDto.setEstado(request.getParameter("enderecoEstado"));
             objEnderecoDao.inserirEndereco(objEnderecoDto);
             String path = "/WEB-INF/jsp/checkout-entrega.jsp";

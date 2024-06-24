@@ -1,0 +1,154 @@
+.container-metodos-pagamento {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+
+.texto-pagamento {
+    font-size: 30px;
+    font-weight: bold;
+    color: #f57eb6;
+    margin-left: 12%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+#btn-metodo-cartao {
+    align-items: center;
+    background-color: #F57EB6;
+    border: none;
+    border-radius: 15px;
+    width: 458px;
+    height: 45px;
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+}
+
+#btn-metodo-cartao:focus {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+}
+
+#input-numero-cartao,
+#input-nome-cartao {
+    width: 458px;
+    height: 40px;
+    border-radius: 15px;
+    padding-left: 2%;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: gray;
+}
+
+.form-select-mes,
+.form-select-ano {
+    border-radius: 15px;
+    width: 125px;
+    height: 40px;
+    padding-left: 1%;
+}
+
+#input-cvv-cartao {
+    border-radius: 15px;
+    width: 125px;
+    height: 40px;
+    padding-left: 8%;
+}
+
+.validade-cvv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container-card-cartao {
+    border: 1px solid #F57EB6;
+    padding: 20px;
+}
+
+.container-metodo-pix {
+    border: 1px solid #F57EB6;
+    padding: 20px;
+}
+
+#btn-metodo-pix {
+    align-items: center;
+    background-color: #F57EB6;
+    border: none;
+    border-radius: 15px;
+    width: 458px;
+    height: 45px;
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+}
+
+#btn-metodo-pix:focus {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+}
+
+.container-metodo-pix {
+    display: flex;
+    align-items: center;
+}
+
+.div-numero-cartao {
+    margin-top: 15%;
+    margin-bottom: 15%;
+}
+
+.div-nome-cartao {
+    margin-top: 15%;
+    margin-bottom: 15%;
+}
+
+.resumo-valor-pagamento {
+    border: 1px solid #F57EB6;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.btn-voltar {
+    align-items: center;
+    background-color: #F57EB6;
+    border: none;
+    border-radius: 15px;
+    width: 458px;
+    height: 45px;
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+}
+
+.btn-finalizar-pagamento,
+.btn-voltar:focus {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+}
+
+.btn-finalizar-pagamento {
+    align-items: center;
+    background-color: #F57EB6;
+    border: none;
+    border-radius: 15px;
+    width: 458px;
+    height: 45px;
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+}
+
+.resumo-botoes {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.finalizar-voltar {}
