@@ -1,7 +1,8 @@
 .container-metodos-pagamento {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: baseline;
+    margin-bottom: 10%;
 }
 
 .texto-pagamento {
@@ -68,11 +69,13 @@
 .container-card-cartao {
     border: 1px solid #F57EB6;
     padding: 20px;
+    margin-right: 5%;
 }
 
 .container-metodo-pix {
     border: 1px solid #F57EB6;
     padding: 20px;
+    display: block;
 }
 
 #btn-metodo-pix {
@@ -91,11 +94,6 @@
     box-shadow: 0 0 0 0;
     border: 0 none;
     outline: 0;
-}
-
-.container-metodo-pix {
-    display: flex;
-    align-items: center;
 }
 
 .div-numero-cartao {
@@ -147,8 +145,77 @@
 
 .resumo-botoes {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
 }
 
-.finalizar-voltar {}
+.class-container-pix {
+    display: none;
+}
+
+.texto-pix {
+    text-align: center;
+    margin-top: 7%;
+}
+
+.texto-pix h5 {
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.texto-pix span {
+    font-weight: lighter;
+    font-size: 20px;
+}
+
+.btn-copia-cola {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btn-copia-cola button {
+    align-items: center;
+    background-color: #F57EB6;
+    border: none;
+    border-radius: 15px;
+    width: 300px;
+    height: 45px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+
+.btn-copia-cola button:focus {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+}
+
+.qrcode-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.fa-solid {
+    padding-right: 5%;
+    font-size: 20px;
+    opacity: 90%;
+}
+
+#btn-finalizar-compra {
+    align-items: center;
+    background-color: #F57EB6;
+    border: none;
+    border-radius: 15px;
+    width: 300px;
+    height: 45px;
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+}
+
+#btn-finalizar-compra:focus{
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+}

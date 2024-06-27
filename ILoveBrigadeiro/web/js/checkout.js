@@ -120,5 +120,3 @@ function atualizaValor(carrinhoProdutos) {
     const novoValor = calculaValor(carrinhoProdutos);
     valorTotalCarrinho.textContent = novoValor.toFixed(2);
 }
-
-

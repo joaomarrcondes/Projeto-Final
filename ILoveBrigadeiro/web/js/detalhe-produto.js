@@ -9,32 +9,37 @@ function criarProdutoCard(produtos) {
     card.classList.add('container-produto');
     const imagem = arrayBufferToBase64(produtos.imagem);
     card.innerHTML = `
-        <div class="container-produto">
-            <div class="container-imagem">
+        <div class="info-produtos">
+            <div class="container">
+                <div class="container-info">
                     <img src="data:imagem/png;base64,${imagem}"
                         alt="${produtos.nome}">  
-            </div>
-            <div class="container-direita">
-                 <div class="nome-produto">
-                      <h2>${produtos.nome}</h2>  
-                 </div>   
-                 <div class="valor-produto">
-                    <span>R$ ${produtos.valor.toFixed(2)}</span>
-                 </div>
-                 <div class="quantidade-input">
-                    <input id="btn-quantidade" onclick="quantidadeProduto(${produtos.id_produto}, this.value)" type="number" value="${produtos.quantidade}" min="1" max="10" step="1" />
-                 </div>
-                <div class="adicionar">
-                    <button class="btn-adicionar" onclick="adicionaCarrinho(${produtos.id_produto}, '${produtos.nome}', ${produtos.valor.toFixed(2)}, '${imagem}')">Adicionar</button>
                 </div>
-            </div>  
-            <div class="descricao-produto">
-                <p class="texto-descricao"> 
-                   ${produtos.descricao} 
-                </p>
-        </div>
+                <div class="container-info">
+                    <div class="produto-nome">
+                         <h2>${produtos.nome}</h2>  
+                    </div>   
+                    <div class="valor-produto">
+                         <span>R$ ${produtos.valor.toFixed(2)}</span>
+                    </div>
+                    <div class="quantidade-input">
+                         <input id="btn-quantidade" onclick="quantidadeProduto(${produtos.id_produto}, this.value)" type="number" value="${produtos.quantidade}" min="1" max="10" step="1" />
+                    </div>
+                    <div class="adicionar">
+                         <button class="btn-adicionar" onclick="adicionaCarrinho(${produtos.id_produto}, '${produtos.nome}', ${produtos.valor.toFixed(2)}, '${imagem}')">Adicionar</button>
+                    </div>
+                </div>  
+            </div>
+            <div class="container">
+                <div class="container-info">
+                   <h5>INFORMAÇÕES</h5>
+                   <hr>
+                   <p class="texto-descricao"> 
+                      ${produtos.descricao} 
+                   </p>
+                </div>
+            </div>
         </div>   
-      
     `;
     return card;
 }

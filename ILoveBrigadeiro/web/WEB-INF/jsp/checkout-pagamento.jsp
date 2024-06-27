@@ -26,15 +26,16 @@
             <h2 class="texto-pagamento">Pagamento</h2>
             <div class="container-metodos-pagamento">
                 <div class="container-card-cartao">
-                    <form style="display: inline" method="get">
-                        <button id="btn-metodo-cartao" type="button" onclick="Conteudo('container-cartao')">
+                    <div class="botao-para-cartao">
+                        <button id="btn-metodo-cartao" type="button">
                             CARTÃO DE CRÉDITO
                         </button>
-                    </form>
-                    <div id="container-cartao" style="display: none">
+                    </div>
+                    <div id="container-cartao">
                         <div class="div-numero-cartao">
                             <h6>Número do Cartão</h6>
-                            <input name="inputNumero" type="text" class="form-control" id="input-numero-cartao">
+                            <input name="inputNumero" type="text" class="form-control" id="input-numero-cartao"
+                                maxlength="16" minlength="16" required onkeyup="validaNumeroCartao(this)">
                         </div>
                         <div class="validade-cvv">
                             <select class="form-select-mes">
@@ -68,52 +69,55 @@
                                 <option value="34">34</option>
                             </select>
                             <div class="div-cvv-cartao">
-                                <input name="InputCvv" type="text" id="input-cvv-cartao" placeholder=" CVV"
-                                    class="form-control">
+                                <input name="inputCvv" type="text" id="input-cvv-cartao" placeholder=" CVV"
+                                    class="form-control" required maxlength="3" minlength="3"
+                                    onkeyup="validaCvvCartao(this)">
                             </div>
                         </div>
                         <div class="div-nome-cartao">
                             <h6>Nome Impresso do Cartão</h6>
                             <input name="inputNome" type="text" id="input-nome-cartao" placeholder=""
-                                class="form-control">
+                                class="form-control" onkeyup="validaNomeCartao(this)" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-metodo-pix">
+                    <div class="div-btn-pix">
+                        <button id="btn-metodo-pix" type="button">
+                            PIX
+                        </button>
+                    </div>
+                    <div id="container-pix" class="class-container-pix">
+                        <div class="texto-pix">
+                            <h5>Escaneie o QR Code</h5>
+                            <span>para pagar com Pix:</span>
+                        </div>
+                        <div class="qrcode-container">
+                            <img src="./assets/qrcode-pix.png" alt="">
+                        </div>
+                        <div class="btn-copia-cola">
+                            <button> <i class="fa-solid fa-copy" style="color: #ffffff;"></i>PIX COPIA E COLA</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resumo-botoes">
+                    <div class="finalizar-voltar">
+                        <div class="conatiner-btn-voltar">
+                            <a href="./voltar-pagamento">
+                                <button class="btn-voltar">VOLTAR</button>
+                            </a>
+                        </div>
+                        <div class="container-btn-finalizar">
+                            <a href="">
+                                <button id="btn-finalizar-compra">FINALIZAR COMPRA</button>
+                            </a>
                         </div>
 
                     </div>
                 </div>
-                <div class="container-metodo-pix">
-                    <form style="display: inline" method="get">
-                        <button id="btn-metodo-pix" type="button" onclick="Conteudo('container-pix')">
-                            PIX
-                        </button>
-                    </form>
-                    <div id="container-pix" style="display: none">
-
-                    </div>
-                </div>
             </div>
-            <div class="resumo-botoes">
-                <div class="resumo-valor-pagamento">
-                    <h3>Resumo do Pedido</h3>
-                    <div class="sub-total-pagamento">
-                        <h6>SubTotal</h6>
-                        <div id="subtotal-checkout-pagamento"></div>
-                    </div>
-                    <div class="entrega-pagamento">
-                        <h6>Entrega</h6>
-                        <div id="valor-entrega-pagamento"></div>
-                    </div>
-                    <div class="total-pagamento">
-                        <h6>Total</h6>
-                        <div id="total-checkout-pagamento"></div>
-                    </div>
-                </div>
-                <div class="finalizar-voltar">
-                    <a href="./voltar-pagamento">
-                        <button class="btn-voltar">VOLTAR</button>
-                    </a>
 
-                </div>
-            </div>
         </main>
         <footer class="text-center text-lg-start text-white" style="background-color: #F57EB6">
             <div class="container p-4 pb-0">

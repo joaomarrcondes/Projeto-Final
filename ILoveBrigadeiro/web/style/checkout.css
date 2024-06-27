@@ -239,7 +239,7 @@
 
     .container-endereco {
         border: 1px solid #F57EB6;
-        padding: 2%;
+        padding: 3% 2% 3% 2%;
     }
 
     .container-endereco input {
@@ -249,7 +249,9 @@
     }
 
     .texto-endereco-entrega {
+        display: grid;
         text-align: center;
+        gap: 20px;
     }
 
     #input-cep {
@@ -318,22 +320,9 @@
         justify-content: space-between;
     }
 
-    .btn-salvar {
-        border-radius: 20px;
-        width: 415px;
-        height: 40px;
-        background-color: #F57EB6;
-        color: white;
-        border: none;
-        font-size: 15px;
-        font-weight: bold;
-        margin-top: 7%;
-    }
-
-    .btn-salvar:focus {
-        box-shadow: 0 0 0 0;
-        border: 0 none;
-        outline: 0;
+    #form-endereco{
+        display: grid;
+        gap: 20px;
     }
 
     .texto-endereco-entrega h3 {
@@ -346,6 +335,7 @@
     .texto-endereco-entrega span {
         font-weight: 500;
         color: black;
+        margin-bottom: 5%;
     }
 
     #form-endereco h5 {

@@ -29,7 +29,7 @@
                                     <button id="btn-pesquisa" type="submit"><i
                                             class="fa-solid fa-magnifying-glass"></i></button>
                                     <input class="form-control me-2" name="busca" type="text"
-                                        placeholder="Buscar por item da loja" id="inputBusca">
+                                        placeholder="O que você busca? (Ex.: Bolos)" id="inputBusca">
                                 </form>
                             </div>
                             <nav>

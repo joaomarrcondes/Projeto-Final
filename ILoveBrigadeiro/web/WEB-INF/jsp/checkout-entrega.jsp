@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="div-complemento">
                                     <h5>Complemento</h5>
-                                    <input name="complemento" id="input-complemento" type="text">
+                                    <input name="complemento" id="input-complemento" type="text" placeholder="Opcional">
                                 </div>
                             </div>
                             <div class="div-bairro">
@@ -101,7 +101,6 @@
                                     <option value="TO">Tocantins</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn-salvar">SALVAR ENDEREÇO</button>
                         </form>
                     </div>
                     <div class="resumo-agendar">
@@ -113,7 +112,7 @@
                             </div>
                             <div class="entrega">
                                 <h6>Entrega</h6>
-                                <div id="valor-entrega"></div>
+                                <div id="valor-entrega">R$ 25,00</div>
                             </div>
                             <div class="total">
                                 <h6>Total</h6>
@@ -123,7 +122,7 @@
                                 <button class="btn-continua-compras">CONTINUAR COMPRANDO</button>
                             </a>
                             <a href="./pagamento">
-                                <button class="btn-pagamento">PAGAMENTO</button>
+                                <button type="submit" class="btn-pagamento" id="btn-pagamento" disabled>PAGAMENTO</button>
                             </a>
                         </div>
                         <div class="container-agendar">
