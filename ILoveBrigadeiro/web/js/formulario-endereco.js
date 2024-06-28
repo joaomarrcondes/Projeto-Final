@@ -5,6 +5,35 @@ const inputNumero = document.querySelector("#input-numero");
 const inputBairro = document.querySelector("#input-bairro");
 const inputCidade = document.querySelector("#input-cidade");
 const inputEstado = document.querySelector("#input-estado");
+const inputComplemento = document.querySelector("#input-complemento");
+
+document.getElementById('input-rua').addEventListener('keypress', function(event) {
+    var caractere = String.fromCharCode(event.which);
+    if (!/^[a-zA-Z]+$/.test(caractere)) {
+        event.preventDefault();
+    }
+});
+
+document.getElementById('input-bairro').addEventListener('keypress', function(event) {
+    var caractere = String.fromCharCode(event.which);
+    if (!/^[a-zA-Z]+$/.test(caractere)) {
+        event.preventDefault();
+    }
+});
+
+document.getElementById('input-cidade').addEventListener('keypress', function(event) {
+    var caractere = String.fromCharCode(event.which);
+    if (!/^[a-zA-Z]+$/.test(caractere)) {
+        event.preventDefault();
+    }
+});
+
+document.getElementById('input-complemento').addEventListener('keypress', function(event) {
+    var caractere = String.fromCharCode(event.which);
+    if (!/^[a-zA-Z0-9]+$/.test(caractere)) {
+        event.preventDefault();
+    }
+});
 
 inputCep.addEventListener("keypress", (e) => {
     const onlyNumbers = /[0-9]|\-/;
@@ -39,7 +68,10 @@ const buscarEndereco = async (cep) => {
 
     if (data.erro) {
         form.reset();
-        alert("CEP inválido. Verifique e tente novamente.");
+        $(".class-input-cep").notify(
+            "Ops! CEP incorreto. Por favor, verifique e tente novamente.", 
+            "warn", { position:"right" }
+          );
         return;
     }
 

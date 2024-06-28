@@ -30,14 +30,6 @@
                                 <img src="" class="d-block w-100" alt="...">
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
-                            data-bs-slide="prev">
-                            <i class="fa-solid fa-chevron-left"></i>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
-                            data-bs-slide="next">
-                            <i class="fa-solid fa-chevron-right"></i>
-                        </button>
                     </div>
                     <br>
                     <hr id="linha1">

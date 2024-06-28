@@ -3,11 +3,17 @@ function validacao() {
     let password = formLogin.password.value;
 
     if (user.trim() === "") {
-        $.notify("Por favor, insira seu nome de usuário para continuar.", "warn");
+        $("#input-usuario").notify(
+            "Por Favor, insira seu nome de usuário para continuar.", "warn",
+            { position: "top center" }
+        );
         formLogin.user.focus();
         return false;
     } else if (password.trim() === "") {
-        $.notify("Por favor, insira sua senha para continuar.", "warn");
+        $("#input-senha").notify(
+            "Por favor, informe sua senha para que possamos continuar.", "warn",
+            { position: "top center" }
+        );
         formLogin.password.focus();
         return false;
     } else {
@@ -16,7 +22,12 @@ function validacao() {
             $.notify("Ops! Parece que o nome de usuário ou a senha está incorreta. Por favor, tente novamente.", "error");
             return false;
         } else {
-            document.forms["formLogin"].submit();
+            $.notify(
+                "Login realizado com sucesso! Prepare-se para uma experiência incrível.", "success"
+            );
+            setTimeout(function () {
+                document.forms["formLogin"].submit();
+            }, 3000);
         }
     }
 }

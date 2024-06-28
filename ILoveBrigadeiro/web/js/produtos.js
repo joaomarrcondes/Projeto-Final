@@ -41,7 +41,7 @@ function adicionaCarrinho(idProduto, nome, valor, imagem) {
             if (!response.ok) {
                 throw new Error('Erro na solicitação: ' + response.status);
             }
-            carregaCarinho();
+            carregaCarinho(); 
             return response.json();
         })
         .then(data => {

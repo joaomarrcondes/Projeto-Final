@@ -23,7 +23,7 @@
             </div>
         </header>
         <main>
-            <h2 class="texto-pagamento">Pagamento</h2>
+            <h2 class="texto-pagamento">Selecionar forma de pagamento online</h2>
             <div class="container-metodos-pagamento">
                 <div class="container-card-cartao">
                     <div class="botao-para-cartao">
@@ -100,24 +100,45 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="resumo-botoes">
-                    <div class="finalizar-voltar">
-                        <div class="conatiner-btn-voltar">
-                            <a href="./voltar-pagamento">
-                                <button class="btn-voltar">VOLTAR</button>
-                            </a>
+                <div class="botoes-resumo-valores">
+                    <div class="resumo-valores">
+                        <h3>Resumo do Pedido</h3>
+                        <div class="sub-total-resumo">
+                            <h6>SubTotal</h6>
+                            <div id="subtotal-checkout-resumo">0.00</div>
                         </div>
-                        <div class="container-btn-finalizar">
-                            <a href="">
-                                <button id="btn-finalizar-compra">FINALIZAR COMPRA</button>
-                            </a>
+                        <div class="entrega-resumo">
+                            <h6>Entrega</h6>
+                            <div id="valor-entrega-resumo">25,00</div>
                         </div>
-
+                        <div class="total-resumo">
+                            <h6>Total</h6>
+                            <div id="total-checkout-resumo">0.00</div>
+                        </div>
+                        <div class="botoes">
+                            <a href="./home">
+                                <button class="btn-continua-compras-home">CONTINUAR COMPRANDO</button>
+                            </a>
+                            <button class="btn-pagamento-compras">FINALIZAR COMPRA</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup-wrapper">
+                    <div class="popup">
+                        <div class="popup-fechar">x</div>
+                        <div class="popup-conteudo">
+                            <i class="fa-solid fa-circle-check" style="color: #63E6BE;"></i>
+                            <h2>Sua compra foi realizada com sucesso!</h2>
+                            <p>Sua compra foi realizada com sucesso e já estamos processando seu pedido.
+                                <br>
+                                Estamos ansiosos para entregar seu produto!
+                                Se tiver qualquer dúvida ou precisar de assistência, não hesite em entrar em contato conosco.
+                                <br>
+                                Agradecemos pela confiança e esperamos vê-lo novamente em breve!</p>
+                        </div>
                     </div>
                 </div>
             </div>
-
         </main>
         <footer class="text-center text-lg-start text-white" style="background-color: #F57EB6">
             <div class="container p-4 pb-0">

@@ -1,17 +1,15 @@
 .container-metodos-pagamento {
     display: flex;
-    justify-content: flex-start;
     align-items: baseline;
     margin-bottom: 10%;
+    justify-content: space-evenly;
 }
 
 .texto-pagamento {
     font-size: 30px;
     font-weight: bold;
     color: #f57eb6;
-    margin-left: 12%;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin: 5% 0 5% 2%;
 }
 
 #btn-metodo-cartao {
@@ -69,7 +67,6 @@
 .container-card-cartao {
     border: 1px solid #F57EB6;
     padding: 20px;
-    margin-right: 5%;
 }
 
 .container-metodo-pix {
@@ -110,37 +107,6 @@
     border: 1px solid #F57EB6;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
-}
-
-.btn-voltar {
-    align-items: center;
-    background-color: #F57EB6;
-    border: none;
-    border-radius: 15px;
-    width: 458px;
-    height: 45px;
-    font-size: 17px;
-    font-weight: bold;
-    color: white;
-}
-
-.btn-finalizar-pagamento,
-.btn-voltar:focus {
-    box-shadow: 0 0 0 0;
-    border: 0 none;
-    outline: 0;
-}
-
-.btn-finalizar-pagamento {
-    align-items: center;
-    background-color: #F57EB6;
-    border: none;
-    border-radius: 15px;
-    width: 458px;
-    height: 45px;
-    font-size: 17px;
-    font-weight: bold;
-    color: white;
 }
 
 .resumo-botoes {
@@ -202,8 +168,39 @@
     opacity: 90%;
 }
 
-#btn-finalizar-compra {
-    align-items: center;
+.botoes-resumo-valores {
+    border: 1px solid #F57EB6;
+    padding: 20px;
+}
+
+.resumo-valores h3 {
+    font-weight: bold;
+    font-size: 30px;
+    color: #F57EB6;
+    text-align: center;
+}
+
+.resumo-valores {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0px 20px 0px 20px;
+    gap: 50px;
+}
+
+h6 {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.botoes button {
+    text-align: center;
     background-color: #F57EB6;
     border: none;
     border-radius: 15px;
@@ -214,8 +211,78 @@
     color: white;
 }
 
-#btn-finalizar-compra:focus{
+.botoes button:focus {
     box-shadow: 0 0 0 0;
     border: 0 none;
     outline: 0;
+}
+
+.entrega-resumo {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+#valor-entrega-resumo {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.total-resumo {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+#total-checkout-resumo {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.sub-total-resumo {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+#subtotal-checkout-resumo {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.popup-wrapper{
+    display: none;
+    background:rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.popup{
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    margin: 10% auto;
+    padding: 20px;
+    background-color: white;
+    position: relative;
+    border-radius: 20px;
+}
+
+.popup-fechar{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.fa-circle-check{
+    font-size: 70px;
+    margin-bottom: 5%;
+}
+
+.popup-conteudo h2{
+    color:#63E6BE;
 }

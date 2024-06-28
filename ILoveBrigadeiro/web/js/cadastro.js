@@ -7,72 +7,110 @@ function validacao() {
     let cpf = formCadastro.cpf.value;
 
     if (nome.trim() === "") {
-        alert("Insira seu Nome Completo");
+        $("#inputNome").notify(
+            "Ops! Parece que você esqueceu de nos dizer seu nome.", "warn",
+            { position: "botton center" }
+        );
         formCadastro.nome.focus();
         return false;
     }
     else if (senha.trim() === "") {
-        alert("Insira seu Senha");
+        $("#inputSenha").notify(
+            "Precisamos da sua senha para prosseguir. Pode digitá-la, por favor?", "warn",
+            { position: "botton center" }
+        );
         formCadastro.senha.focus();
         return false;
     }
     else if (senha.length < 8) {
-        alert('Sua Senha Deve Conter No Mínimo 8 Caracteres');
+        $("#inputSenha").notify(
+            "Para sua segurança, a senha deve ter pelo menos 8 caracteres.", "warn",
+            { position: "botton center" }
+        );
         formCadastro.senha.focus();
         return false;
     }
     else if (usuario.trim() === "") {
-        alert("Insira seu Nome de Usuário");
+        $("#inputUsuario").notify(
+            "Seu nome de usuário é importante para nós. Por favor, preencha o campo.", "warn",
+            { position: "botton center" }
+        );
         formCadastro.usuario.focus();
         return false;
     }
     else if (users && users.some(item => item.usuario === usuario)) {
-        alert('Esse Nome de Usuário já Possui Cadastro');
+        $("#inputUsuario").notify(
+            "Este nome de usuário já existe. Por favor, escolha outro para continuar.", "warn",
+            { position: "botton center" }
+        );
         formCadastro.usuario.focus();
         return false;
     }
     else if (telefone.trim() === "") {
-        alert("Insira seu Número de Telefone");
+        $("#inputTelefone").notify(
+            "Por favor, informe seu número de telefone para que possamos contatá-lo.", "warn",
+            { position: "botton center" }
+        );
         formCadastro.telefone.focus();
         return false;
     }
-    else if (telefone.length < 15 || telefone.length >= 16) {
-        alert('Preencha o Campo Telefone Corretamente');
+    else if (telefone.length < 15) {
+        $("#inputTelefone").notify(
+            "Ah, parece que faltam dígitos no seu número de telefone.", "warn",
+            { position: "botton center" }
+        );
         formCadastro.telefone.focus();
         return false;
     }
     else if (users && users.some(item => item.telefone === telefone)) {
-        alert('Esse Número de Telefone já Possui Cadastro');
+        $("#inputTelefone").notify(
+            "Número de telefone já existente. Por favor, insira um número único.", "warn",
+            { position: "botton center" }
+        );
         formCadastro.cpf.focus();
         return false;
     }
     else if (data_nascimento.trim() === "") {
-        alert("Insira sua Data de Nascimento");
-        formCadastro.data_nascimento.focus();
-        return false;
-    }
-    else if (data_nascimento > dataFormatada) {
-        alert('Selecione Uma Data de Nascimento Válida');
+        $("#inputData").notify(
+            "Para continuar, por favor, nos diga sua data de nascimento.", "warn",
+            { position: "botton center" }
+        );
         formCadastro.data_nascimento.focus();
         return false;
     }
     else if (cpf.trim() === "") {
-        alert("Insira seu Cpf");
+        $("#inputCpf").notify(
+            "Ah, você esqueceu de preencher seu CPF! Pode fazer isso agora?", "warn",
+            { position: "botton center" }
+        );
         formCadastro.cpf.focus();
         return false;
     }
-    else if (cpf.length < 14 || cpf.length >= 15) {
-        alert('Preencha o Campo Cpf Corretamente');
+    else if (cpf.length < 14) {
+        $("#inputCpf").notify(
+            "O CPF inserido está incompleto. Pode revisar e completar o campo corretamente?", "warn",
+            { position: "botton center" }
+        );
         formCadastro.cpf.focus();
         return false;
     }
     else if (users && users.some(item => item.cpf === cpf)) {
-        alert('Esse Cpf já Possui Cadastro');
+        $("#inputCpf").notify(
+            "CPF já existente. Por favor, selecione um novo CPF.", "warn",
+            { position: "botton center" }
+        );
         formCadastro.cpf.focus();
         return false;
     }
+    else {
+        $.notify(
+            "Parabéns! Seu cadastro foi concluído com sucesso. Bem-vindo à I Love Brigadeiro", "success"
+        );
+        setTimeout(function () {
+            document.forms["formCadastro"].submit();
+        }, 3000);
+    }
 
-    document.forms["formCadastro"].submit();
 }
 
 let users;

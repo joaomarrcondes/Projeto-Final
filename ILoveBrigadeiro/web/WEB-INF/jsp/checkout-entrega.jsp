@@ -40,8 +40,8 @@
                             <div class="div-cep">
                                 <h5>CEP</h5>
                                 <div class="flex-cep-link">
-                                    <input name="cep" id="input-cep" type="text" placeholder="00000-000" maxlength="8"
-                                        minlength="8" required>
+                                    <input name="cep" class="class-input-cep" id="input-cep" type="text"
+                                        placeholder="00000-000" maxlength="8" minlength="8" required>
                                     <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/">Não sei meu CEP</a>
                                 </div>
                             </div>
@@ -112,17 +112,18 @@
                             </div>
                             <div class="entrega">
                                 <h6>Entrega</h6>
-                                <div id="valor-entrega">R$ 25,00</div>
+                                <div id="valor-entrega">25.00</div>
                             </div>
                             <div class="total">
                                 <h6>Total</h6>
-                                <div id="total-checkout"></div>
+                                <div id="total-checkout">0.00</div>
                             </div>
                             <a href="./home">
                                 <button class="btn-continua-compras">CONTINUAR COMPRANDO</button>
                             </a>
                             <a href="./pagamento">
-                                <button type="submit" class="btn-pagamento" id="btn-pagamento" disabled>PAGAMENTO</button>
+                                <button type="submit" class="btn-pagamento" id="btn-pagamento"
+                                    disabled>PAGAMENTO</button>
                             </a>
                         </div>
                         <div class="container-agendar">
@@ -244,9 +245,8 @@
             </div>
         </footer>
     </body>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>

@@ -15,8 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-
-
 function validaNumeroCartao(input) {
     input.value = input.value.replace(/\D/g, '');
 }
@@ -27,10 +25,20 @@ function validaCvvCartao(input) {
 
 function validaNomeCartao(input) {
     input.value = input.value.replace(/[^a-zA-Z\s]/g, '');
-  
-    if (input.value.trim() === '') {
-        input.setCustomValidity('O nome não pode estar vazio.');
-    } else {
-        input.setCustomValidity('');
-    }
 }
+
+const button = document.querySelector('.btn-pagamento-compras')
+const popup = document.querySelector('.popup-wrapper')
+
+button.addEventListener('click', () => {
+    popup.style.display = 'block'
+});
+
+popup.addEventListener('click', event => {
+    const nomeClasseClicada = event.target.classList[0]
+    const fechaPopup = nomeClasseClicada === 'popup-fechar' || nomeClasseClicada === 'popup-wrapper'
+    if (fechaPopup) {
+        popup.style.display = 'none'
+        window.location.href = './home';
+    }
+})

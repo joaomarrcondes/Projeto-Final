@@ -39,14 +39,14 @@
                         <h6>Usuário</h6>
                         <div class="icon-user">
                             <i class="fa-solid fa-circle-user"></i>
-                            <input name="user" class="campo-usuario" type="text" placeholder="Username">
+                            <input name="user" id="input-usuario" class="form-control" type="text" placeholder="Usuário">
                         </div>
                     </div>
                     <div class="mb-3">
                         <h6>Senha</h6>
                         <div class="icon-password">
                             <i class="fa-solid fa-lock"></i>
-                            <input name="password" class="form-control" type="password" placeholder="Password">
+                            <input name="password" id="input-senha" class="form-control" type="password" placeholder="Senha">
                         </div>
                         <div class="checkbox">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">

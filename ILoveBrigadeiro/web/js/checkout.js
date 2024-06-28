@@ -14,7 +14,7 @@ function criaCardCarrinho(carrinhoProduto) {
                     <input id="btn-quantidade" onclick="quantidadeProduto(${carrinhoProduto.id_carrinho}, this.value)" type="number" value="${carrinhoProduto.quantidade}" min="1" max="10" step="1" />
                 </div> 
                  <div class="valor-total-revisao">
-                    <span>${valor.toFixed(2)}</span>
+                    <span>R$ ${valor.toFixed(2)}</span>
                 </div>
                <div class="btn-deleta-produto">
                 <i class="fa-regular fa-trash-can" onclick="excluirProduto(${carrinhoProduto.id_carrinho})"></i>
