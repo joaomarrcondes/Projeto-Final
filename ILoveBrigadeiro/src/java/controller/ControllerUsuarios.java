@@ -52,9 +52,7 @@ public class ControllerUsuarios extends HttpServlet {
         } else if (url.equals("/sair")) {
             HttpSession secao = request.getSession();
             secao.invalidate();
-            String nextPage = "/WEB-INF/jsp/index.jsp";
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-            dispatcher.forward(request, response);
+            response.sendRedirect("./home");
         } else if (url.equals("/pedidos")) {
             HttpSession secao = request.getSession();
             secao.invalidate();

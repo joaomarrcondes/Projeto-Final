@@ -35,10 +35,14 @@
                             <nav>
                                 <ul>
                                     <li class="dropdown">
-                                        <a href="#"><i class="fa-solid fa-user"></i>
-                                            <br>
-                                            Perfil
-                                        </a>
+                                        <c:choose>
+                                            <c:when test="${!sessionScope.user.equals('admin')}">
+                                                <a href="#"><i class="fa-solid fa-user"></i>
+                                                    <br>
+                                                    Perfil
+                                                </a>
+                                            </c:when>
+                                        </c:choose>
                                         <div class="dropdown-menu">
                                             <c:choose>
                                                 <c:when test="${empty sessionScope.user}">
@@ -55,20 +59,35 @@
                                 </ul>
                             </nav>
                             <div class="carrinho-container">
-                                <button id="btn-abrir-carrinho">
-                                    <i class="fa-solid fa-basket-shopping"></i>
-                                    <br>
-                                    Carrinho
-                                </button>
+                                <c:choose>
+                                    <c:when test="${!sessionScope.user.equals('admin')}">
+                                        <button id="btn-abrir-carrinho">
+                                            <i class="fa-solid fa-basket-shopping"></i>
+                                            <br>
+                                            Carrinho
+                                        </button>
+                                    </c:when>
+                                </c:choose>
                             </div>
                             <div class="adm-container">
-                                <button id="btn-adm">
-                                    <a href="./tela-adm">
-                                        <i class="fa-solid fa-user-tie"></i>
-                                        <br>
-                                        Adm
-                                    </a>
-                                </button>
+                                <c:choose>
+                                    <c:when test="${sessionScope.user.equals('admin')}">
+                                        <button id="btn-adm">
+                                            <a href="./tela-adm">
+                                                <i class="fa-solid fa-user-tie"></i>
+                                                <br>
+                                                Adm
+                                            </a>
+                                        </button>
+                                        <button id="btn-adm">
+                                            <a href="./sair">
+                                                <i class="fa-solid fa-right-from-bracket"></i>
+                                                <br>
+                                                Sair
+                                            </a>
+                                        </button>
+                                    </c:when>
+                                </c:choose>
                             </div>
                         </div>
                         <div class="container-categorias">
