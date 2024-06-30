@@ -147,7 +147,7 @@
         margin-top: 7px;
     }
 
-    .checkbox span{
+    .checkbox span {
         margin-left: 90px;
     }
 
@@ -160,22 +160,27 @@
         padding-bottom: 35px;
     }
 
-    .cadastro-link{
+    .cadastro-link {
         font-size: 11px;
         font-weight: bold;
     }
 
-    .checkbox a{
+    .checkbox a {
         font-size: 11px;
         font-weight: bold;
         text-decoration: none;
         color: #F57EB6;
     }
 
-    .form-check-label{
+    .form-check-label {
         margin-left: 10px;
     }
+
+    .btn-voltar {
+        display: none;
+    }
 }
+
 
 @media(max-width:990px) {
     .primeira-coluna {
@@ -212,17 +217,6 @@
     .form-label {
         font-weight: bold;
         font-size: 14px;
-    }
-
-    #btn-fazer-login {
-        background-color: #F57EB6;
-        color: white;
-        font-weight: bold;
-        width: 100%;
-        height: 41px;
-        border: white solid 1px;
-        border-radius: 20px;
-        margin-left: 0;
     }
 
     .form-control {
@@ -282,7 +276,7 @@
         align-items: flex-end;
     }
 
-    .checkbox a{
+    .checkbox a {
         text-decoration: none;
         color: #F57EB6;
         font-size: 11px;
@@ -296,5 +290,26 @@
 
     .mb-3 {
         padding-bottom: 20px;
+    }
+
+    .btn-voltar {
+        background-color: #F57EB6;
+        color: white;
+        font-weight: bold;
+        width: 100%;
+        height: 41px;
+        border: white solid 1px;
+        border-radius: 20px;
+        margin-bottom: 5%;
+    }
+   
+    #btn-fazer-login {
+        background-color: #F57EB6;
+        color: white;
+        font-weight: bold;
+        width: 100%;
+        height: 41px;
+        border: white solid 1px;
+        border-radius: 20px;
     }
 }

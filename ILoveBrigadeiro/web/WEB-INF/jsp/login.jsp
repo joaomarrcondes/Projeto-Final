@@ -58,6 +58,9 @@
                                 </a>
                             </div>
                         </div>
+                        <a href="./home">
+                            <button class="btn-voltar">Voltar</button>
+                        </a>
                         <input id="btn-fazer-login" type="button" value="Fazer Login" onclick="validacao()">
                     </form>
                 </div>

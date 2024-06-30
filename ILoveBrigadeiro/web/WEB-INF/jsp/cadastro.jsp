@@ -19,10 +19,11 @@
                     <h2 id="titulo">Criar Nova Conta de Cliente</h2>
                     <h3 id="subtitulo1">Informações Pessoais</h3>
                     <hr id="linha1">
-                    <form name="formCadastro" action="cadastro" method="post">
+                    <form name="formCadastro" action="cadastro" method="post" class="formulario-cadastro">
                         <div class="mb-3">
                             <h6>Nome Completo</h6>
-                            <input name="nome" class="form-control" type="text" id="inputNome" placeholder="Nome Completo">
+                            <input name="nome" class="form-control" type="text" id="inputNome"
+                                placeholder="Nome Completo">
                         </div>
                         <div class="mb-3">
                             <h6>Telefone</h6>
@@ -43,7 +44,7 @@
                         <div class="mb-3">
                             <h6>Usuário</h6>
                             <input name="usuario" class="form-control" type="text" id="inputUsuario"
-                                placeholder="Username">
+                                placeholder="Usuário">
                         </div>
                         <div class="mb-3">
                             <h6>Senha</h6>
@@ -51,7 +52,17 @@
                                 placeholder="Mínimo de 8 caracteres">
                         </div>
                         <br>
-                        <input id="btn-criar" type="button" value="Criar uma Conta" onclick="validacao()">
+                        <div class="btn-voltar-cadastro">
+                            <a href="./home">
+                                <button class="btn-voltar">Voltar</button>
+                            </a>
+                            <input id="btn-criar" type="button" value="Criar uma Conta" onclick="validacao()">
+                        </div>
+                        <div class="link-login">
+                            <a href="./tela-login">
+                                <span>Já possui uma conta? Entre agora</span>
+                            </a>
+                        </div>
                     </form>
                 </div>
                 <div class="container-direita">

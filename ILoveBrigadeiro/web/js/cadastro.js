@@ -14,38 +14,6 @@ function validacao() {
         formCadastro.nome.focus();
         return false;
     }
-    else if (senha.trim() === "") {
-        $("#inputSenha").notify(
-            "Precisamos da sua senha para prosseguir. Pode digitá-la, por favor?", "warn",
-            { position: "botton center" }
-        );
-        formCadastro.senha.focus();
-        return false;
-    }
-    else if (senha.length < 8) {
-        $("#inputSenha").notify(
-            "Para sua segurança, a senha deve ter pelo menos 8 caracteres.", "warn",
-            { position: "botton center" }
-        );
-        formCadastro.senha.focus();
-        return false;
-    }
-    else if (usuario.trim() === "") {
-        $("#inputUsuario").notify(
-            "Seu nome de usuário é importante para nós. Por favor, preencha o campo.", "warn",
-            { position: "botton center" }
-        );
-        formCadastro.usuario.focus();
-        return false;
-    }
-    else if (users && users.some(item => item.usuario === usuario)) {
-        $("#inputUsuario").notify(
-            "Este nome de usuário já existe. Por favor, escolha outro para continuar.", "warn",
-            { position: "botton center" }
-        );
-        formCadastro.usuario.focus();
-        return false;
-    }
     else if (telefone.trim() === "") {
         $("#inputTelefone").notify(
             "Por favor, informe seu número de telefone para que possamos contatá-lo.", "warn",
@@ -67,15 +35,7 @@ function validacao() {
             "Número de telefone já existente. Por favor, insira um número único.", "warn",
             { position: "botton center" }
         );
-        formCadastro.cpf.focus();
-        return false;
-    }
-    else if (data_nascimento.trim() === "") {
-        $("#inputData").notify(
-            "Para continuar, por favor, nos diga sua data de nascimento.", "warn",
-            { position: "botton center" }
-        );
-        formCadastro.data_nascimento.focus();
+        formCadastro.telefone.focus();
         return false;
     }
     else if (cpf.trim() === "") {
@@ -100,6 +60,46 @@ function validacao() {
             { position: "botton center" }
         );
         formCadastro.cpf.focus();
+        return false;
+    }
+    else if (data_nascimento.trim() === "") {
+        $("#inputData").notify(
+            "Para continuar, por favor, nos diga sua data de nascimento.", "warn",
+            { position: "botton center" }
+        );
+        formCadastro.data_nascimento.focus();
+        return false;
+    }
+    else if (usuario.trim() === "") {
+        $("#inputUsuario").notify(
+            "Seu nome de usuário é importante para nós. Por favor, preencha o campo.", "warn",
+            { position: "botton center" }
+        );
+        formCadastro.usuario.focus();
+        return false;
+    }
+    else if (users && users.some(item => item.usuario === usuario)) {
+        $("#inputUsuario").notify(
+            "Este nome de usuário já existe. Por favor, escolha outro para continuar.", "warn",
+            { position: "botton center" }
+        );
+        formCadastro.usuario.focus();
+        return false;
+    }
+    else if (senha.trim() === "") {
+        $("#inputSenha").notify(
+            "Precisamos da sua senha para prosseguir. Pode digitá-la, por favor?", "warn",
+            { position: "botton center" }
+        );
+        formCadastro.senha.focus();
+        return false;
+    }
+    else if (senha.length < 8) {
+        $("#inputSenha").notify(
+            "Para sua segurança, a senha deve ter pelo menos 8 caracteres.", "warn",
+            { position: "botton center" }
+        );
+        formCadastro.senha.focus();
         return false;
     }
     else {
