@@ -37,6 +37,7 @@
                             <input name="inputNumero" type="text" class="form-control" id="input-numero-cartao"
                                 maxlength="16" minlength="16" required onkeyup="validaNumeroCartao(this)">
                         </div>
+                        <h6>Validade</h6>
                         <div class="validade-cvv">
                             <select class="form-select-mes">
                                 <option selected>Mês</option>
