@@ -29,7 +29,7 @@
     }
 }
 
-@media(max-width:990px){
+@media(max-width:990px) {
     #linha1 {
         border: #ff0077 solid 1px;
         margin-left: 10%;
@@ -60,4 +60,3 @@
         font-size: 20px;
     }
 }
-

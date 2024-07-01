@@ -141,12 +141,11 @@
     #btn-adm a {
         color: white;
     }
+
+    .adm-container{
+        display: none;
+    }
 }
-
-
-
-
-
 
 @media(max-width:990px) {
     a:hover {
