@@ -510,18 +510,45 @@
         align-items: center;
         gap: 10px;
         justify-content: space-between;
+        flex: 1;
     }
 
     .imagem img {
         border-radius: 10px;
         object-fit: cover;
-        width: 100%;
-        height: auto;
+        width: 100px;
+        height: 100px;
+    }
+
+    .imagem{
+        display: flex;
+        align-items: center;
     }
 
     .nome-produto-revisao {
         display: inline;
         text-align: center;
+        flex: 2;
+    }
+
+    .nome-produto-revisao span {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .quantidade-revisao {
+        flex: 1;
+    }
+
+    .quantidade-revisao input {
+        width: 60px;
+    }
+
+    .valor-total-revisao {
+        flex: 1;
+        text-align: right;
     }
 
     .endereco-total {
@@ -689,7 +716,7 @@
     .icon-relogio,
     .icon-data {
         display: flex;
-        align-items: center;
+        align-items: baseline;
         justify-content: center;
     }
 

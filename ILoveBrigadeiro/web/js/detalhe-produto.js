@@ -1,9 +1,11 @@
+// Obtém o id do produto e chama a função produtoId com o 'id'.
 document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
     const idProduto = urlParams.get('id');
     produtoId(idProduto);
 });
 
+// Cria um card do produto com  imagem do produto, nome, valor, quantidade, botão de adicionar ao carrinho e a descrição do produto.
 function criarProdutoCard(produtos) {
     const card = document.createElement('div');
     card.classList.add('container-produto');
@@ -44,6 +46,7 @@ function criarProdutoCard(produtos) {
     return card;
 }
 
+// Adiciona o produto no carrinho e recarrega o carrinho
 function adicionaCarrinho(idProduto, nome, valor, imagem) {
     const data = {
         idProduto: idProduto,
@@ -83,6 +86,7 @@ function adicionaCarrinho(idProduto, nome, valor, imagem) {
         });
 }
 
+//Recebe uma lista de produtos e adiciona cada um na main criando cards.
 function carregarProdutos(produtos) {
     const container = document.querySelector('main');
     produtos.forEach(produtos => {
@@ -91,6 +95,7 @@ function carregarProdutos(produtos) {
     });
 }
 
+// Converte um buffer de imagem em uma string Base64 para exibição.
 function arrayBufferToBase64(buffer) {
     let binary = '';
     const bytes = new Uint8Array(buffer);
@@ -101,6 +106,7 @@ function arrayBufferToBase64(buffer) {
     return window.btoa(binary);
 }
 
+// Obtém informações de um produto específico com base no id e chama a função para mostrar o produto.
 function produtoId(idProduto) {
     fetch('./produto?id=' + idProduto)
         .then(response => {
@@ -117,6 +123,7 @@ function produtoId(idProduto) {
         })
 }
 
+//Obtém os produtos do carrinho e carrega na página e atualiza o valor total do carrinho.
 function carregaCarinho() {
     fetch('./carrinho-produtos')
         .then(response => {

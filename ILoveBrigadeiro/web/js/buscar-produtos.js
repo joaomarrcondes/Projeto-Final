@@ -3,6 +3,8 @@ const buscarProdutos = urlParams.get('busca');
 const buscarCategorias = urlParams.get('categoria');
 
 let cardProdutos;
+
+// Cria um elemento div para o card do produto
 function criarProdutoCard(produtos) {
     const card = document.createElement('div');
     card.classList.add('produtos-card');
@@ -26,6 +28,7 @@ function criarProdutoCard(produtos) {
     return card;
 }
 
+//  Envia uma solicitação para adicionar um produto ao carrinho e exibe o produto.
 function adicionaCarrinho(idProduto, nome, valor, imagem) {
     const data = {
         idProduto: idProduto,
@@ -64,6 +67,7 @@ function adicionaCarrinho(idProduto, nome, valor, imagem) {
         });
 }
 
+// Carrega e exibe os produtos em um carrousel
 function carregarProdutos(produtos) {
     const div = document.querySelector('.js-carousel--products');
     div.innerHTML = '';
@@ -73,6 +77,7 @@ function carregarProdutos(produtos) {
     });
 }
 
+// Converte um buffer de imagem em uma string Base64 para exibição.
 function arrayBufferToBase64(buffer) {
     let binary = '';
     const bytes = new Uint8Array(buffer);
@@ -83,6 +88,7 @@ function arrayBufferToBase64(buffer) {
     return window.btoa(binary);
 }
 
+// Busca produtos por nome.
 function nomeProduto (buscarProdutos){
     fetch('./busca?busca=' + buscarProdutos)
     .then(response => {
@@ -100,6 +106,7 @@ function nomeProduto (buscarProdutos){
     })
 }
 
+//Busca produtos por categoria.
 function categoriaProduto (buscarCategorias){
     fetch('./busca?categoria=' + buscarCategorias)
     .then(response => {

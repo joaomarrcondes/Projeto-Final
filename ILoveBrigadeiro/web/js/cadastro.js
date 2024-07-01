@@ -113,6 +113,7 @@ function validacao() {
 
 }
 
+//Realiza uma requisição fetch para buscar a lista de usuários e armazena os dados na variável users.
 let users;
 fetch('./users')
     .then(response => {
@@ -128,11 +129,13 @@ fetch('./users')
         console.error(error);
     });
 
+// Aplica a mascara
 const verificaTelefone = (event) => {
     let input = event.target;
     input.value = mascaraTelefone(input.value);
 }
 
+// Formatação do campo telefone
 const mascaraTelefone = (value) => {
     if (!value) return "";
     value = value.replace(/\D/g, '');
@@ -141,11 +144,13 @@ const mascaraTelefone = (value) => {
     return value;
 }
 
+// Aplica a mascara
 const verificaCpf = (event) => {
     let input = event.target;
     input.value = mascaraCpf(input.value);
 }
 
+// Formatação do campo cpf
 const mascaraCpf = (value) => {
     if (!value) return "";
     value = value.replace(/\D/g, "");
@@ -155,6 +160,7 @@ const mascaraCpf = (value) => {
     return value;
 }
 
+// Impede o usuário de selecionar datas futuras ao dia de hoje
 let dataAtual = new Date();
 let dataFormatada = dataAtual.getFullYear() + '-' +
     ('0' + (dataAtual.getMonth() + 1)).slice(-2) + '-' +

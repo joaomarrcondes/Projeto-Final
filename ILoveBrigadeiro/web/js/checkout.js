@@ -1,3 +1,4 @@
+// Cria uma li para cada produto no checkout com suas funcionalidades.
 function criaCardCarrinho(carrinhoProduto) {
     const valor = carrinhoProduto.valor * carrinhoProduto.quantidade;
     const cardProduto = document.createElement('li');
@@ -25,7 +26,7 @@ function criaCardCarrinho(carrinhoProduto) {
     `;
     return cardProduto;
 }
-
+// Carrega todos os produtos no checkout na classe informada.
 function carregaCarrinhoProdutos(carrinhoProdutos) {
     const element = document.querySelector('.produtos-lista');
 
@@ -37,6 +38,7 @@ function carregaCarrinhoProdutos(carrinhoProdutos) {
     });
 }
 
+// Exclui o produto e atualiza a lista no checkout.
 function excluirProduto(produtoId) {
     fetch(`./deleta-produto?produtoId=${produtoId}`, {
         method: 'DELETE',
@@ -62,6 +64,7 @@ function excluirProduto(produtoId) {
         });
 }
 
+//Obtém os produtos do carrinho e carrega na página e atualiza o valor total do carrinho.
 function carregaCarinho() {
     fetch('./carrinho-produtos')
         .then(response => {
@@ -80,6 +83,7 @@ function carregaCarinho() {
 }
 carregaCarinho();
 
+// Atualiza a quantidade do produto no checkout.
 function quantidadeProduto(produtoId, quantidade) {
     const data = {
         produtoId: produtoId,
@@ -107,6 +111,7 @@ function quantidadeProduto(produtoId, quantidade) {
         });
 }
 
+// Calcula o valor total dos produtos no chrckout.
 function calculaValor(carrinhoProdutos) {
     let valor = 0;
     carrinhoProdutos.forEach(carrinhoProdutos => {
@@ -115,6 +120,7 @@ function calculaValor(carrinhoProdutos) {
     return valor;
 }
 
+// Mostra e atualiza o valor no elemento id.
 function atualizaValor(carrinhoProdutos) {
     const valorTotalCarrinho = document.getElementById("subtotal-checkout");
     const novoValor = calculaValor(carrinhoProdutos);

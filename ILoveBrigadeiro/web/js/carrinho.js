@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const finalizarCompra = document.getElementById("btn-finalizar");
 
+// Cria uma li para cada produto no carrinho com suas funcionalidades.
 function criaCardCarrinho(carrinhoProdutos) {
     const novoValor = carrinhoProdutos.valor * carrinhoProdutos.quantidade;
     const cardProduto = document.createElement('li');
@@ -49,7 +50,7 @@ function criaCardCarrinho(carrinhoProdutos) {
     return cardProduto;
 }
 
-
+// Carrega todos os produtos no carrinho
 function carregaCarrinhoProdutos(carrinhoProdutos) {
     const element = document.querySelector('.produtos');
 
@@ -61,6 +62,7 @@ function carregaCarrinhoProdutos(carrinhoProdutos) {
     });
 }
 
+// Exclui o produto e recarrega o carrinho.
 function excluirProduto(produtoId) {
     fetch('./deleta-produto?produtoId=' + produtoId, {
         method: 'DELETE',
@@ -84,6 +86,7 @@ function excluirProduto(produtoId) {
     carregaCarinho();
 }
 
+// Esvazia o carrinho e recarrega o carrinho após isso.
 function esvaziarCarrinho() {
     fetch('./esvaziar-carrinho', {
         method: 'DELETE',
@@ -109,6 +112,7 @@ function esvaziarCarrinho() {
         });
 }
 
+//Obtém os produtos do carrinho e carrega na página e atualiza o valor total do carrinho.
 function carregaCarinho() {
     fetch('./carrinho-produtos')
         .then(response => {
@@ -128,6 +132,7 @@ function carregaCarinho() {
 }
 carregaCarinho();
 
+// Atualiza a quantidade do produto no carrinho.
 function quantidadeProduto(produtoId, quantidade) {
     const data = {
         produtoId: produtoId,
@@ -154,6 +159,7 @@ function quantidadeProduto(produtoId, quantidade) {
         });
 }
 
+// Atualiza a quantidade do produto no carrinho.
 function alterarQuantidade(produtoId, quantidade) {
     const inputElement = document.getElementById(`btn-quantidade-${produtoId}`);
     clearTimeout(inputElement.dataset.timeout);
@@ -162,6 +168,7 @@ function alterarQuantidade(produtoId, quantidade) {
     }, 100);
 }
 
+// Calcula o valor total dos produtos no carrinho.
 function calculaValor(carrinhoProdutos) {
     let valor = 0;
     carrinhoProdutos.forEach(carrinhoProdutos => {
@@ -170,12 +177,14 @@ function calculaValor(carrinhoProdutos) {
     return valor;
 }
 
+// Mostra e atualiza o valor no elemento id.
 function atualizaValor(carrinhoProdutos) {
     let valorTotalCarrinho = document.getElementById("valor-total");
     const valor = calculaValor(carrinhoProdutos);
     valorTotalCarrinho.textContent = valor.toFixed(2);
 }
 
+// Habilita ou desabilita o botão de finalizar compra com base da indentificação do produto no carrinho.
 function itensCarrinho() {
     const ul = document.querySelector(".produtos");
     if (!ul.hasChildNodes()) {
