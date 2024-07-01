@@ -1,288 +1,513 @@
-.container-metodos-pagamento {
-    display: flex;
-    align-items: baseline;
-    margin-bottom: 10%;
-    justify-content: space-evenly;
+@media(min-width:991px) {
+    .container-metodos-pagamento {
+        display: flex;
+        align-items: baseline;
+        margin-bottom: 10%;
+        justify-content: space-evenly;
+    }
+
+    .texto-pagamento {
+        font-size: 30px;
+        font-weight: bold;
+        color: #f57eb6;
+        margin: 5% 0 5% 2%;
+    }
+
+    #btn-metodo-cartao {
+        align-items: center;
+        background-color: #F57EB6;
+        border: none;
+        border-radius: 15px;
+        width: 458px;
+        height: 45px;
+        font-size: 17px;
+        font-weight: bold;
+        color: white;
+    }
+
+    #btn-metodo-cartao:focus {
+        box-shadow: 0 0 0 0;
+        border: 0 none;
+        outline: 0;
+    }
+
+    #input-numero-cartao,
+    #input-nome-cartao {
+        width: 458px;
+        height: 40px;
+        border-radius: 15px;
+        padding-left: 2%;
+    }
+
+    .form-control:focus {
+        box-shadow: none;
+        border-color: gray;
+    }
+
+    .form-select-mes,
+    .form-select-ano {
+        border-radius: 15px;
+        width: 125px;
+        height: 40px;
+        padding-left: 1%;
+    }
+
+    #input-cvv-cartao {
+        border-radius: 15px;
+        width: 125px;
+        height: 40px;
+        padding-left: 8%;
+    }
+
+    .validade-cvv {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .container-card-cartao {
+        border: 1px solid #F57EB6;
+        padding: 20px;
+    }
+
+    .container-metodo-pix {
+        border: 1px solid #F57EB6;
+        padding: 20px;
+        display: block;
+    }
+
+    #btn-metodo-pix {
+        align-items: center;
+        background-color: #F57EB6;
+        border: none;
+        border-radius: 15px;
+        width: 458px;
+        height: 45px;
+        font-size: 17px;
+        font-weight: bold;
+        color: white;
+    }
+
+    #btn-metodo-pix:focus {
+        box-shadow: 0 0 0 0;
+        border: 0 none;
+        outline: 0;
+    }
+
+    .div-numero-cartao {
+        margin-top: 15%;
+        margin-bottom: 15%;
+    }
+
+    .div-nome-cartao {
+        margin-top: 15%;
+        margin-bottom: 15%;
+    }
+
+    .resumo-valor-pagamento {
+        border: 1px solid #F57EB6;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+
+    .resumo-botoes {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .class-container-pix {
+        display: none;
+    }
+
+    .texto-pix {
+        text-align: center;
+        margin-top: 7%;
+    }
+
+    .texto-pix h5 {
+        font-weight: bolder;
+        font-size: 20px;
+    }
+
+    .texto-pix span {
+        font-weight: lighter;
+        font-size: 20px;
+    }
+
+    .btn-copia-cola {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .btn-copia-cola button {
+        align-items: center;
+        background-color: #F57EB6;
+        border: none;
+        border-radius: 15px;
+        width: 300px;
+        height: 45px;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+    }
+
+    .btn-copia-cola button:focus {
+        box-shadow: 0 0 0 0;
+        border: 0 none;
+        outline: 0;
+    }
+
+    .qrcode-container {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .fa-solid {
+        padding-right: 5%;
+        font-size: 20px;
+        opacity: 90%;
+    }
+
+    .botoes-resumo-valores {
+        border: 1px solid #F57EB6;
+        padding: 20px;
+    }
+
+    .resumo-valores h3 {
+        font-weight: bold;
+        font-size: 30px;
+        color: #F57EB6;
+        text-align: center;
+    }
+
+    .resumo-valores {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 0px 20px 0px 20px;
+        gap: 50px;
+    }
+
+    h6 {
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .botoes {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .botoes button {
+        text-align: center;
+        background-color: #F57EB6;
+        border: none;
+        border-radius: 15px;
+        width: 300px;
+        height: 45px;
+        font-size: 17px;
+        font-weight: bold;
+        color: white;
+    }
+
+    .botoes button:focus {
+        box-shadow: 0 0 0 0;
+        border: 0 none;
+        outline: 0;
+    }
+
+    .entrega-resumo {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+
+    #valor-entrega-resumo {
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .total-resumo {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+
+    #total-checkout-resumo {
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .sub-total-resumo {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+
+    #subtotal-checkout-resumo {
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .popup-wrapper {
+        display: none;
+        background: rgba(0, 0, 0, .5);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .popup {
+        text-align: center;
+        width: 100%;
+        max-width: 500px;
+        margin: 10% auto;
+        padding: 20px;
+        background-color: white;
+        position: relative;
+        border-radius: 20px;
+    }
+
+    .popup-fechar {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        cursor: pointer;
+    }
+
+    .fa-circle-check {
+        font-size: 70px;
+        margin-bottom: 5%;
+    }
+
+    .popup-conteudo h2 {
+        color: #63E6BE;
+    }
 }
 
-.texto-pagamento {
-    font-size: 30px;
-    font-weight: bold;
-    color: #f57eb6;
-    margin: 5% 0 5% 2%;
-}
+@media(max-width:990px) {
+    .container-metodos-pagamento {
+        display: block;
+        align-items: center;
+        margin-bottom: 10%;
+    }
 
-#btn-metodo-cartao {
-    align-items: center;
-    background-color: #F57EB6;
-    border: none;
-    border-radius: 15px;
-    width: 458px;
-    height: 45px;
-    font-size: 17px;
-    font-weight: bold;
-    color: white;
-}
+    .texto-pagamento {
+        font-size: 24px;
+        font-weight: bold;
+        color: #f57eb6;
+        margin: 5% 0 5% 2%;
+        text-align: center;
+    }
 
-#btn-metodo-cartao:focus {
-    box-shadow: 0 0 0 0;
-    border: 0 none;
-    outline: 0;
-}
+    #btn-metodo-cartao,
+    #btn-metodo-pix {
+        align-items: center;
+        background-color: #F57EB6;
+        border: none;
+        border-radius: 15px;
+        width: 100%;
+        height: 45px;
+        font-size: 17px;
+        font-weight: bold;
+        color: white;
+        margin-bottom: 10px;
+    }
 
-#input-numero-cartao,
-#input-nome-cartao {
-    width: 458px;
-    height: 40px;
-    border-radius: 15px;
-    padding-left: 2%;
-}
+    #btn-metodo-cartao,
+    #btn-metodo-pix:focus {
+        box-shadow: 0 0 0 0;
+        border: 0 none;
+        outline: 0;
+    }
 
-.form-control:focus {
-    box-shadow: none;
-    border-color: gray;
-}
+    #input-numero-cartao,
+    #input-nome-cartao,
+    .form-select-mes,
+    .form-select-ano,
+    #input-cvv-cartao {
+        width: 100%;
+        height: 40px;
+        border-radius: 15px;
+        padding-left: 2%;
+        margin-bottom: 10px;
+    }
 
-.form-select-mes,
-.form-select-ano {
-    border-radius: 15px;
-    width: 125px;
-    height: 40px;
-    padding-left: 1%;
-}
+    .form-select-mes,
+    .form-select-ano,
+    #input-cvv-cartao {
+        width: 48%;
+        height: 40px;
+        padding-left: 1%;
+    }
 
-#input-cvv-cartao {
-    border-radius: 15px;
-    width: 125px;
-    height: 40px;
-    padding-left: 8%;
-}
+    .validade-cvv {
+        display: flex;
+        flex-direction: column;
+    }
 
-.validade-cvv {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+    .container-card-cartao,
+    .container-metodo-pix,
+    .resumo-valor-pagamento,
+    .botoes-resumo-valores {
+        border: 1px solid #F57EB6;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
 
-.container-card-cartao {
-    border: 1px solid #F57EB6;
-    padding: 20px;
-}
+    .resumo-valor-pagamento {
+        display: block;
+    }
 
-.container-metodo-pix {
-    border: 1px solid #F57EB6;
-    padding: 20px;
-    display: block;
-}
+    .resumo-botoes {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-#btn-metodo-pix {
-    align-items: center;
-    background-color: #F57EB6;
-    border: none;
-    border-radius: 15px;
-    width: 458px;
-    height: 45px;
-    font-size: 17px;
-    font-weight: bold;
-    color: white;
-}
+    .class-container-pix {
+        display: none;
+    }
 
-#btn-metodo-pix:focus {
-    box-shadow: 0 0 0 0;
-    border: 0 none;
-    outline: 0;
-}
+    .texto-pix {
+        text-align: center;
+        margin-top: 7%;
+    }
 
-.div-numero-cartao {
-    margin-top: 15%;
-    margin-bottom: 15%;
-}
+    .texto-pix h5,
+    .texto-pix span {
+        font-weight: bolder;
+        font-size: 16px;
+    }
 
-.div-nome-cartao {
-    margin-top: 15%;
-    margin-bottom: 15%;
-}
+    .btn-copia-cola {
+        display: flex;
+        flex-direction: column;
+    }
 
-.resumo-valor-pagamento {
-    border: 1px solid #F57EB6;
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-}
+    .btn-copia-cola button {
+        align-items: center;
+        background-color: #F57EB6;
+        border: none;
+        border-radius: 15px;
+        width: 100%;
+        height: 45px;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        margin-bottom: 10px;
+    }
 
-.resumo-botoes {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
+    .qrcode-container {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
 
-.class-container-pix {
-    display: none;
-}
+    .fa-solid {
+        padding-right: 5%;
+        font-size: 20px;
+        opacity: 90%;
+    }
 
-.texto-pix {
-    text-align: center;
-    margin-top: 7%;
-}
+    .resumo-valores h3 {
+        font-weight: bold;
+        font-size: 24px;
+        color: #F57EB6;
+        text-align: center;
+    }
 
-.texto-pix h5 {
-    font-weight: bolder;
-    font-size: 20px;
-}
+    .resumo-valores {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 0px 10px;
+        gap: 30px;
+    }
 
-.texto-pix span {
-    font-weight: lighter;
-    font-size: 20px;
-}
+    h6 {
+        font-weight: bold;
+        font-size: 14px;
+    }
 
-.btn-copia-cola {
-    display: flex;
-    justify-content: space-evenly;
-}
+    .botoes {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
 
-.btn-copia-cola button {
-    align-items: center;
-    background-color: #F57EB6;
-    border: none;
-    border-radius: 15px;
-    width: 300px;
-    height: 45px;
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-}
+    .botoes button {
+        text-align: center;
+        background-color: #F57EB6;
+        border: none;
+        border-radius: 15px;
+        width: 100%;
+        height: 45px;
+        font-size: 17px;
+        font-weight: bold;
+        color: white;
+    }
 
-.btn-copia-cola button:focus {
-    box-shadow: 0 0 0 0;
-    border: 0 none;
-    outline: 0;
-}
+    .entrega-resumo,
+    .total-resumo,
+    .sub-total-resumo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 
-.qrcode-container {
-    display: flex;
-    justify-content: space-around;
-}
+    #valor-entrega-resumo,
+    #total-checkout-resumo,
+    #subtotal-checkout-resumo {
+        font-weight: bold;
+        font-size: 15px;
+    }
 
-.fa-solid {
-    padding-right: 5%;
-    font-size: 20px;
-    opacity: 90%;
-}
+    .popup-wrapper {
+        display: none;
+        background: rgba(0, 0, 0, .5);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 
-.botoes-resumo-valores {
-    border: 1px solid #F57EB6;
-    padding: 20px;
-}
+    .popup {
+        text-align: center;
+        width: 100%;
+        max-width: 300px;
+        margin: 10% auto;
+        padding: 20px;
+        background-color: white;
+        position: relative;
+        border-radius: 20px;
+    }
 
-.resumo-valores h3 {
-    font-weight: bold;
-    font-size: 30px;
-    color: #F57EB6;
-    text-align: center;
-}
+    .popup-fechar {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        cursor: pointer;
+    }
 
-.resumo-valores {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 0px 20px 0px 20px;
-    gap: 50px;
-}
+    .fa-circle-check {
+        font-size: 50px;
+        margin-bottom: 5%;
+    }
 
-h6 {
-    font-weight: bold;
-    font-size: 15px;
-}
+    .popup-conteudo h2 {
+        color: #63E6BE;
+    }
 
-.botoes {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.botoes button {
-    text-align: center;
-    background-color: #F57EB6;
-    border: none;
-    border-radius: 15px;
-    width: 300px;
-    height: 45px;
-    font-size: 17px;
-    font-weight: bold;
-    color: white;
-}
-
-.botoes button:focus {
-    box-shadow: 0 0 0 0;
-    border: 0 none;
-    outline: 0;
-}
-
-.entrega-resumo {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-}
-
-#valor-entrega-resumo {
-    font-weight: bold;
-    font-size: 15px;
-}
-
-.total-resumo {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-}
-
-#total-checkout-resumo {
-    font-weight: bold;
-    font-size: 15px;
-}
-
-.sub-total-resumo {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-}
-
-#subtotal-checkout-resumo {
-    font-weight: bold;
-    font-size: 15px;
-}
-
-.popup-wrapper{
-    display: none;
-    background:rgba(0, 0, 0, .5);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.popup{
-    text-align: center;
-    width: 100%;
-    max-width: 500px;
-    margin: 10% auto;
-    padding: 20px;
-    background-color: white;
-    position: relative;
-    border-radius: 20px;
-}
-
-.popup-fechar{
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    cursor: pointer;
-}
-
-.fa-circle-check{
-    font-size: 70px;
-    margin-bottom: 5%;
-}
-
-.popup-conteudo h2{
-    color:#63E6BE;
+    .qrcode-container img{
+        object-fit: cover;
+        width: 300px;
+    }
 }

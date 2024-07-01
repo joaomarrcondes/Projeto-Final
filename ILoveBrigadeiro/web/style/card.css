@@ -50,3 +50,56 @@
         margin-top: 10px;
     }
 }
+
+@media(max-width:990px){
+    .card a {
+        text-decoration: none;
+    }
+
+    .card-body {
+        margin: 10px;
+        height: 420px;
+        width: 280px;
+        border-radius: 20px;
+        border: #F57EB6 solid 2px;
+    }
+
+    .card-body h5 {
+        color: #000000;
+        text-align: center;
+        font-size: 14px;
+        overflow-y: hidden;
+        max-height: 40px;
+    }
+
+    .card-body .nome-produto {
+        color: black;
+        font-weight: 600;
+    }
+
+    .card-body img {
+        border-radius: 20px;
+        width: 220px;
+        height: 180px;
+    }
+
+    .valor .valor {
+        color: black;
+        font-weight: bold;
+    }
+
+    .btn-container {
+        transform: translateY(100%);
+    }
+
+    .btn-adicionar {
+        border-radius: 10px;
+        background-color: #F57EB6;
+        color: white;
+        border: 1px solid #F57EB6;
+        width: 118px;
+        height: 34px;
+        font-weight: 500;
+        margin-top: 10px;
+    }
+}

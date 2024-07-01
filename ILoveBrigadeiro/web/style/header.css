@@ -1,142 +1,298 @@
-a:hover {
-    text-decoration: none;
-    color: white;
+@media(min-width:991px) {
+    a:hover {
+        text-decoration: none;
+        color: white;
+    }
+
+    .container-header {
+        background-color: #F57EB6;
+    }
+
+    .logo {
+        border-radius: 50%;
+        width: 84px;
+        height: 82px;
+    }
+
+    .form-control {
+        width: 472px;
+        border-radius: 20px;
+    }
+
+    .form-control:focus {
+        box-shadow: none;
+        border-color: white;
+    }
+
+    .logo-container {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .input-pesquisa {
+        background-color: rgb(255, 255, 255);
+        border-radius: 20px;
+    }
+
+    .logo-container p {
+        padding-top: 10px;
+    }
+
+    .form-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    nav li {
+        display: inline-block;
+    }
+
+    nav li a {
+        display: inline-block;
+        color: white;
+        padding: 15px;
+        text-decoration: none;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    #btn-login:hover {
+        background-color: #e2e2e29c;
+    }
+
+    #btn-cadastro:hover {
+        background-color: #e2e2e29c;
+    }
+
+    .logo-container button {
+        border: none;
+    }
+
+    .logo-container input {
+        border-color: white;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        display: none;
+    }
+
+    .dropdown-menu a {
+        display: block;
+        color: black;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    #nome-endereco {
+        color: white;
+        font-weight: bolder;
+    }
+
+    #btn-abrir-carrinho {
+        border: none;
+        background-color: #F57EB6;
+        color: white;
+    }
+
+    #btn-pesquisa {
+        border-radius: 50%;
+        background-color: white;
+        color: #F57EB6;
+        width: 40px;
+    }
+
+    .container-categorias {
+        background-color: #E9E7E7;
+        padding: 10px;
+    }
+
+    .categoria {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+        margin: 0;
+    }
+
+    .categoria li {
+        list-style-type: none;
+    }
+
+    .categoria a {
+        color: #CA89A7;
+        font-weight: bold;
+    }
+
+    #btn-pedidos {
+        background-color: #F57EB6;
+        color: white;
+    }
+
+    #btn-adm {
+        background-color: #F57EB6;
+        color: white;
+    }
+
+    #btn-adm a {
+        color: white;
+    }
 }
 
-.container-header {
-    background-color: #F57EB6;
-}
 
-.logo {
-    border-radius: 50%;
-    width: 84px;
-    height: 82px;
-}
 
-.form-control {
-    width: 472px;
-    border-radius: 20px;
-}
 
-.form-control:focus {
-    box-shadow: none;
-    border-color: white;
-}
 
-.logo-container {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 15px;
-}
 
-.input-pesquisa {
-    background-color: rgb(255, 255, 255);
-    border-radius: 20px;
-}
+@media(max-width:990px) {
+    a:hover {
+        text-decoration: none;
+        color: white;
+    }
 
-.logo-container p {
-    padding-top: 10px;
-}
+    .container-header {
+        background-color: #F57EB6;
+    }
 
-.form-container {
-    display: flex;
-    justify-content: center;
-}
+    .logo {
+        border-radius: 50%;
+        width: 50px;
+        height: 48px;
+    }
 
-nav li {
-    display: inline-block;
-}
+    .form-control {
+        width: 100%;
+        border-radius: 20px;
+    }
 
-nav li a {
-    display: inline-block;
-    color: white;
-    padding: 15px;
-    text-decoration: none;
-    text-align: center;
-    margin-top: 20px;
-}
+    .form-control:focus {
+        box-shadow: none;
+        border-color: white;
+    }
 
-#btn-login:hover {
-    background-color: #e2e2e29c;
-}
+    .logo-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        justify-content: space-between;
+    }
 
-#btn-cadastro:hover {
-    background-color: #e2e2e29c;
-}
+    .input-pesquisa {
+        background-color: rgb(255, 255, 255);
+        border-radius: 20px;
+        display: none;
+    }
 
-.logo-container button {
-    border: none;
-}
+    .logo-container p {
+        padding-top: 10px;
+    }
 
-.logo-container input {
-    border-color: white;
-}
+    .form-container {
+        display: flex;
+        justify-content: center;
+    }
 
-.dropdown-menu {
-    position: absolute;
-    display: none;
-}
+    nav li {
+        display: inline-block;
+    }
 
-.dropdown-menu a {
-    display: block;
-    color: black;
-}
+    nav li a {
+        display: inline-block;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+        margin-top: 20px;
+    }
 
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
+    #btn-login:hover {
+        background-color: #e2e2e29c;
+    }
 
-#nome-endereco {
-    color: white;
-    font-weight: bolder;
-}
+    #btn-cadastro:hover {
+        background-color: #e2e2e29c;
+    }
 
-#btn-abrir-carrinho {
-    border: none;
-    background-color: #F57EB6;
-    color: white;
-}
+    .logo-container button {
+        border: none;
+    }
 
-#btn-pesquisa {
-    border-radius: 50%;
-    background-color: white;
-    color: #F57EB6;
-    width: 40px;
-}
+    .logo-container input {
+        border-color: white;
+    }
 
-.container-categorias {
-    background-color: #E9E7E7;
-    padding: 10px;
-}
+    .dropdown-menu {
+        position: absolute;
+        display: none;
+    }
 
-.categoria {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    text-align: center;
-    margin: 0;
-}
+    .dropdown-menu a {
+        display: block;
+        color: black;
+    }
 
-.categoria li {
-    list-style-type: none;
-}
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
 
-.categoria a{
-    color: #CA89A7;
-    font-weight: bold;
-}
+    #nome-endereco {
+        color: white;
+        font-weight: bolder;
+        font-size: 10px;
+    }
 
-#btn-pedidos {
-    background-color: #F57EB6;
-    color: white;
-}
+    #btn-abrir-carrinho {
+        border: none;
+        background-color: #F57EB6;
+        color: white;
+    }
 
-#btn-adm {
-    background-color: #F57EB6;
-    color: white;
-}
+    #btn-pesquisa {
+        border-radius: 50%;
+        background-color: white;
+        color: #F57EB6;
+        width: 40px;
+    }
 
-#btn-adm a {
-    color: white;
+    .container-categorias {
+        background-color: #E9E7E7;
+        padding: 10px;
+    }
+
+    .categoria {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .categoria li {
+        list-style-type: none;
+    }
+
+    .categoria a {
+        color: #CA89A7;
+        font-weight: bold;
+        font-size: 11px;
+    }
+
+    #btn-pedidos {
+        background-color: #F57EB6;
+        color: white;
+    }
+
+    #btn-adm {
+        background-color: #F57EB6;
+        color: white;
+    }
+
+    #btn-adm a {
+        color: white;
+    }
 }

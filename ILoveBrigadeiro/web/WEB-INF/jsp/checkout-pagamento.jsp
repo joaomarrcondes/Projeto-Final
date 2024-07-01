@@ -54,7 +54,6 @@
                                 <option value="11">11</option>
                                 <option value="12">12</option>
                             </select>
-                            /
                             <select class="form-select-ano">
                                 <option selected>Ano</option>
                                 <option value="24">24</option>
