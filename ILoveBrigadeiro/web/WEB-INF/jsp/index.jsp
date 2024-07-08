@@ -47,6 +47,11 @@
                         </div>
                     </div>
                 </div>
+                <div class="botao-whatsapp">
+                    <a href="https://api.whatsapp.com/send?phone=5543984879800" class="whatsapp" target="_blank">
+                        <img src="https://i.ibb.co/VgSspjY/whatsapp-button.png" alt="">
+                    </a>
+                </div>
             </main>
             <footer class="text-center text-lg-start text-white" style="background-color: #F57EB6">
                 <div class="container p-4 pb-0">
@@ -59,7 +64,8 @@
                                 <p>
 
                                     I Love Brigadeiro Descubra o melhor da confeitaria artesanal com nossos
-                                    brigadeiros, tortas, bolos decorados e muito mais. Delícias irresistíveis para todos os momentos
+                                    brigadeiros, tortas, bolos decorados e muito mais. Delícias irresistíveis para todos
+                                    os momentos
                                     especiais!
                                 </p>
                             </div>
